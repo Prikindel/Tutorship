@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "187409079383",
+    "firebase_url": "https://tutorship-92346.firebaseio.com",
+    "project_id": "tutorship-92346",
+    "storage_bucket": "tutorship-92346.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:187409079383:android:066381aa12619a1a159712",
+        "android_client_info": {
+          "package_name": "com.prike.tutorship"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "187409079383-5vghs4ttobfsgamad7ghjjce6nqhedt5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC_AJUcG3cqBmwoPY_5jhNRYdPuehpNx34"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "187409079383-5vghs4ttobfsgamad7ghjjce6nqhedt5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
