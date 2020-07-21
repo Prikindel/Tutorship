@@ -4,8 +4,9 @@ import com.prike.tutorship.domain.account.AccountRepository
 import com.prike.tutorship.domain.type.Either
 import com.prike.tutorship.domain.type.None
 import com.prike.tutorship.domain.type.exception.Failure
+import javax.inject.Inject
 
-class AccountRepositoryImpl(
+class AccountRepositoryImpl @Inject constructor(
     private val accountRemote: AccountRemote
 ) : AccountRepository {
     override fun register(email: String, password: String): Either<Failure, None> {

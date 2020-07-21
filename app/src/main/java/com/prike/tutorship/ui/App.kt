@@ -3,6 +3,7 @@ package com.prike.tutorship.ui
 import android.app.Application
 import com.prike.tutorship.ui.activity.MainActivity
 import com.prike.tutorship.ui.presenters.injection.AppModule
+import com.prike.tutorship.ui.presenters.injection.RemoteModule
 import dagger.Component
 import javax.inject.Singleton
 
@@ -25,7 +26,7 @@ class App  : Application() {
 }
 
 @Singleton
-@Component(modules = [AppModule::class])
+@Component(modules = [AppModule::class, RemoteModule::class])
 interface AppComponent {
 
     // activities
