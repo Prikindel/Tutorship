@@ -12,6 +12,8 @@ class AccountRemoteImpl @Inject constructor(
     private val auth: FirebaseAuth
 ) : AccountRemote {
     override fun register(email: String, password: String): Either<Failure, None> {
+        val a = auth.currentUser
+        Log.d("REG", "$a")
         auth.createUserWithEmailAndPassword(email, password)
             .addOnCompleteListener{
                 if (it.isSuccessful) {
