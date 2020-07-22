@@ -1,14 +1,18 @@
 package com.prike.tutorship.remote.core
 
+import android.os.Parcelable
+import android.util.Log
 import com.google.android.gms.tasks.Task
+import com.google.android.gms.tasks.Tasks
 import com.google.firebase.auth.AuthResult
 import com.prike.tutorship.domain.type.Either
 import com.prike.tutorship.domain.type.exception.Failure
 import retrofit2.Call
 import retrofit2.Response
+import java.lang.Exception
 import javax.inject.Inject
 import javax.inject.Singleton
-/*
+
 @Singleton
 class Request @Inject constructor(private val networkHandler: NetworkHandler) {
     /*fun <T, R> make(call: Call<T>, transform: (T) -> R): Either<Failure, R> {
@@ -18,7 +22,7 @@ class Request @Inject constructor(private val networkHandler: NetworkHandler) {
         }
     }*/
 
-    fun <T : Task<AuthResult>, R> make(task: Task<AuthResult>, transform: (T) -> R): Either<Failure, R> {
+    fun <T, R> make(task: Task<T>, transform: (T) -> R): Either<Failure, R> {
         return when (networkHandler.isConnected){
             true -> execute(task, transform)
             false, null -> Either.Left(Failure.NetworkConnectionError)
@@ -37,20 +41,32 @@ class Request @Inject constructor(private val networkHandler: NetworkHandler) {
         }
     }*/
 
-    private fun <T : Task<AuthResult>, R> execute(task: Task<AuthResult>, transform: (T) -> R): Either<Failure, R> {
+    private fun <T, R> execute(task: Task<T>, transform: (T) -> R): Either<Failure, R> {
         return try {
-            val response = call.execute()
-            when (response.isSucceed()) {
-                true -> Either.Right(transform(response.body()!!))
-                false -> Either.Left(response.parseError())
+            val result = Tasks.await(task)
+            when (task.isSuccessful) {
+                true -> Either.Right(transform(result))
+                false -> {
+                    Log.w("TAG", task.exception)
+                    Either.Left(task.parseError())
+                }
+
             }
         } catch (exception: Throwable) {
-            Either.Left(Failure.ServerError)
+            Log.e("TAG", exception.message)
+            Either.Left(task.parseError())
         }
     }
 }
 
-fun <T> Response<T>.isSucceed(): Boolean {
+fun <T> Task<T>.parseError(): Failure {
+    return when (exception?.message) {
+        "com.google.firebase.auth.FirebaseAuthUserCollisionException: The email address is already in use by another account." -> Failure.EmailAlreadyExistError
+        else -> Failure.ServerError
+    }
+}
+
+/*fun <T> Response<T>.isSucceed(): Boolean {
     return isSuccessful && body() != null
 }
 

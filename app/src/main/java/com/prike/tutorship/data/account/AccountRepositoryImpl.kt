@@ -10,10 +10,5 @@ import javax.inject.Inject
 class AccountRepositoryImpl @Inject constructor(
     private val accountRemote: AccountRemote
 ) : AccountRepository {
-    override fun register(email: String, password: String) {
-         accountRemote.register(email, password) {
-            Log.i("REG", true.toString())
-            return@register it
-        }
-    }
+    override fun register(email: String, password: String): Either<Failure, None> = accountRemote.register(email, password)
 }
