@@ -5,5 +5,5 @@ import com.prike.tutorship.domain.type.None
 import com.prike.tutorship.domain.type.exception.Failure
 
 interface AccountRepository {
-    fun register(email: String, password: String): Either<Failure, None>
+    fun register(email: String, password: String)
 }

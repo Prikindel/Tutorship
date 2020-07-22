@@ -10,7 +10,7 @@ class Register @Inject constructor(
     private val repository: AccountRepository
 ) : UseCase<None, Register.Params>() {
 
-    override suspend fun run(params: Register.Params): Either<Failure, None> {
+    override suspend fun run(params: Register.Params) {
         return repository.register(params.email, params.password)
     }
 

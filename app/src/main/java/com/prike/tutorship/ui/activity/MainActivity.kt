@@ -18,6 +18,6 @@ class MainActivity : AppCompatActivity() {
 
         App.appComponent.inject(this)
 
-        acr.register("test@ya.ru", "123456")
+        acr.register("test3@ya.ru", "123456")
     }
 }

@@ -11,17 +11,15 @@ import javax.inject.Inject
 class AccountRemoteImpl @Inject constructor(
     private val auth: FirebaseAuth
 ) : AccountRemote {
-    override fun register(email: String, password: String): Either<Failure, None> {
-        val a = auth.currentUser
-        Log.d("REG", "$a")
+    override fun register(email: String, password: String, callback: (Boolean) -> Unit) {
         auth.createUserWithEmailAndPassword(email, password)
             .addOnCompleteListener{
                 if (it.isSuccessful) {
-                    Log.i("REG", "success")
+                    callback()
                 } else {
-                    Log.w("REG", "warning")
+                    Log.w("REG", it.exception)
                 }
             }
-        return Either.Right(None())
+
     }
 }
