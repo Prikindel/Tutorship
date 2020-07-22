@@ -11,13 +11,13 @@ import com.prike.tutorship.remote.core.Request
 import javax.inject.Inject
 
 class AccountRemoteImpl @Inject constructor(
-    private val auth: FirebaseAuth,
-    private val request: Request
+    private val request: Request,
+    private val service: AccountApiService
 ) : AccountRemote {
     override fun register(
         email: String,
         password: String
     ): Either<Failure, None> {
-        return request.make(auth.createUserWithEmailAndPassword(email, password)) { None() }
+        return request.make(service.register(email, password)) { None() }
     }
 }
