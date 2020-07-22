@@ -1,9 +1,11 @@
 package com.prike.tutorship.ui
 
 import android.app.Application
-import com.prike.tutorship.ui.activity.MainActivity
+import com.prike.tutorship.ui.activity.RegisterActivity
+import com.prike.tutorship.ui.fragment.RegisterFragment
 import com.prike.tutorship.ui.presenters.injection.AppModule
 import com.prike.tutorship.ui.presenters.injection.RemoteModule
+import com.prike.tutorship.ui.presenters.injection.ViewModelModule
 import dagger.Component
 import javax.inject.Singleton
 
@@ -26,13 +28,14 @@ class App  : Application() {
 }
 
 @Singleton
-@Component(modules = [AppModule::class, RemoteModule::class])
+@Component(modules = [AppModule::class, RemoteModule::class, ViewModelModule::class])
 interface AppComponent {
 
     // activities
-    fun inject(activity: MainActivity)
+    fun inject(activity: RegisterActivity)
 
     // fragments
+    fun inject(fragment: RegisterFragment)
 
     // services
 

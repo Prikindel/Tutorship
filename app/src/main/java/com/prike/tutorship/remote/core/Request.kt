@@ -60,8 +60,9 @@ class Request @Inject constructor(private val networkHandler: NetworkHandler) {
 }
 
 fun <T> Task<T>.parseError(): Failure {
+    Log.i("TAG", "parse ${exception?.message}")
     return when (exception?.message) {
-        "com.google.firebase.auth.FirebaseAuthUserCollisionException: The email address is already in use by another account." -> Failure.EmailAlreadyExistError
+        "The email address is already in use by another account." -> Failure.EmailAlreadyExistError
         else -> Failure.ServerError
     }
 }
