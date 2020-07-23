@@ -1,4 +1,4 @@
-package com.prike.tutorship.ui.ext
+package com.prike.tutorship.ui.core.ext
 
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.LiveData

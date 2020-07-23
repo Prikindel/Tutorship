@@ -14,5 +14,7 @@ class AccountApiService @Inject constructor(
         const val PARAM_PASSWORD = "password"
     }
 
-    fun register(email: String, password: String) : Task<AuthResult> = auth.createUserWithEmailAndPassword(email, password)
+    fun register(email: String, password: String) = auth.createUserWithEmailAndPassword(email, password)
+
+    fun login(email: String, password: String) = auth.signInWithEmailAndPassword(email, password)
 }

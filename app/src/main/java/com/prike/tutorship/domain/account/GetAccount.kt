@@ -10,5 +10,5 @@ class GetAccount @Inject constructor(
     private val accountRepository: AccountRepository
 ) : UseCase<AccountEntity, None>() {
 
-    override suspend fun run(params: None): Either<Failure, AccountEntity> = accountRepository.getCurrentAccunt()
+    override suspend fun run(params: None): Either<Failure, AccountEntity> = accountRepository.getAccount()
 }

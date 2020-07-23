@@ -5,7 +5,7 @@ import android.view.View
 import com.prike.tutorship.R
 import com.prike.tutorship.domain.type.None
 import com.prike.tutorship.ui.App
-import com.prike.tutorship.ui.ext.*
+import com.prike.tutorship.ui.core.ext.*
 import com.prike.tutorship.ui.presenters.viewmodel.AccountViewModel
 import kotlinx.android.synthetic.main.fragment_register.*
 
