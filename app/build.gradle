@@ -62,7 +62,7 @@ dependencies {
     implementation "androidx.navigation:navigation-dynamic-features-fragment:2.3.0"
 
     // Testing Navigation
-    androidTestImplementation "androidx.navigation:navigation-testing:2.3.0-beta01"
+    androidTestImplementation "androidx.navigation:navigation-testing:2.3.0"
 
     // firebase
     implementation 'com.google.firebase:firebase-analytics:17.4.4'
