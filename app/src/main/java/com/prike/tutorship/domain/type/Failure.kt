@@ -1,4 +1,4 @@
-package com.prike.tutorship.domain.type.exception
+package com.prike.tutorship.domain.type
 
 /**
  * Содержит в себе типы ошибок API

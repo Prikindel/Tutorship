@@ -9,7 +9,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
 import com.prike.tutorship.R
-import com.prike.tutorship.domain.type.exception.Failure
+import com.prike.tutorship.domain.type.Failure
 import com.prike.tutorship.ui.activity.BaseActivity
 import com.prike.tutorship.ui.activity.base
 import javax.inject.Inject
@@ -18,8 +18,8 @@ abstract class BaseFragment : Fragment() {
 
     abstract val layoutId: Int
 
-    //open val titleToolbar = R.string.app_name
-    //open val showToolbar = true
+    open val titleToolbar = R.string.app_name
+    open val showToolbar = true
 
 
 
@@ -34,17 +34,17 @@ abstract class BaseFragment : Fragment() {
         super.onResume()
 
         base {
-            /*if (showToolbar) supportActionBar?.show() else supportActionBar?.hide()
-            supportActionBar?.title = getString(titleToolbar)*/
+            if (showToolbar) supportActionBar?.show() else supportActionBar?.hide()
+            supportActionBar?.title = getString(titleToolbar)
         }
     }
 
     open fun onBackPressed() {}
 
 
-    fun showProgress() = base { /*progressStatus(View.VISIBLE)*/ }
+    fun showProgress() = base { progressStatus(View.VISIBLE) }
 
-    fun hideProgress() = base { /*progressStatus(View.GONE)*/ }
+    fun hideProgress() = base { progressStatus(View.GONE) }
 
 
     fun hideSoftKeyboard() = base { hideSoftKeyboard() }

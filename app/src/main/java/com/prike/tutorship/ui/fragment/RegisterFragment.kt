@@ -11,7 +11,7 @@ import kotlinx.android.synthetic.main.fragment_register.*
 
 class RegisterFragment : BaseFragment() {
     override val layoutId = R.layout.fragment_register
-    //override val titleToolbar = R.string.register
+    override val titleToolbar = R.string.register
 
     private lateinit var accountViewModel: AccountViewModel
 
@@ -56,7 +56,7 @@ class RegisterFragment : BaseFragment() {
         val allValid = validateFields()
 
         if (allValid) {
-            //showProgress()
+            showProgress()
 
             accountViewModel.register(
                 etEmail.text.toString(),
@@ -66,7 +66,7 @@ class RegisterFragment : BaseFragment() {
     }
 
     private fun handleRegister(none: None? = None()) {
-        //hideProgress()
-        showMessage("Аккаунт создан")
+        hideProgress()
+        showMessage(getString(R.string.account_created))
     }
 }

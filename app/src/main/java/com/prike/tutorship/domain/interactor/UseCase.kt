@@ -1,7 +1,7 @@
 package com.prike.tutorship.domain.interactor
 
 import com.prike.tutorship.domain.type.Either
-import com.prike.tutorship.domain.type.exception.Failure
+import com.prike.tutorship.domain.type.Failure
 import kotlinx.coroutines.*
 import kotlin.coroutines.CoroutineContext
 

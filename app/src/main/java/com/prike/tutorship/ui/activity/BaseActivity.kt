@@ -13,8 +13,9 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
 import com.prike.tutorship.R
-import com.prike.tutorship.domain.type.exception.Failure
+import com.prike.tutorship.domain.type.Failure
 import com.prike.tutorship.ui.fragment.BaseFragment
+import kotlinx.android.synthetic.main.toolbar.*
 import javax.inject.Inject
 
 abstract class BaseActivity : AppCompatActivity() {
@@ -31,6 +32,7 @@ abstract class BaseActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(contentId)
 
+        setSupportActionBar(toolbar)
         addFragment(savedInstanceState)
     }
 
@@ -48,13 +50,13 @@ abstract class BaseActivity : AppCompatActivity() {
     }
 
 
-    /*fun showProgress() = progressStatus(View.VISIBLE)
+    fun showProgress() = progressStatus(View.VISIBLE)
 
     fun hideProgress() = progressStatus(View.GONE)
 
     fun progressStatus(viewStatus: Int) {
         toolbar_progress_bar.visibility = viewStatus
-    }*/
+    }
 
 
     fun hideSoftKeyboard() {
@@ -65,7 +67,7 @@ abstract class BaseActivity : AppCompatActivity() {
     }
 
     fun handleFailure(failure: Failure?) {
-        //hideProgress()
+        hideProgress()
         when (failure) {
             is Failure.NetworkConnectionError -> showMessage(getString(R.string.error_network))
             is Failure.ServerError -> showMessage(getString(R.string.error_server))

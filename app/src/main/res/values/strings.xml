@@ -1,16 +1,19 @@
 <resources>
     <string name="app_name">Tutorship</string>
 
+    <!-- Toolbar -->
     <string name="screen_register">Регистрация</string>
     <string name="screen_login">Авторизация</string>
 
+    <!-- Errors -->
     <string name="error_network">Нет сетевого подключения.</string>
     <string name="error_server">Ошибка сервера.</string>
     <string name="error_email_already_exist">Email уже существует.</string>
     <string name="error_password_mismatch">Пароли не совпадают.</string>
     <string name="error_auth">Неправильный email или пароль.</string>
+    <string name="error_field_must_not_be_empty">Поле не должно быть пустым</string>
 
-
+    <!-- Views -->
     <string name="email">Email</string>
     <string name="password">Пароль</string>
     <string name="confirm_password">Подтвердите пароль</string>
@@ -21,4 +24,7 @@
     <string name="forget_password">Забыли пароль?</string>
     <string name="login">Вход</string>
     <string name="logout">Выйти</string>
+
+    <!-- Actions -->
+    <string name="account_created">Аккаунт создан</string>
 </resources>
