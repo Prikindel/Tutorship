@@ -15,7 +15,7 @@
         android:theme="@style/AppTheme">
 
         <!--ACTIVITIES-->
-        <activity android:name=".ui.activity.RegisterActivity">
+        <activity android:name=".ui.activity.SignActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

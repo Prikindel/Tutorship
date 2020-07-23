@@ -27,4 +27,5 @@
 
     <!-- Actions -->
     <string name="account_created">Аккаунт создан</string>
+    <string name="account_login">Аккаунт вошел</string>
 </resources>

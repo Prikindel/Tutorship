@@ -3,6 +3,7 @@ package com.prike.tutorship.ui.fragment
 import android.os.Bundle
 import android.view.View
 import com.prike.tutorship.R
+import com.prike.tutorship.domain.account.AccountEntity
 import com.prike.tutorship.domain.type.None
 import com.prike.tutorship.ui.App
 import com.prike.tutorship.ui.core.ext.*
@@ -21,6 +22,7 @@ class RegisterFragment : BaseFragment() {
 
         accountViewModel = viewModel {
             onSuccess(registerData, ::handleRegister)
+            onSuccess(accountData, ::handleLogin)
             onFailure(failureData, ::handleFailure)
         }
     }
@@ -30,6 +32,11 @@ class RegisterFragment : BaseFragment() {
 
         btnNewMembership.setOnClickListener {
             register()
+        }
+
+        btnAlreadyHaveAccount.setOnClickListener {
+            hideProgress()
+            findNav(R.id.action_registerFragment_to_loginFragment)
         }
     }
 
@@ -63,6 +70,11 @@ class RegisterFragment : BaseFragment() {
                 etPassword.text.toString()
             )
         }
+    }
+
+    private fun handleLogin(accountEntity: AccountEntity?) {
+        hideProgress()
+        findNav(R.id.action_registerFragment_to_loginFragment)
     }
 
     private fun handleRegister(none: None? = None()) {

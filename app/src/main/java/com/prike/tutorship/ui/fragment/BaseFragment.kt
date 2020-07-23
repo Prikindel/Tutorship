@@ -1,6 +1,7 @@
 package com.prike.tutorship.ui.fragment
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -8,6 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
+import androidx.navigation.fragment.findNavController
 import com.prike.tutorship.R
 import com.prike.tutorship.domain.type.Failure
 import com.prike.tutorship.ui.activity.BaseActivity
@@ -54,6 +56,9 @@ abstract class BaseFragment : Fragment() {
 
     fun showMessage(message: String) = base { showMessage(message) }
 
+    protected fun findNav(fragment: Int) {
+        findNavController().navigate(fragment)
+    }
 
     inline fun base(block: BaseActivity.() -> Unit) {
         activity.base(block)

@@ -33,7 +33,7 @@ abstract class BaseActivity : AppCompatActivity() {
         setContentView(contentId)
 
         setSupportActionBar(toolbar)
-        addFragment(savedInstanceState)
+        //addFragment(savedInstanceState)
     }
 
     override fun onBackPressed() {
@@ -72,6 +72,7 @@ abstract class BaseActivity : AppCompatActivity() {
             is Failure.NetworkConnectionError -> showMessage(getString(R.string.error_network))
             is Failure.ServerError -> showMessage(getString(R.string.error_server))
             is Failure.EmailAlreadyExistError -> showMessage(getString(R.string.error_email_already_exist))
+            is Failure.AuthError -> showMessage(getString(R.string.error_auth))
         }
     }
 

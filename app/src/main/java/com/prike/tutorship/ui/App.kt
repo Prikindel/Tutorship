@@ -1,7 +1,8 @@
 package com.prike.tutorship.ui
 
 import android.app.Application
-import com.prike.tutorship.ui.activity.RegisterActivity
+import com.prike.tutorship.ui.activity.SignActivity
+import com.prike.tutorship.ui.fragment.LoginFragment
 import com.prike.tutorship.ui.fragment.RegisterFragment
 import com.prike.tutorship.ui.presenters.injection.AppModule
 import com.prike.tutorship.ui.presenters.injection.RemoteModule
@@ -32,10 +33,11 @@ class App  : Application() {
 interface AppComponent {
 
     // activities
-    fun inject(activity: RegisterActivity)
+    fun inject(activity: SignActivity)
 
     // fragments
     fun inject(fragment: RegisterFragment)
+    fun inject(fragment: LoginFragment)
 
     // services
 

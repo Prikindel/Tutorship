@@ -2,6 +2,6 @@ package com.prike.tutorship.ui.activity
 
 import com.prike.tutorship.ui.fragment.RegisterFragment
 
-class RegisterActivity : BaseActivity() {
+class SignActivity : BaseActivity() {
     override val fragment = RegisterFragment()
 }

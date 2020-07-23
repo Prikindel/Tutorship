@@ -56,6 +56,7 @@ fun <T> Task<T>.parseError(): Failure {
     Log.i("TAG", "parse ${exception?.message}")
     return when (exception?.message) {
         "The email address is already in use by another account." -> Failure.EmailAlreadyExistError
+        "The password is invalid or the user does not have a password." -> Failure.AuthError
         else -> Failure.ServerError
     }
 }
