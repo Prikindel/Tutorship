@@ -7,19 +7,22 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/backgroundSign"
-    android:padding="8dp"
+    android:padding="32dp"
+    android:isScrollContainer="true"
     android:orientation="vertical">
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/loginEmail"
+        style="@style/EditTextSign"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/email"
-        style="@style/EditTextSign"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:startIconContentDescription="@string/content_description_icon_email"
-        app:startIconDrawable="@drawable/ic_sign_email_dark"
-        tools:layout_editor_absoluteX="8dp">
+        app:startIconDrawable="@drawable/ic_sign_email_dark">
 
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
@@ -29,21 +32,21 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/loginPassword"
+        style="@style/EditTextSign"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:hint="@string/password"
-        style="@style/EditTextSign"
         app:endIconMode="password_toggle"
         app:layout_constraintTop_toBottomOf="@+id/loginEmail"
         app:startIconContentDescription="@string/content_description_icon_password"
         app:startIconDrawable="@drawable/ic_sign_lock_dark"
-        tools:layout_editor_absoluteX="8dp">
+        tools:layout_editor_absoluteX="32dp">
 
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="textPassword"/>
+            android:inputType="textPassword" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -51,9 +54,8 @@
         android:id="@+id/btnRegister"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
         android:text="@string/dont_have_account"
-        app:icon="@drawable/ic_sign_login_light"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/loginPassword" />
 
@@ -63,9 +65,9 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:text="Contained button"
+        android:layout_marginTop="16dp"
+        android:text="@string/login"
         app:icon="@drawable/ic_sign_login_light"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/btnRegister"
         app:layout_constraintTop_toBottomOf="@+id/loginPassword" />

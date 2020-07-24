@@ -1,6 +1,7 @@
 package com.prike.tutorship.ui.fragment
 
 import android.os.Bundle
+import android.text.TextUtils
 import android.view.View
 import com.google.android.material.textfield.TextInputLayout
 import com.prike.tutorship.R
@@ -32,7 +33,7 @@ class LoginFragment : BaseFragment() {
         super.onViewCreated(view, savedInstanceState)
 
         btnLogin.setOnClickListener {
-            if(validateFieldsOfNull()) {
+            if(validateFieldsNotEmpty()) {
                 validateFields()
             }
         }
@@ -53,30 +54,26 @@ class LoginFragment : BaseFragment() {
             true
         }
 
-    private fun validateFieldsOfNull(): Boolean {
-        var flag = true
-        if (!validateField(loginEmail)) {
-            flag = false
-        }
-        if (!validateField(loginPassword)) {
-            flag = false
-        }
-        return flag
-    }
+    private fun validateFieldsNotEmpty() = validateField(loginEmail) && validateField(loginPassword)
 
     private fun validateFields() {
-        hideSoftKeyboard()
-        val allFields = arrayOf(getTextEditText(loginEmail), getTextEditText(loginPassword))
-        var allValid = true
-        /*for (field in allFields) {
-            allValid = field.testValidity() && allValid
+        val email = getTextEditText(loginEmail)
+        val password = getTextEditText(loginPassword)
+        val emailValid = email.isEmailValid()
+
+        if (!emailValid) {
+            loginEmail.error = getString(R.string.error_email_address_not_valid)
+        } else {
+            loginEmail.error = null
         }
-        if (allValid) {
-            login(etEmail.text.toString(), etPassword.text.toString())
-        }*/
+
+        if (emailValid) {
+            login(email, password)
+        }
     }
 
     private fun login(email: String, password: String) {
+        hideSoftKeyboard()
         showProgress()
         accountViewModel.login(email, password)
     }
@@ -86,3 +83,7 @@ class LoginFragment : BaseFragment() {
         showMessage(getString(R.string.account_login))
     }
 }
+
+fun String.isEmailValid() = !TextUtils.isEmpty(this) && android.util.Patterns.EMAIL_ADDRESS.matcher(this).matches()
+
+fun String.isPasswordValid() = """^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#${'$'}%!\-_?&])(?=\S+${'$'}).{8,}""".toRegex().matches(this)
