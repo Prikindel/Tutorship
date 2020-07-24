@@ -1,6 +1,6 @@
 <resources>
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+    <style name="AppTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
@@ -33,6 +33,14 @@
 
     <style name="ButtonSign" parent="Button.Primary">
         <item name="android:background">@drawable/sign_button</item>
+    </style>
+    
+    <style name="EditTextSign" parent="AppTheme">
+        <item name="boxBackgroundColor">@color/backgroundSignEditText</item>
+        <item name="hintTextColor">@color/hintSignEditText</item>
+        <item name="boxStrokeColor">@color/hintSignEditText</item>
+        <item name="startIconTint">@color/hintSignEditText</item>
+        <item name="endIconTint">@color/hintSignEditText</item>
     </style>
 
 </resources>

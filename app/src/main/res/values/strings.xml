@@ -2,8 +2,6 @@
     <string name="app_name">Tutorship</string>
 
     <!-- Toolbar -->
-    <string name="screen_register">Регистрация</string>
-    <string name="screen_login">Авторизация</string>
 
     <!-- Errors -->
     <string name="error_network">Нет сетевого подключения.</string>
@@ -17,15 +15,14 @@
     <string name="email">Email</string>
     <string name="password">Пароль</string>
     <string name="confirm_password">Подтвердите пароль</string>
-    <string name="name">Имя</string>
     <string name="register">Регистрация</string>
     <string name="already_have_account">Уже есть аккаунт?</string>
     <string name="dont_have_account">Еще нет аккаунта?</string>
-    <string name="forget_password">Забыли пароль?</string>
     <string name="login">Вход</string>
-    <string name="logout">Выйти</string>
 
     <!-- Actions -->
     <string name="account_created">Аккаунт создан</string>
     <string name="account_login">Аккаунт вошел</string>
+    <string name="content_description_icon_email">Email</string>
+    <string name="content_description_icon_password">Пароль</string>
 </resources>
