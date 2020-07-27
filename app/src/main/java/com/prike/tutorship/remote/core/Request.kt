@@ -57,6 +57,7 @@ fun <T> Task<T>.parseError(): Failure {
     return when (exception?.message) {
         "The email address is already in use by another account." -> Failure.EmailAlreadyExistError
         "The password is invalid or the user does not have a password." -> Failure.AuthError
+        "There is no user record corresponding to this identifier. The user may have been deleted." -> Failure.UserIsNotFound
         else -> Failure.ServerError
     }
 }
