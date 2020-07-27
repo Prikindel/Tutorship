@@ -1,9 +1,9 @@
 package com.prike.tutorship.ui
 
 import android.app.Application
-import com.prike.tutorship.ui.activity.SignActivity
-import com.prike.tutorship.ui.fragment.LoginFragment
-import com.prike.tutorship.ui.fragment.RegisterFragment
+import com.prike.tutorship.ui.sign.SignActivity
+import com.prike.tutorship.ui.sign.LoginFragment
+import com.prike.tutorship.ui.sign.RegisterFragment
 import com.prike.tutorship.ui.presenters.injection.AppModule
 import com.prike.tutorship.ui.presenters.injection.RemoteModule
 import com.prike.tutorship.ui.presenters.injection.ViewModelModule

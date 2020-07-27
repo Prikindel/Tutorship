@@ -1,4 +1,4 @@
-package com.prike.tutorship.ui.fragment
+package com.prike.tutorship.ui.sign
 
 import android.os.Bundle
 import android.view.View
@@ -7,6 +7,7 @@ import com.prike.tutorship.domain.account.AccountEntity
 import com.prike.tutorship.domain.type.None
 import com.prike.tutorship.ui.App
 import com.prike.tutorship.ui.core.ext.*
+import com.prike.tutorship.ui.fragment.BaseFragment
 import com.prike.tutorship.ui.presenters.viewmodel.AccountViewModel
 import kotlinx.android.synthetic.main.fragment_register.*
 

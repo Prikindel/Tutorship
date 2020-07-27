@@ -5,6 +5,7 @@ import android.content.Context
 import android.os.Bundle
 import android.view.View
 import android.view.inputmethod.InputMethodManager
+import android.widget.ProgressBar
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.FragmentManager
@@ -50,14 +51,13 @@ abstract class BaseActivity : AppCompatActivity() {
     }*/
 
 
-    fun showProgress() = progressStatus(View.VISIBLE)
+    open fun showProgress() = progressStatus(View.VISIBLE)
 
-    fun hideProgress() = progressStatus(View.GONE)
+    open fun hideProgress() = progressStatus(View.GONE)
 
-    fun progressStatus(viewStatus: Int) {
-        progressBarLoad.visibility = viewStatus
+    open fun progressStatus(viewStatus: Int) {
+        toolbar_progress_bar.visibility = viewStatus
     }
-
 
     fun hideSoftKeyboard() {
         if (currentFocus != null) {

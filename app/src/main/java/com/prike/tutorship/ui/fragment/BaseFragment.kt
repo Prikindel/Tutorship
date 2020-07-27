@@ -14,6 +14,7 @@ import com.prike.tutorship.R
 import com.prike.tutorship.domain.type.Failure
 import com.prike.tutorship.ui.activity.BaseActivity
 import com.prike.tutorship.ui.activity.base
+import com.prike.tutorship.ui.presenters.viewmodel.ViewModelFactory
 import javax.inject.Inject
 
 abstract class BaseFragment : Fragment() {
@@ -22,8 +23,6 @@ abstract class BaseFragment : Fragment() {
 
     open val titleToolbar = R.string.app_name
     open val showToolbar = true
-
-
 
     @Inject
     lateinit var viewModelFactory: ViewModelProvider.Factory
@@ -43,16 +42,13 @@ abstract class BaseFragment : Fragment() {
 
     open fun onBackPressed() {}
 
+    fun showProgress() = base { showProgress() }
 
-    fun showProgress() = base { progressStatus(View.VISIBLE) }
-
-    fun hideProgress() = base { progressStatus(View.GONE) }
-
+    fun hideProgress() = base { hideProgress() }
 
     fun hideSoftKeyboard() = base { hideSoftKeyboard() }
 
-
-    fun handleFailure(failure: Failure?) = base { handleFailure(failure) }
+    open fun handleFailure(failure: Failure?) = base { handleFailure(failure) }
 
     fun showMessage(message: String) = base { showMessage(message) }
 

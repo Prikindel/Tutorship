@@ -9,6 +9,8 @@
     <color name="darkOrange">#F57C00</color>
     <color name="lightOrange">#FFF3E0</color>
     <color name="darkGray">#454e4f</color>
+    <color name="blackout">#99000000</color>
+    <color name="clarification">#00000000</color>
 
     <!-- Background -->
     <color name="backgroundSign">@color/lightOrange</color>
@@ -23,4 +25,8 @@
 
     <!-- Progress Bar -->
     <color name="progressBarTint">@color/white</color>
+
+    <!-- foreground -->
+    <color name="foregroundBlackoutColor">@color/blackout</color>
+    <color name="foregroundWhiteColor">@color/clarification</color>
 </resources>
