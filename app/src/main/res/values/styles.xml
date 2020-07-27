@@ -6,6 +6,7 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
     </style>
 
+    <!-- Toolbar -->
     <style name="BaseToolbarStyle">
         <item name="popupTheme">@style/ThemeOverlay.AppCompat.Light</item>
         <item name="android:theme">@style/BaseToolbarTheme</item>
@@ -24,6 +25,7 @@
         <item name="android:textStyle">bold</item>
     </style>
 
+    <!-- Button -->
     <style name="Button.Primary" parent="Base.Widget.AppCompat.Button">
         <item name="android:foreground">?attr/selectableItemBackground</item>
         <item name="android:clickable">true</item>
@@ -34,7 +36,14 @@
     <style name="ButtonSign" parent="Button.Primary">
         <item name="android:background">@drawable/sign_button</item>
     </style>
-    
+
+    <style name="ButtonSignText" parent="Widget.MaterialComponents.Button.TextButton">
+        <item name="android:textSize">11sp</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:textStyle">italic</item>
+    </style>
+
+    <!-- EditText -->
     <style name="EditTextSign" parent="AppTheme">
         <item name="boxBackgroundColor">@color/backgroundSignEditText</item>
         <item name="hintTextColor">@color/hintSignEditText</item>

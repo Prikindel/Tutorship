@@ -17,7 +17,7 @@
     <!-- Views -->
     <string name="email">Email</string>
     <string name="password">Пароль</string>
-    <string name="confirm_password">Подтвердите пароль</string>
+    <string name="confirm_password">Повторите пароль</string>
     <string name="register">Регистрация</string>
     <string name="already_have_account">Уже есть аккаунт?</string>
     <string name="dont_have_account">Еще нет аккаунта?</string>
