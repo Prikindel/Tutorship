@@ -28,4 +28,9 @@
     <string name="account_login">Аккаунт вошел</string>
     <string name="content_description_icon_email">Email</string>
     <string name="content_description_icon_password">Пароль</string>
+
+    <!-- Pages -->
+    <string name="timetable_page">Расписание</string>
+    <string name="chat_page">Сообщения</string>
+    <string name="profile_page">Профиль</string>
 </resources>
