@@ -37,12 +37,12 @@ abstract class BaseActivity : AppCompatActivity() {
         //addFragment(savedInstanceState)
     }
 
-    override fun onBackPressed() {
+    /*override fun onBackPressed() {
         (supportFragmentManager.findFragmentById(
             R.id.fragmentContainer
         ) as BaseFragment).onBackPressed()
         super.onBackPressed()
-    }
+    }*/
 
     /*fun addFragment(savedInstanceState: Bundle?) {
         savedInstanceState ?: supportFragmentManager.inTransaction {
