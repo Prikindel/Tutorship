@@ -4,6 +4,7 @@ import android.content.Context
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
+import com.prike.tutorship.data.account.AccountCache
 import com.prike.tutorship.data.account.AccountRemote
 import com.prike.tutorship.data.account.AccountRepositoryImpl
 import com.prike.tutorship.domain.account.AccountRepository
@@ -25,8 +26,8 @@ class AppModule(
 
     @Provides
     @Singleton
-    fun provideAccountRepository(remote: AccountRemote): AccountRepository {
-        return AccountRepositoryImpl(remote)
+    fun provideAccountRepository(remote: AccountRemote, cache: AccountCache): AccountRepository {
+        return AccountRepositoryImpl(remote, cache)
     }
 
     @Provides
@@ -35,7 +36,7 @@ class AppModule(
 
     @Provides
     @Singleton
-    fun provideAuthenticator(auth: FirebaseAuth): Authenticator = Authenticator(auth)
+    fun provideAuthenticator(cache: AccountCache): Authenticator = Authenticator(cache)
 
     @Provides
     @Singleton

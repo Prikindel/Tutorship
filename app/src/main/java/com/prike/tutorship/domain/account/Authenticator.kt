@@ -1,14 +1,14 @@
 package com.prike.tutorship.domain.account
 
-import com.google.firebase.auth.FirebaseAuth
+import com.prike.tutorship.data.account.AccountCache
 import javax.inject.Inject
 import javax.inject.Singleton
 
 @Singleton
 class Authenticator @Inject constructor(
-    val auth: FirebaseAuth
+    val accountCache: AccountCache
 ) {
-    fun userLoggedIn() = auth.currentUser
+    fun userLoggedIn() = accountCache.getAccount()
 
-    fun logout() = auth.signOut()
+    fun logout() = accountCache.logout()
 }

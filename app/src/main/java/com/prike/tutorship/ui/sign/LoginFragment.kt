@@ -81,8 +81,8 @@ class LoginFragment : BaseFragment() {
 
     private fun renderAccount(account: AccountEntity?) {
         hideProgress()
-        showMessage(getString(R.string.account_login))
         findNav(R.id.action_loginFragment_to_appActivity)
+        base { finish() }
     }
 }
 

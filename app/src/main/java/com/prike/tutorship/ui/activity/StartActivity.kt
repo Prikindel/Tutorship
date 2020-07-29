@@ -19,12 +19,12 @@ class StartActivity : AppCompatActivity() {
 
         App.appComponent.inject(this)
 
-
-
         navigator.showMain({
             findNavController(R.id.fragmentContainer).navigate(R.id.action_loadAppFragment_to_appActivity)
         }, {
             findNavController(R.id.fragmentContainer).navigate(R.id.action_loadAppFragment_to_signActivity)
         })
+
+        finish()
     }
 }

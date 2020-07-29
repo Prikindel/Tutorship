@@ -4,6 +4,7 @@ import android.app.Application
 import com.prike.tutorship.ui.activity.AppActivity
 import com.prike.tutorship.ui.activity.StartActivity
 import com.prike.tutorship.ui.presenters.injection.AppModule
+import com.prike.tutorship.ui.presenters.injection.CacheModule
 import com.prike.tutorship.ui.presenters.injection.RemoteModule
 import com.prike.tutorship.ui.presenters.injection.ViewModelModule
 import com.prike.tutorship.ui.sign.LoginFragment
@@ -31,7 +32,7 @@ class App  : Application() {
 }
 
 @Singleton
-@Component(modules = [AppModule::class, RemoteModule::class, ViewModelModule::class])
+@Component(modules = [AppModule::class, RemoteModule::class, CacheModule::class, ViewModelModule::class])
 interface AppComponent {
 
     // activities
