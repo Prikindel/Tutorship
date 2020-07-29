@@ -11,4 +11,5 @@ sealed class Failure {
     object AuthError : Failure()
     object EmailAlreadyExistError : Failure()
     object UserIsNotFound: Failure()
+    object NoSavesAccountsError: Failure()
 }

@@ -1,7 +1,6 @@
 package com.prike.tutorship.ui.presenters.injection
 
 import android.content.Context
-import com.google.firebase.auth.FirebaseAuth
 import com.prike.tutorship.data.account.AccountRemote
 import com.prike.tutorship.remote.account.AccountApiService
 import com.prike.tutorship.remote.account.AccountRemoteImpl

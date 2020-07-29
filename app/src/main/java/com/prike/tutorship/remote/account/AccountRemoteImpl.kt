@@ -1,13 +1,11 @@
 package com.prike.tutorship.remote.account
 
 import com.google.firebase.auth.AuthResult
-import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.FirebaseUser
 import com.prike.tutorship.data.account.AccountRemote
 import com.prike.tutorship.domain.account.AccountEntity
 import com.prike.tutorship.domain.type.Either
-import com.prike.tutorship.domain.type.None
 import com.prike.tutorship.domain.type.Failure
+import com.prike.tutorship.domain.type.None
 import com.prike.tutorship.remote.core.Request
 import javax.inject.Inject
 
@@ -26,14 +24,6 @@ class AccountRemoteImpl @Inject constructor(
         email: String,
         password: String
     ): Either<Failure, AccountEntity> = request.make(service.login(email, password), ::firebaseUserToAccountEntity)
-
-    override fun getAccount(): Either<Failure, AccountEntity> {
-        TODO("Not yet implemented")
-    }
-
-    override fun logout(): Either<Failure, None> {
-        TODO("Not yet implemented")
-    }
 
     private fun firebaseUserToAccountEntity(result: AuthResult): AccountEntity {
         val user = result.user!!

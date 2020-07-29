@@ -7,11 +7,10 @@ import com.google.android.material.textfield.TextInputLayout
 import com.prike.tutorship.R
 import com.prike.tutorship.domain.account.AccountEntity
 import com.prike.tutorship.ui.App
-import com.prike.tutorship.ui.activity.base
-import com.prike.tutorship.ui.presenters.viewmodel.AccountViewModel
-import com.prike.tutorship.ui.core.ext.onSuccess
 import com.prike.tutorship.ui.core.ext.onFailure
+import com.prike.tutorship.ui.core.ext.onSuccess
 import com.prike.tutorship.ui.fragment.BaseFragment
+import com.prike.tutorship.ui.presenters.viewmodel.AccountViewModel
 import kotlinx.android.synthetic.main.fragment_login.*
 
 class LoginFragment : BaseFragment() {

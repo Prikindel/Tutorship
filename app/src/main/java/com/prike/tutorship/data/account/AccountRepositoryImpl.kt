@@ -13,8 +13,4 @@ class AccountRepositoryImpl @Inject constructor(
     override fun register(email: String, password: String): Either<Failure, None> = accountRemote.register(email, password)
 
     override fun login(email: String, password: String): Either<Failure, AccountEntity> = accountRemote.login(email, password)
-
-    override fun getAccount(): Either<Failure, AccountEntity> = accountRemote.getAccount()
-
-    override fun logout(): Either<Failure, None> = accountRemote.logout()
 }

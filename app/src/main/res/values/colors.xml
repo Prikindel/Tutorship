@@ -17,6 +17,7 @@
     <color name="backgroundSign">@color/lightOrange</color>
     <color name="backgroundSignEditText">@color/lightOrange</color>
     <color name="backgroundBottomNavigation">@color/lightOrangeNavBottom</color>
+    <color name="backgroundLoadApp">@color/orange</color>
     <color name="background">@color/white</color>
 
     <color name="hintSignEditText">@color/darkOrange</color>

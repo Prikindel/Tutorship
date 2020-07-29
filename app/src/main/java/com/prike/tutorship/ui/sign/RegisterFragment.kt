@@ -1,20 +1,17 @@
 package com.prike.tutorship.ui.sign
 
 import android.os.Bundle
-import android.text.TextUtils
 import android.view.View
 import com.google.android.material.textfield.TextInputLayout
 import com.prike.tutorship.R
 import com.prike.tutorship.domain.account.AccountEntity
 import com.prike.tutorship.domain.type.None
 import com.prike.tutorship.ui.App
-import com.prike.tutorship.ui.core.ext.*
+import com.prike.tutorship.ui.core.ext.onFailure
+import com.prike.tutorship.ui.core.ext.onSuccess
 import com.prike.tutorship.ui.fragment.BaseFragment
 import com.prike.tutorship.ui.presenters.viewmodel.AccountViewModel
-import kotlinx.android.synthetic.main.fragment_login.*
 import kotlinx.android.synthetic.main.fragment_register.*
-import kotlinx.android.synthetic.main.fragment_register.btnLogin
-import kotlinx.android.synthetic.main.fragment_register.btnRegister
 
 class RegisterFragment : BaseFragment() {
     override val layoutId = R.layout.fragment_register

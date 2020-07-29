@@ -12,8 +12,4 @@ interface AccountRemote {
     ): Either<Failure, None>
 
     fun login(email: String, password: String): Either<Failure, AccountEntity>
-
-    fun getAccount(): Either<Failure, AccountEntity>
-
-    fun logout(): Either<Failure, None>
 }

@@ -1,6 +1,5 @@
 package com.prike.tutorship.ui.sign
 
-import android.util.Log
 import com.prike.tutorship.R
 import com.prike.tutorship.ui.activity.BaseActivity
 import kotlinx.android.synthetic.main.sign_layout.*
@@ -13,7 +12,6 @@ class SignActivity : BaseActivity() {
     }
 
     override fun showProgress() {
-        Log.i("TAG", "SHOW")
         blackout(true)
         super.showProgress()
     }

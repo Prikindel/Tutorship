@@ -7,9 +7,7 @@ import javax.inject.Inject
 
 class AccountViewModel @Inject constructor(
     val registerUseCase: Register,
-    val loginUseCase: Login,
-    val getAccountUseCase: GetAccount,
-    val logoutUseCase: Logout
+    val loginUseCase: Login
 ) : BaseViewModel() {
 
     var registerData: MutableLiveData<None> = MutableLiveData()
@@ -27,11 +25,9 @@ class AccountViewModel @Inject constructor(
     }
 
     fun getAccount() {
-        getAccountUseCase(None()) { it.either(::handleFailure, ::handleAccount) }
     }
 
     fun logout() {
-        logoutUseCase(None()) { it.either(::handleFailure, ::handleLogout) }
     }
 
     private fun handleRegister(none: None) {
@@ -50,7 +46,5 @@ class AccountViewModel @Inject constructor(
         super.onCleared()
         registerUseCase.unsubscribe()
         loginUseCase.unsubscribe()
-        getAccountUseCase.unsubscribe()
-        logoutUseCase.unsubscribe()
     }
 }

@@ -5,7 +5,6 @@ import android.content.Context
 import android.os.Bundle
 import android.view.View
 import android.view.inputmethod.InputMethodManager
-import android.widget.ProgressBar
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.FragmentManager
@@ -15,8 +14,6 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
 import com.prike.tutorship.R
 import com.prike.tutorship.domain.type.Failure
-import com.prike.tutorship.ui.fragment.BaseFragment
-import kotlinx.android.synthetic.main.sign_layout.*
 import kotlinx.android.synthetic.main.toolbar.*
 import javax.inject.Inject
 

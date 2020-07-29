@@ -1,7 +1,6 @@
 package com.prike.tutorship.ui.fragment
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -14,7 +13,6 @@ import com.prike.tutorship.R
 import com.prike.tutorship.domain.type.Failure
 import com.prike.tutorship.ui.activity.BaseActivity
 import com.prike.tutorship.ui.activity.base
-import com.prike.tutorship.ui.presenters.viewmodel.ViewModelFactory
 import javax.inject.Inject
 
 abstract class BaseFragment : Fragment() {
