@@ -13,17 +13,16 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
 import com.prike.tutorship.R
-import com.prike.tutorship.domain.type.exception.Failure
-import com.prike.tutorship.ui.fragment.BaseFragment
+import com.prike.tutorship.domain.type.Failure
+import kotlinx.android.synthetic.main.toolbar.*
 import javax.inject.Inject
 
 abstract class BaseActivity : AppCompatActivity() {
 
-    abstract val fragment: BaseFragment
+    //abstract val fragment: BaseFragment
 
     @Inject
     lateinit var viewModelFactory: ViewModelProvider.Factory
-
 
     open val contentId = R.layout.sign_layout
 
@@ -31,31 +30,31 @@ abstract class BaseActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(contentId)
 
-        addFragment(savedInstanceState)
+        setSupportActionBar(toolbar)
+        //addFragment(savedInstanceState)
     }
 
-    override fun onBackPressed() {
+    /*override fun onBackPressed() {
         (supportFragmentManager.findFragmentById(
             R.id.fragmentContainer
         ) as BaseFragment).onBackPressed()
         super.onBackPressed()
-    }
+    }*/
 
-    fun addFragment(savedInstanceState: Bundle?) {
+    /*fun addFragment(savedInstanceState: Bundle?) {
         savedInstanceState ?: supportFragmentManager.inTransaction {
             add(R.id.fragmentContainer, fragment)
         }
-    }
-
-
-    /*fun showProgress() = progressStatus(View.VISIBLE)
-
-    fun hideProgress() = progressStatus(View.GONE)
-
-    fun progressStatus(viewStatus: Int) {
-        toolbar_progress_bar.visibility = viewStatus
     }*/
 
+
+    open fun showProgress() = progressStatus(View.VISIBLE)
+
+    open fun hideProgress() = progressStatus(View.GONE)
+
+    open fun progressStatus(viewStatus: Int) {
+        toolbar_progress_bar.visibility = viewStatus
+    }
 
     fun hideSoftKeyboard() {
         if (currentFocus != null) {
@@ -65,11 +64,13 @@ abstract class BaseActivity : AppCompatActivity() {
     }
 
     fun handleFailure(failure: Failure?) {
-        //hideProgress()
+        hideProgress()
         when (failure) {
             is Failure.NetworkConnectionError -> showMessage(getString(R.string.error_network))
             is Failure.ServerError -> showMessage(getString(R.string.error_server))
             is Failure.EmailAlreadyExistError -> showMessage(getString(R.string.error_email_already_exist))
+            is Failure.AuthError -> showMessage(getString(R.string.error_auth))
+            is Failure.UserIsNotFound -> showMessage(getString(R.string.uset_is_not_found))
         }
     }
 

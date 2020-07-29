@@ -1,15 +1,10 @@
 package com.prike.tutorship.remote.core
 
-import android.os.Parcelable
 import android.util.Log
 import com.google.android.gms.tasks.Task
 import com.google.android.gms.tasks.Tasks
-import com.google.firebase.auth.AuthResult
 import com.prike.tutorship.domain.type.Either
-import com.prike.tutorship.domain.type.exception.Failure
-import retrofit2.Call
-import retrofit2.Response
-import java.lang.Exception
+import com.prike.tutorship.domain.type.Failure
 import javax.inject.Inject
 import javax.inject.Singleton
 
@@ -47,13 +42,11 @@ class Request @Inject constructor(private val networkHandler: NetworkHandler) {
             when (task.isSuccessful) {
                 true -> Either.Right(transform(result))
                 false -> {
-                    Log.w("TAG", task.exception)
                     Either.Left(task.parseError())
                 }
 
             }
         } catch (exception: Throwable) {
-            Log.e("TAG", exception.message)
             Either.Left(task.parseError())
         }
     }
@@ -63,6 +56,8 @@ fun <T> Task<T>.parseError(): Failure {
     Log.i("TAG", "parse ${exception?.message}")
     return when (exception?.message) {
         "The email address is already in use by another account." -> Failure.EmailAlreadyExistError
+        "The password is invalid or the user does not have a password." -> Failure.AuthError
+        "There is no user record corresponding to this identifier. The user may have been deleted." -> Failure.UserIsNotFound
         else -> Failure.ServerError
     }
 }

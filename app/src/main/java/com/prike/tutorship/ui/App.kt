@@ -1,11 +1,14 @@
 package com.prike.tutorship.ui
 
 import android.app.Application
-import com.prike.tutorship.ui.activity.RegisterActivity
-import com.prike.tutorship.ui.fragment.RegisterFragment
+import com.prike.tutorship.ui.activity.AppActivity
+import com.prike.tutorship.ui.activity.StartActivity
 import com.prike.tutorship.ui.presenters.injection.AppModule
 import com.prike.tutorship.ui.presenters.injection.RemoteModule
 import com.prike.tutorship.ui.presenters.injection.ViewModelModule
+import com.prike.tutorship.ui.sign.LoginFragment
+import com.prike.tutorship.ui.sign.RegisterFragment
+import com.prike.tutorship.ui.sign.SignActivity
 import dagger.Component
 import javax.inject.Singleton
 
@@ -32,10 +35,16 @@ class App  : Application() {
 interface AppComponent {
 
     // activities
-    fun inject(activity: RegisterActivity)
+    fun inject(activity: SignActivity)
+    fun inject(activity: AppActivity)
+    fun inject(activity: StartActivity)
 
     // fragments
     fun inject(fragment: RegisterFragment)
+    fun inject(fragment: LoginFragment)
+    /*fun inject(fragment: ChatFragment)
+    fun inject(fragment: TimetableFragment)
+    fun inject(fragment: ProfileFragment)*/
 
     // services
 

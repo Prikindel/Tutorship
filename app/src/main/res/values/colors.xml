@@ -1,6 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#6200EE</color>
-    <color name="colorPrimaryDark">#3700B3</color>
-    <color name="colorAccent">#03DAC5</color>
+    <color name="colorPrimary">@color/orange</color>
+    <color name="colorPrimaryDark">@color/darkOrange</color>
+
+    <!-- Colors -->
+    <color name="white">#FFFFFF</color>
+    <color name="orange">#FFB74D</color>
+    <color name="darkOrange">#F57C00</color>
+    <color name="lightOrange">#FFF3E0</color>
+    <color name="lightOrangeNavBottom">#E5DBC9</color>
+    <color name="darkGray">#454e4f</color>
+    <color name="blackout">#99000000</color>
+    <color name="clarification">#00000000</color>
+
+    <!-- Background -->
+    <color name="backgroundSign">@color/lightOrange</color>
+    <color name="backgroundSignEditText">@color/lightOrange</color>
+    <color name="backgroundBottomNavigation">@color/lightOrangeNavBottom</color>
+    <color name="backgroundLoadApp">@color/orange</color>
+    <color name="background">@color/white</color>
+
+    <color name="hintSignEditText">@color/darkOrange</color>
+
+    <!-- Toolbar -->
+    <color name="toolbarTextPrimary">@color/white</color>
+    <color name="toolbarTextSecondary">@color/white</color>
+
+    <!-- Progress Bar -->
+    <color name="progressBarTint">@color/white</color>
+
+    <!-- foreground -->
+    <color name="foregroundBlackoutColor">@color/blackout</color>
+    <color name="foregroundWhiteColor">@color/clarification</color>
 </resources>

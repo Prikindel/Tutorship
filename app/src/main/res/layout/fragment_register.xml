@@ -6,85 +6,98 @@
     xmlns:whatever="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="8dp"
+    android:background="@color/backgroundSign"
+    android:paddingTop="32dp"
+    android:paddingLeft="32dp"
+    android:paddingRight="32dp"
+    android:paddingBottom="8dp"
+    android:isScrollContainer="true"
     android:orientation="vertical">
 
-    <com.andreabaccega.widget.FormEditText
+    <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/etEmail"
+        style="@style/EditTextSign"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:ems="10"
-        android:gravity="start|center_vertical"
+        android:layout_marginBottom="8dp"
         android:hint="@string/email"
-        android:inputType="textEmailAddress"
-        android:maxLines="1"
-        android:padding="10dp"
-        android:singleLine="true"
         app:layout_constraintBottom_toTopOf="@+id/etPassword"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_chainStyle="packed"
-        tools:layout_editor_absoluteX="0dp"
-        whatever:emptyErrorString="@string/error_field_must_not_be_empty"
-        whatever:testErrorString="@string/error_email_address_not_valid"
-        whatever:testType="email" />
+        app:layout_constraintVertical_bias="1.0"
+        app:startIconContentDescription="@string/content_description_icon_email"
+        app:startIconDrawable="@drawable/ic_sign_email_dark">
 
-    <com.andreabaccega.widget.FormEditText
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/etPassword"
+        style="@style/EditTextSign"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/etEmail"
-        android:layout_marginTop="8dp"
-        android:ems="10"
-        android:gravity="start|center_vertical"
+        android:layout_marginBottom="8dp"
         android:hint="@string/password"
-        android:inputType="textPassword"
-        android:maxLines="1"
-        android:padding="10dp"
-        android:singleLine="true"
-        app:layout_constraintBottom_toTopOf="@+id/etConfirmPassword"
-        app:layout_constraintTop_toBottomOf="@+id/etEmail"
-        tools:layout_editor_absoluteX="8dp"
-        whatever:emptyErrorString="@string/error_field_must_not_be_empty" />
+        app:endIconMode="password_toggle"
+        app:layout_constraintBottom_toTopOf="@+id/etReplPassword"
+        app:startIconContentDescription="@string/content_description_icon_password"
+        app:startIconDrawable="@drawable/ic_sign_lock_dark"
+        tools:layout_editor_absoluteX="32dp">
 
-    <com.andreabaccega.widget.FormEditText
-        android:id="@+id/etConfirmPassword"
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPassword" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/etReplPassword"
+        style="@style/EditTextSign"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/etPassword"
-        android:layout_marginTop="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-        android:ems="10"
-        android:gravity="start|center_vertical"
         android:hint="@string/confirm_password"
-        android:inputType="textPassword"
-        android:maxLines="1"
-        android:padding="10dp"
-        android:singleLine="true"
-        app:layout_constraintBottom_toTopOf="@+id/btnNewMembership"
-        app:layout_constraintTop_toBottomOf="@+id/etPassword"
-        tools:layout_editor_absoluteX="84dp"
-        whatever:emptyErrorString="@string/error_field_must_not_be_empty"/>
+        app:endIconMode="password_toggle"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:startIconContentDescription="@string/content_description_icon_password"
+        app:startIconDrawable="@drawable/ic_sign_lock_dark"
+        tools:layout_editor_absoluteX="32dp">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPassword" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnLogin"
+        style="@style/ButtonSignText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/already_have_account"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.511"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnRegister"
+        app:layout_constraintVertical_bias="1.0" />
 
     <Button
-        android:id="@+id/btnNewMembership"
-        android:layout_width="match_parent"
+        android:id="@+id/btnRegister"
+        style="@style/Widget.MaterialComponents.Button.Icon"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/etEmail"
-        android:layout_centerInParent="true"
-        android:layout_marginTop="8dp"
-        android:paddingLeft="15dp"
-        android:paddingRight="15dp"
-        android:shadowColor="#E3BFE3"
-        android:shadowDx="0"
-        android:shadowDy="0"
-        android:shadowRadius="5"
+        android:layout_marginTop="16dp"
         android:text="@string/register"
-        android:textAllCaps="false"
-        android:textColor="@android:color/white"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etConfirmPassword"
-        tools:layout_editor_absoluteX="8dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etReplPassword" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

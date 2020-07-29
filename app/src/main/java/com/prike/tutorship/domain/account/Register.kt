@@ -3,7 +3,7 @@ package com.prike.tutorship.domain.account
 import com.prike.tutorship.domain.interactor.UseCase
 import com.prike.tutorship.domain.type.Either
 import com.prike.tutorship.domain.type.None
-import com.prike.tutorship.domain.type.exception.Failure
+import com.prike.tutorship.domain.type.Failure
 import javax.inject.Inject
 
 class Register @Inject constructor(

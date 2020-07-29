@@ -8,8 +8,9 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
+import androidx.navigation.fragment.findNavController
 import com.prike.tutorship.R
-import com.prike.tutorship.domain.type.exception.Failure
+import com.prike.tutorship.domain.type.Failure
 import com.prike.tutorship.ui.activity.BaseActivity
 import com.prike.tutorship.ui.activity.base
 import javax.inject.Inject
@@ -18,10 +19,8 @@ abstract class BaseFragment : Fragment() {
 
     abstract val layoutId: Int
 
-    //open val titleToolbar = R.string.app_name
-    //open val showToolbar = true
-
-
+    open val titleToolbar = R.string.app_name
+    open val showToolbar = true
 
     @Inject
     lateinit var viewModelFactory: ViewModelProvider.Factory
@@ -34,26 +33,26 @@ abstract class BaseFragment : Fragment() {
         super.onResume()
 
         base {
-            /*if (showToolbar) supportActionBar?.show() else supportActionBar?.hide()
-            supportActionBar?.title = getString(titleToolbar)*/
+            if (showToolbar) supportActionBar?.show() else supportActionBar?.hide()
+            supportActionBar?.title = getString(titleToolbar)
         }
     }
 
     open fun onBackPressed() {}
 
+    fun showProgress() = base { showProgress() }
 
-    fun showProgress() = base { /*progressStatus(View.VISIBLE)*/ }
-
-    fun hideProgress() = base { /*progressStatus(View.GONE)*/ }
-
+    fun hideProgress() = base { hideProgress() }
 
     fun hideSoftKeyboard() = base { hideSoftKeyboard() }
 
-
-    fun handleFailure(failure: Failure?) = base { handleFailure(failure) }
+    open fun handleFailure(failure: Failure?) = base { handleFailure(failure) }
 
     fun showMessage(message: String) = base { showMessage(message) }
 
+    protected fun findNav(fragment: Int) {
+        findNavController().navigate(fragment)
+    }
 
     inline fun base(block: BaseActivity.() -> Unit) {
         activity.base(block)

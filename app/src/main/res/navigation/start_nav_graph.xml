@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/start_nav_graph"
+    app:startDestination="@id/loadAppFragment">
+
+    <activity
+        android:id="@+id/signActivity"
+        android:name="com.prike.tutorship.ui.sign.SignActivity"
+        android:label="SignActivity" />
+    <activity
+        android:id="@+id/appActivity"
+        android:name="com.prike.tutorship.ui.activity.AppActivity"
+        android:label="AppActivity" />
+    <fragment
+        android:id="@+id/loadAppFragment"
+        android:name="com.prike.tutorship.ui.fragment.LoadAppFragment"
+        android:label="LoadAppFragment" >
+        <action
+            android:id="@+id/action_loadAppFragment_to_signActivity"
+            app:destination="@id/signActivity" />
+        <action
+            android:id="@+id/action_loadAppFragment_to_appActivity"
+            app:destination="@id/appActivity" />
+    </fragment>
+</navigation>
