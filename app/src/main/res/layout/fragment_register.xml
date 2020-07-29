@@ -15,6 +15,28 @@
     android:orientation="vertical">
 
     <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/etName"
+        style="@style/EditTextSign"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:hint="@string/name"
+        app:layout_constraintBottom_toTopOf="@+id/etEmail"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0"
+        app:startIconContentDescription="@string/content_description_icon_name"
+        app:startIconDrawable="@drawable/ic_name_edittext_dark">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/etEmail"
         style="@style/EditTextSign"
         android:layout_width="match_parent"
@@ -25,8 +47,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0"
         app:startIconContentDescription="@string/content_description_icon_email"
         app:startIconDrawable="@drawable/ic_sign_email_dark">
 

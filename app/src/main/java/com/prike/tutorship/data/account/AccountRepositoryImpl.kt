@@ -11,7 +11,7 @@ class AccountRepositoryImpl @Inject constructor(
     private val accountRemote: AccountRemote,
     private val accountCache: AccountCache
 ) : AccountRepository {
-    override fun register(email: String, password: String): Either<Failure, None> = accountRemote.register(email, password)
+    override fun register(email: String, password: String, name: String): Either<Failure, None> = accountRemote.register(email, password, name)
 
     override fun login(email: String, password: String): Either<Failure, AccountEntity> = accountRemote.login(email, password)
 

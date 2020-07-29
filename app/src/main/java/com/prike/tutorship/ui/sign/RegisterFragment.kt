@@ -103,7 +103,8 @@ class RegisterFragment : BaseFragment() {
 
             accountViewModel.register(
                 getTextEditText(etEmail),
-                getTextEditText(etPassword)
+                getTextEditText(etPassword),
+                getTextEditText(etName)
             )
         }
     }

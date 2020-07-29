@@ -16,8 +16,8 @@ class AccountViewModel @Inject constructor(
     var accountData: MutableLiveData<AccountEntity> = MutableLiveData()
     var logoutData: MutableLiveData<None> = MutableLiveData()
 
-    fun register(email: String, password: String) {
-        registerUseCase(Register.Params(email, password)) { it.either(::handleFailure, ::handleRegister) }
+    fun register(email: String, password: String, name: String) {
+        registerUseCase(Register.Params(email, password, name)) { it.either(::handleFailure, ::handleRegister) }
     }
 
     fun login(email: String, password: String) {

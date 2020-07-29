@@ -11,8 +11,8 @@ class Register @Inject constructor(
 ) : UseCase<None, Register.Params>() {
 
     override suspend fun run(params: Params): Either<Failure, None> {
-        return repository.register(params.email, params.password)
+        return repository.register(params.email, params.password, params.name)
     }
 
-    data class Params(val email: String, val password: String)
+    data class Params(val email: String, val password: String, val name: String)
 }

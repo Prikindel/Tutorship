@@ -8,7 +8,8 @@ import com.prike.tutorship.domain.type.Failure
 interface AccountRemote {
     fun register(
         email: String,
-        password: String
+        password: String,
+        name: String
     ): Either<Failure, None>
 
     fun login(email: String, password: String): Either<Failure, AccountEntity>

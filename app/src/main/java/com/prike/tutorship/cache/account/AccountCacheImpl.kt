@@ -26,6 +26,6 @@ class AccountCacheImpl @Inject constructor(
     }
 
     private fun firebaseUserToAccountEntity(user: FirebaseUser): AccountEntity {
-        return AccountEntity(user.uid, user.email ?: "")
+        return AccountEntity(user.uid, user.displayName?:"No name", user.email ?: "")
     }
 }
