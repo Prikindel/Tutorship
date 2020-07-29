@@ -2,6 +2,10 @@
     <string name="app_name">Tutorship</string>
 
     <!-- Toolbar -->
+    <string name="timetable_toolbar">Расписание</string>
+    <string name="chat_toolbar">Сообщения</string>
+    <string name="profile_toolbar">Профиль</string>
+    <string name="reload_chat_toolbar">Обновление…</string>
 
     <!-- Errors -->
     <string name="error_network">Отсутствует подключение к сети</string>

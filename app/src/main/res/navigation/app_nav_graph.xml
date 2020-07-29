@@ -13,12 +13,12 @@
     </fragment>
     <fragment
         android:id="@+id/chat_page"
-        android:name="com.prike.tutorship.ui.fragment.ProfileFragment"
-        android:label="ProfileFragment" />
-    <fragment
-        android:id="@+id/profile_page"
         android:name="com.prike.tutorship.ui.fragment.ChatFragment"
         android:label="ChatFragment" />
+    <fragment
+        android:id="@+id/profile_page"
+        android:name="com.prike.tutorship.ui.fragment.ProfileFragment"
+        android:label="ProfileFragment" />
     <activity
         android:id="@+id/signActivity2"
         android:name="com.prike.tutorship.ui.sign.SignActivity"
