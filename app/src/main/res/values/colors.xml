@@ -8,6 +8,7 @@
     <color name="orange">#FFB74D</color>
     <color name="darkOrange">#F57C00</color>
     <color name="lightOrange">#FFF3E0</color>
+    <color name="lightOrangeNavBottom">#E5DBC9</color>
     <color name="darkGray">#454e4f</color>
     <color name="blackout">#99000000</color>
     <color name="clarification">#00000000</color>
@@ -15,6 +16,7 @@
     <!-- Background -->
     <color name="backgroundSign">@color/lightOrange</color>
     <color name="backgroundSignEditText">@color/lightOrange</color>
+    <color name="backgroundBottomNavigation">@color/lightOrangeNavBottom</color>
     <color name="background">@color/white</color>
 
     <color name="hintSignEditText">@color/darkOrange</color>

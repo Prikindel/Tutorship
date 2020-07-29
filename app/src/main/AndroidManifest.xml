@@ -15,14 +15,14 @@
         android:theme="@style/AppTheme">
         <!-- ACTIVITIES -->
         <activity android:name=".ui.sign.SignActivity">
+        </activity>
+
+        <activity android:name=".ui.activity.AppActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-
-        <activity android:name=".ui.activity.AppActivity"></activity>
+            </intent-filter></activity>
     </application>
 
 </manifest>

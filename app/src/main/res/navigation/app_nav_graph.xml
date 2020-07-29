@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto" android:id="@+id/app_nav"
-    app:startDestination="@id/timetableFragment">
+    xmlns:app="http://schemas.android.com/apk/res-auto" android:id="@+id/app_nav_graph"
+    app:startDestination="@id/timetable_page">
 
     <fragment
-        android:id="@+id/timetableFragment"
+        android:id="@+id/timetable_page"
         android:name="com.prike.tutorship.ui.fragment.TimetableFragment"
         android:label="TimetableFragment" />
     <fragment
-        android:id="@+id/profileFragment"
+        android:id="@+id/chat_page"
         android:name="com.prike.tutorship.ui.fragment.ProfileFragment"
         android:label="ProfileFragment" />
     <fragment
-        android:id="@+id/chatFragment"
+        android:id="@+id/profile_page"
         android:name="com.prike.tutorship.ui.fragment.ChatFragment"
         android:label="ChatFragment" />
 </navigation>
