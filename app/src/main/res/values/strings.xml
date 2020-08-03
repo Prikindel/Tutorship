@@ -28,6 +28,8 @@
     <string name="dont_have_account">Еще нет аккаунта?</string>
     <string name="login">Вход</string>
     <string name="logout">Выход</string>
+    <string name="fio">ФИО</string>
+    <string name="connect">В сети</string>
 
     <!-- Actions -->
     <string name="account_created">Аккаунт создан</string>
