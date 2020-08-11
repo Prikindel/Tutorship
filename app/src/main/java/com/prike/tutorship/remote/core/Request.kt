@@ -5,18 +5,23 @@ import com.google.android.gms.tasks.Task
 import com.google.android.gms.tasks.Tasks
 import com.prike.tutorship.domain.type.Either
 import com.prike.tutorship.domain.type.Failure
+import retrofit2.Call
+import retrofit2.Response
 import javax.inject.Inject
 import javax.inject.Singleton
 
 @Singleton
 class Request @Inject constructor(private val networkHandler: NetworkHandler) {
-    /*fun <T, R> make(call: Call<T>, transform: (T) -> R): Either<Failure, R> {
+
+    // function for retrofit
+    fun <T : BaseResponse, R> make(call: Call<T>, transform: (T) -> R): Either<Failure, R> {
         return when (networkHandler.isConnected) {
             true -> execute(call, transform)
             false, null -> Either.Left(Failure.NetworkConnectionError)
         }
-    }*/
+    }
 
+    // function for firebase
     fun <T, R> make(task: Task<T>, transform: (T) -> R): Either<Failure, R> {
         return when (networkHandler.isConnected){
             true -> execute(task, transform)
@@ -24,7 +29,8 @@ class Request @Inject constructor(private val networkHandler: NetworkHandler) {
         }
     }
 
-    /*private fun <T, R> execute(call: Call<T>, transform: (T) -> R): Either<Failure, R> {
+    // function for retrofit
+    private fun <T : BaseResponse, R> execute(call: Call<T>, transform: (T) -> R): Either<Failure, R> {
         return try {
             val response = call.execute()
             when (response.isSucceed()) {
@@ -34,8 +40,9 @@ class Request @Inject constructor(private val networkHandler: NetworkHandler) {
         } catch (exception: Throwable) {
             Either.Left(Failure.ServerError)
         }
-    }*/
+    }
 
+    // function for firebase
     private fun <T, R> execute(task: Task<T>, transform: (T) -> R): Either<Failure, R> {
         return try {
             val result = Tasks.await(task)
@@ -62,13 +69,13 @@ fun <T> Task<T>.parseError(): Failure {
     }
 }
 
-/*fun <T> Response<T>.isSucceed(): Boolean {
-    return isSuccessful && body() != null
-}
+fun <T : BaseResponse> Response<T>.isSucceed() = isSuccessful && body() != null && (body() as BaseResponse).success == 1
 
-fun <T> Response<T>.parseError(): Failure {
+fun <T : BaseResponse> Response<T>.parseError(): Failure {
     return when ("") {
-        "" -> Failure.EmailAlreadyExistError
-        else -> Failure.ServerError
+        "email already exists"              -> Failure.EmailAlreadyExistError
+        "phone already exists"              -> Failure.EmailAlreadyExistError
+        "error in email or password"        -> Failure.AuthError
+        else                                -> Failure.ServerError
     }
-}*/
+}

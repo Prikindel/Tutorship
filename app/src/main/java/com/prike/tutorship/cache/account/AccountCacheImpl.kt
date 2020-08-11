@@ -9,7 +9,7 @@ import com.prike.tutorship.domain.type.Failure
 import com.prike.tutorship.domain.type.None
 import javax.inject.Inject
 
-class AccountCacheImpl @Inject constructor(
+/*class AccountCacheImpl @Inject constructor(
     private val auth: FirebaseAuth
 ) : AccountCache {
     override fun getAccount(): Either<Failure, AccountEntity> {
@@ -28,4 +28,4 @@ class AccountCacheImpl @Inject constructor(
     private fun firebaseUserToAccountEntity(user: FirebaseUser): AccountEntity {
         return AccountEntity(user.uid, user.displayName?:"No name", user.email ?: "")
     }
-}
+}*/
