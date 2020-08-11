@@ -1,4 +1,4 @@
-package com.prike.tutorship.ui.presenters.viewmodel
+package com.prike.tutorship.presenters.viewmodel
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel

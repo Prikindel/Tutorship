@@ -1,4 +1,4 @@
-package com.prike.tutorship.ui.presenters.injection
+package com.prike.tutorship.presenters.injection
 
 import android.content.Context
 import com.google.firebase.auth.FirebaseAuth

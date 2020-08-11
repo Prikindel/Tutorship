@@ -1,4 +1,4 @@
-package com.prike.tutorship.ui.presenters.viewmodel
+package com.prike.tutorship.presenters.viewmodel
 
 import androidx.lifecycle.MutableLiveData
 import com.prike.tutorship.domain.account.*
@@ -16,8 +16,19 @@ class AccountViewModel @Inject constructor(
     var accountData: MutableLiveData<AccountEntity> = MutableLiveData()
     var logoutData: MutableLiveData<None> = MutableLiveData()
 
-    fun register(email: String, password: String, name: String) {
-        registerUseCase(Register.Params(email, password, name)) { it.either(::handleFailure, ::handleRegister) }
+    fun register(
+        first_name: String,
+        last_name:  String,
+        email:      String,
+        password:   String,
+        token:      String,
+        type:       String,
+        phone:      String,
+        birthday:   String,
+        sex:        String,
+        city:       String
+    ) {
+        registerUseCase(Register.Params(first_name, last_name, email, password, token, type, phone, birthday, sex, city)) { it.either(::handleFailure, ::handleRegister) }
     }
 
     fun login(email: String, password: String) {
