@@ -72,9 +72,10 @@ fun <T> Task<T>.parseError(): Failure {
 fun <T : BaseResponse> Response<T>.isSucceed() = isSuccessful && body() != null && (body() as BaseResponse).success == 1
 
 fun <T : BaseResponse> Response<T>.parseError(): Failure {
-    return when ("") {
+    val message = (body() as BaseResponse).message
+    return when (message) {
         "email already exists"              -> Failure.EmailAlreadyExistError
-        "phone already exists"              -> Failure.EmailAlreadyExistError
+        "phone already exists"              -> Failure.PhoneAlreadyExistError
         "error in email or password"        -> Failure.AuthError
         else                                -> Failure.ServerError
     }

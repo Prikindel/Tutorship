@@ -3,10 +3,11 @@ package com.prike.tutorship.ui
 import android.app.Application
 import com.prike.tutorship.ui.activity.AppActivity
 import com.prike.tutorship.ui.activity.StartActivity
-import com.prike.tutorship.ui.presenters.injection.AppModule
-import com.prike.tutorship.ui.presenters.injection.CacheModule
-import com.prike.tutorship.ui.presenters.injection.RemoteModule
-import com.prike.tutorship.ui.presenters.injection.ViewModelModule
+import com.prike.tutorship.presenters.injection.AppModule
+import com.prike.tutorship.presenters.injection.CacheModule
+import com.prike.tutorship.presenters.injection.RemoteModule
+import com.prike.tutorship.presenters.injection.ViewModelModule
+import com.prike.tutorship.ui.firebase.FirebaseService
 import com.prike.tutorship.ui.sign.LoginFragment
 import com.prike.tutorship.ui.sign.RegisterFragment
 import com.prike.tutorship.ui.sign.SignActivity
@@ -48,5 +49,6 @@ interface AppComponent {
     fun inject(fragment: ProfileFragment)*/
 
     // services
+    fun inject(service: FirebaseService)
 
 }

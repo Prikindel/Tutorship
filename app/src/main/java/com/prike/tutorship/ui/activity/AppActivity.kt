@@ -8,8 +8,7 @@ import androidx.navigation.ui.NavigationUI
 import com.prike.tutorship.R
 import com.prike.tutorship.ui.App
 import com.prike.tutorship.ui.core.ext.onFailure
-import com.prike.tutorship.ui.core.ext.onSuccess
-import com.prike.tutorship.ui.presenters.viewmodel.AccountViewModel
+import com.prike.tutorship.presenters.viewmodel.AccountViewModel
 import kotlinx.android.synthetic.main.activity_app.*
 import kotlinx.android.synthetic.main.navigation_account.*
 

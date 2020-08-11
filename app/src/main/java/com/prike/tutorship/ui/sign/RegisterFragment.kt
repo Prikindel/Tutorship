@@ -10,7 +10,7 @@ import com.prike.tutorship.ui.App
 import com.prike.tutorship.ui.core.ext.onFailure
 import com.prike.tutorship.ui.core.ext.onSuccess
 import com.prike.tutorship.ui.fragment.BaseFragment
-import com.prike.tutorship.ui.presenters.viewmodel.AccountViewModel
+import com.prike.tutorship.presenters.viewmodel.AccountViewModel
 import kotlinx.android.synthetic.main.fragment_register.*
 
 class RegisterFragment : BaseFragment() {
@@ -101,11 +101,11 @@ class RegisterFragment : BaseFragment() {
         if (validateFields()) {
             showProgress()
 
-            accountViewModel.register(
+            /*accountViewModel.register(
                 getTextEditText(etEmail),
                 getTextEditText(etPassword),
                 getTextEditText(etName)
-            )
+            )*/
         }
     }
 

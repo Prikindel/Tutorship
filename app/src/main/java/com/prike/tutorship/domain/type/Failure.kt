@@ -10,6 +10,7 @@ sealed class Failure {
 
     object AuthError : Failure()
     object EmailAlreadyExistError : Failure()
+    object PhoneAlreadyExistError : Failure()
     object UserIsNotFound: Failure()
     object NoSavesAccountsError: Failure()
 }

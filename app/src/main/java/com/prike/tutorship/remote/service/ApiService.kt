@@ -1,5 +1,6 @@
 package com.prike.tutorship.remote.service
 
+import com.prike.tutorship.remote.account.AuthResponse
 import com.prike.tutorship.remote.core.BaseResponse
 import retrofit2.Call
 import retrofit2.http.FieldMap
@@ -30,4 +31,8 @@ interface ApiService {
     @FormUrlEncoded
     @POST(REGISTER)
     fun register(@FieldMap params: Map<String, String>): Call<BaseResponse>
+
+    @FormUrlEncoded
+    @POST(LOGIN)
+    fun login(@FieldMap params: Map<String, String>): Call<AuthResponse>
 }

@@ -19,5 +19,5 @@ interface AccountRemote {
         city:       String
     ): Either<Failure, None>
 
-    fun login(email: String, password: String): Either<Failure, AccountEntity>
+    fun login(email: String, password: String, token: String): Either<Failure, AccountEntity>
 }

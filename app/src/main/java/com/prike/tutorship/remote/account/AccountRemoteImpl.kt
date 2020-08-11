@@ -31,8 +31,9 @@ class AccountRemoteImpl @Inject constructor(
 
     override fun login(
         email: String,
-        password: String
-    ): Either<Failure, AccountEntity> = request.make(serviceFirebase.login(email, password), ::firebaseUserToAccountEntity)
+        password: String,
+        token: String
+    ): Either<Failure, AccountEntity> = request.make(service.login(createLoginMap(email, password, token))) { it.user }
 
     private fun firebaseUserToAccountEntity(result: AuthResult): AccountEntity {
         val user = result.user!!
@@ -61,5 +62,15 @@ class AccountRemoteImpl @Inject constructor(
         put(ApiService.PARAM_BIRTHDAY,      birthday)
         put(ApiService.PARAM_SEX,           sex)
         put(ApiService.PARAM_CITY,          city)
+    }
+
+    private fun createLoginMap(
+        email: String,
+        password: String,
+        token: String
+    ): Map<String, String> = HashMap<String, String>().apply {
+        put(ApiService.PARAM_EMAIL, email)
+        put(ApiService.PARAM_PASSWORD, password)
+        put(ApiService.PARAM_TOKEN, token)
     }
 }
