@@ -14,14 +14,13 @@ class AccountRepositoryImpl @Inject constructor(
         last_name:  String,
         email:      String,
         password:   String,
-        token:      String,
         type:       String,
         phone:      String,
         birthday:   String,
         sex:        String,
         city:       String
     ): Either<Failure, None> = accountCache.getToken().flatMap {
-        accountRemote.register(first_name, last_name, email, password, token, type, phone, birthday, sex, city)
+        accountRemote.register(first_name, last_name, email, password, it, type, phone, birthday, sex, city)
     }
 
     override fun login(email: String, password: String): Either<Failure, AccountEntity> = accountCache.getToken().flatMap {

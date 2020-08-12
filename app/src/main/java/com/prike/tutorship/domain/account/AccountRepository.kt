@@ -10,7 +10,6 @@ interface AccountRepository {
             last_name:  String,
             email:      String,
             password:   String,
-            token:      String,
             type:       String,
             phone:      String,
             birthday:   String,

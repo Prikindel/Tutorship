@@ -101,6 +101,26 @@ class RegisterFragment : BaseFragment() {
         if (validateFields()) {
             showProgress()
 
+            accountViewModel.register(
+                getTextEditText(etName),
+                getTextEditText(etLastName),
+                getTextEditText(etEmail),
+                getTextEditText(etPassword),
+                when (type.checkedRadioButtonId) {
+                    R.id.teacher -> "1"
+                    R.id.student -> "2"
+                    else -> "1"
+                },
+                getTextEditText(etPhone),
+                getTextEditText(etBirthday),
+                when (sex.checkedRadioButtonId) {
+                    R.id.man -> "1"
+                    R.id.woman -> "2"
+                    else -> "1"
+                },
+                getTextEditText(etCity)
+            )
+
             /*accountViewModel.register(
                 getTextEditText(etEmail),
                 getTextEditText(etPassword),

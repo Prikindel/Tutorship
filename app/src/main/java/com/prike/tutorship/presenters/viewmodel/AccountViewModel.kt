@@ -21,14 +21,13 @@ class AccountViewModel @Inject constructor(
         last_name:  String,
         email:      String,
         password:   String,
-        token:      String,
         type:       String,
         phone:      String,
         birthday:   String,
         sex:        String,
         city:       String
     ) {
-        registerUseCase(Register.Params(first_name, last_name, email, password, token, type, phone, birthday, sex, city)) { it.either(::handleFailure, ::handleRegister) }
+        registerUseCase(Register.Params(first_name, last_name, email, password, type, phone, birthday, sex, city)) { it.either(::handleFailure, ::handleRegister) }
     }
 
     fun login(email: String, password: String) {

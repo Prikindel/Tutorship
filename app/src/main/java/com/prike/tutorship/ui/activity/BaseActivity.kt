@@ -69,6 +69,7 @@ abstract class BaseActivity : AppCompatActivity() {
             is Failure.NetworkConnectionError -> showMessage(getString(R.string.error_network))
             is Failure.ServerError -> showMessage(getString(R.string.error_server))
             is Failure.EmailAlreadyExistError -> showMessage(getString(R.string.error_email_already_exist))
+            is Failure.PhoneAlreadyExistError -> showMessage(getString(R.string.error_email_already_exist))
             is Failure.AuthError -> showMessage(getString(R.string.error_auth))
             is Failure.UserIsNotFound -> showMessage(getString(R.string.uset_is_not_found))
         }
