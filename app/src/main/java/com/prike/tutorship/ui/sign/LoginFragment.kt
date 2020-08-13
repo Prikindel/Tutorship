@@ -39,6 +39,10 @@ class LoginFragment : BaseFragment() {
             }
         }
 
+        btnNewRegister.setOnClickListener {
+            findNav(R.id.action_loginFragment_to_registerNameFragment)
+        }
+
         btnRegister.setOnClickListener {
             findNav(R.id.action_loginFragment_to_registerFragment)
         }

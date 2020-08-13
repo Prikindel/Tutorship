@@ -37,9 +37,29 @@
             app:exitAnim="@anim/fragment_open_exit"
             app:popEnterAnim="@anim/fragment_close_enter"
             app:popExitAnim="@anim/fragment_close_exit" />
+        <action
+            android:id="@+id/action_loginFragment_to_registerNameFragment"
+            app:destination="@id/registerNameFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out"
+            app:popEnterAnim="@android:anim/slide_in_left"
+            app:popExitAnim="@android:anim/slide_out_right"  />
     </fragment>
     <activity
         android:id="@+id/appActivity"
         android:name="com.prike.tutorship.ui.activity.AppActivity"
         android:label="AppActivity" />
+    <fragment
+        android:id="@+id/registerNameFragment"
+        android:name="com.prike.tutorship.ui.sign.RegisterNameFragment"
+        android:label="RegisterNameFragment"
+        tools:layout="@layout/register_name_fragment" >
+        <action
+            android:id="@+id/action_registerNameFragment_to_loginFragment"
+            app:destination="@id/loginFragment"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:exitAnim="@android:anim/slide_out_right"
+            app:popEnterAnim="@android:anim/fade_in"
+            app:popExitAnim="@android:anim/fade_out" />
+    </fragment>
 </navigation>
