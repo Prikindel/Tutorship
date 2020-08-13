@@ -40,7 +40,7 @@ class LoginFragment : BaseFragment() {
         }
 
         btnNewRegister.setOnClickListener {
-            findNav(R.id.action_loginFragment_to_registerNameFragment)
+            findNav(R.id.action_loginFragment_to_registerTypeFragment)
         }
 
         btnRegister.setOnClickListener {

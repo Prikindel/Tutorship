@@ -8,10 +8,7 @@ import com.prike.tutorship.presenters.injection.CacheModule
 import com.prike.tutorship.presenters.injection.RemoteModule
 import com.prike.tutorship.presenters.injection.ViewModelModule
 import com.prike.tutorship.ui.firebase.FirebaseService
-import com.prike.tutorship.ui.sign.LoginFragment
-import com.prike.tutorship.ui.sign.RegisterFragment
-import com.prike.tutorship.ui.sign.RegisterNameFragment
-import com.prike.tutorship.ui.sign.SignActivity
+import com.prike.tutorship.ui.sign.*
 import dagger.Component
 import javax.inject.Singleton
 
@@ -46,6 +43,7 @@ interface AppComponent {
     fun inject(fragment: RegisterFragment)
     fun inject(fragment: LoginFragment)
     fun inject(fragment: RegisterNameFragment)
+    fun inject(fragment: RegisterTypeFragment)
     /*fun inject(fragment: ChatFragment)
     fun inject(fragment: TimetableFragment)
     fun inject(fragment: ProfileFragment)*/

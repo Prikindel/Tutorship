@@ -33,7 +33,10 @@
     <string name="fio">ФИО</string>
     <string name="connect">В сети</string>
     <string name="what_is_your_name">Как вас зовут?</string>
+    <string name="what_is_your_type">Кто вы?</string>
     <string name="next_step_registration">Продолжить</string>
+    <string name="teacher">Преподаватель</string>
+    <string name="student">Ученик</string>
 
     <!-- Actions -->
     <string name="account_created">Аккаунт создан</string>
