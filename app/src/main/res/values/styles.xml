@@ -52,4 +52,11 @@
         <item name="endIconTint">@color/hintSignEditText</item>
     </style>
 
+    <!-- TextView -->
+    <style name="TextHeadRegister" parent="Widget.MaterialComponents.TextView">
+        <item name="android:textSize">@dimen/head_register_size</item>
+        <item name="android:gravity">center_horizontal</item>
+        <item name="fontFamily">@font/happy_monkey</item>
+    </style>
+
 </resources>

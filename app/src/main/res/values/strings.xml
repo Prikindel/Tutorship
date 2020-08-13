@@ -23,6 +23,7 @@
     <string name="email">Email</string>
     <string name="password">Пароль</string>
     <string name="name">Имя</string>
+    <string name="last_name">Фамилия</string>
     <string name="confirm_password">Повторите пароль</string>
     <string name="register">Регистрация</string>
     <string name="already_have_account">Уже есть аккаунт?</string>
@@ -31,6 +32,8 @@
     <string name="logout">Выход</string>
     <string name="fio">ФИО</string>
     <string name="connect">В сети</string>
+    <string name="what_is_your_name">Как вас зовут?</string>
+    <string name="next_step_registration">Продолжить</string>
 
     <!-- Actions -->
     <string name="account_created">Аккаунт создан</string>
@@ -43,5 +46,4 @@
     <string name="timetable_page">Расписание</string>
     <string name="chat_page">Сообщения</string>
     <string name="profile_page">Профиль</string>
-    <string name="last_name">Фамилия</string>
 </resources>
