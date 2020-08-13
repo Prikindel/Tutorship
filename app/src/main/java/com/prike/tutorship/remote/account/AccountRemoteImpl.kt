@@ -37,7 +37,7 @@ class AccountRemoteImpl @Inject constructor(
 
     private fun firebaseUserToAccountEntity(result: AuthResult): AccountEntity {
         val user = result.user!!
-        return AccountEntity(user.uid, user.displayName ?: "No name", user.email ?: "")
+        return AccountEntity(user.uid, user.displayName ?: "No name", "", "", user.email ?: "", "", "", "", "", "", "", "", "", "", "")
     }
 
     private fun createRagisterMap(

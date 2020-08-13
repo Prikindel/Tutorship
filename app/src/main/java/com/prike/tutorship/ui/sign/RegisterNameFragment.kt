@@ -4,15 +4,11 @@ import android.os.Bundle
 import android.view.View
 import com.google.android.material.textfield.TextInputLayout
 import com.prike.tutorship.R
-import com.prike.tutorship.domain.account.AccountEntity
-import com.prike.tutorship.domain.type.None
 import com.prike.tutorship.presenters.viewmodel.AccountViewModel
 import com.prike.tutorship.ui.App
 import com.prike.tutorship.ui.core.ext.onFailure
-import com.prike.tutorship.ui.core.ext.onSuccess
 import com.prike.tutorship.ui.fragment.BaseFragment
 import kotlinx.android.synthetic.main.register_name_fragment.*
-import kotlinx.android.synthetic.main.register_name_fragment.btnLogin
 
 class RegisterNameFragment : BaseFragment() {
     override val layoutId = R.layout.register_name_fragment
@@ -26,8 +22,6 @@ class RegisterNameFragment : BaseFragment() {
         App.appComponent.inject(this)
 
         accountViewModel = viewModel {
-            onSuccess(registerData, ::handleRegister)
-            onSuccess(accountData, ::handleLogin)
             onFailure(failureData, ::handleFailure)
         }
     }
@@ -36,7 +30,8 @@ class RegisterNameFragment : BaseFragment() {
         super.onViewCreated(view, savedInstanceState)
 
         btnNextStep.setOnClickListener {
-            register()
+            accountViewModel.nameRegister(getTextEditText(etName), getTextEditText(etLastName))
+            showMessage("Здесь будет переход на следующий шаг регистрации")
         }
 
         btnLogin.setOnClickListener {
@@ -46,19 +41,4 @@ class RegisterNameFragment : BaseFragment() {
     }
 
     private fun getTextEditText(field: TextInputLayout) = field.editText?.text.toString()
-
-    private fun register() {
-        hideSoftKeyboard()
-        showMessage("Тип следующий шаг регистрации")
-    }
-
-    private fun handleLogin(accountEntity: AccountEntity?) {
-        hideProgress()
-        findNav(R.id.action_registerNameFragment_to_loginFragment)
-    }
-
-    private fun handleRegister(none: None? = None()) {
-        hideProgress()
-        showMessage(getString(R.string.account_created))
-    }
 }

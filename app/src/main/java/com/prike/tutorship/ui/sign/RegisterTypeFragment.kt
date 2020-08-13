@@ -12,6 +12,8 @@ import kotlinx.android.synthetic.main.register_type_fragment.*
 
 class RegisterTypeFragment : BaseFragment() {
     override val layoutId = R.layout.register_type_fragment
+    override val titleToolbar = R.string.register
+    override val showToolbar = false
 
     private lateinit var accountViewModel: AccountViewModel
 
@@ -28,10 +30,12 @@ class RegisterTypeFragment : BaseFragment() {
         super.onViewCreated(view, savedInstanceState)
 
         btnTeacher.setOnClickListener {
+            accountViewModel.typeRegister("teacher")
             findNav(R.id.action_registerTypeFragment_to_registerNameFragment)
         }
 
         btnStudent.setOnClickListener {
+            accountViewModel.typeRegister("student")
             findNav(R.id.action_registerTypeFragment_to_registerNameFragment)
         }
 
