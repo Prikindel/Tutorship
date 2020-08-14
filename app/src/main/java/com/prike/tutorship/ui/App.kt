@@ -44,6 +44,7 @@ interface AppComponent {
     fun inject(fragment: LoginFragment)
     fun inject(fragment: RegisterNameFragment)
     fun inject(fragment: RegisterTypeFragment)
+    fun inject(fragment: RegisterInfoFragment)
     /*fun inject(fragment: ChatFragment)
     fun inject(fragment: TimetableFragment)
     fun inject(fragment: ProfileFragment)*/

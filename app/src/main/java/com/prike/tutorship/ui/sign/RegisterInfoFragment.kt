@@ -2,6 +2,7 @@ package com.prike.tutorship.ui.sign
 
 import android.os.Bundle
 import android.view.View
+import com.google.android.material.datepicker.MaterialDatePicker
 import com.google.android.material.textfield.TextInputLayout
 import com.prike.tutorship.R
 import com.prike.tutorship.presenters.viewmodel.AccountViewModel
@@ -10,8 +11,8 @@ import com.prike.tutorship.ui.core.ext.onFailure
 import com.prike.tutorship.ui.fragment.BaseFragment
 import kotlinx.android.synthetic.main.register_name_fragment.*
 
-class RegisterNameFragment : BaseFragment() {
-    override val layoutId = R.layout.register_name_fragment
+class RegisterInfoFragment : BaseFragment() {
+    override val layoutId = R.layout.register_info_fragment
     override val titleToolbar = R.string.register
     override val showToolbar = false
 
@@ -30,13 +31,15 @@ class RegisterNameFragment : BaseFragment() {
         super.onViewCreated(view, savedInstanceState)
 
         btnNextStep.setOnClickListener {
-            accountViewModel.nameRegister(getTextEditText(etName), getTextEditText(etLastName))
-            findNav(R.id.action_registerNameFragment_to_registerInfoFragment)
+            showMessage("Здесь будет переход на следующий шаг регистрации")
+            val builder = MaterialDatePicker.Builder.datePicker()
+            val picker = builder.build()
+            picker.showNow(this.parentFragmentManager, "123")
         }
 
         btnLogin.setOnClickListener {
             hideProgress()
-            findNav(R.id.action_registerNameFragment_to_loginFragment)
+            findNav(R.id.action_registerInfoFragment_to_loginFragment)
         }
     }
 

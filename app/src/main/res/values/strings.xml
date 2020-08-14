@@ -34,6 +34,8 @@
     <string name="connect">В сети</string>
     <string name="what_is_your_name">Как вас зовут?</string>
     <string name="what_is_your_type">Кто вы?</string>
+    <string name="what_is_your_info">Расскажите пожалуйста о себе</string>
+    <string name="hello_info">Привет, </string>
     <string name="next_step_registration">Продолжить</string>
     <string name="teacher">Преподаватель</string>
     <string name="student">Ученик</string>

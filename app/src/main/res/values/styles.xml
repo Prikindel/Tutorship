@@ -59,4 +59,12 @@
         <item name="fontFamily">@font/happy_monkey</item>
     </style>
 
+    <!-- DatePicker -->
+    <style name="birthdayRegisterDatePicker" parent="@android:style/Widget.Material.DatePicker">
+        <item name="colorControlNormal">@color/hintSignEditText</item>
+        <item name="android:textSize">@dimen/birthday_register_date_picker_text_size</item>
+        <item name="android:datePickerMode">spinner</item>
+        <item name="android:calendarViewShown">false</item>
+    </style>
+
 </resources>
