@@ -86,9 +86,6 @@ abstract class BaseActivity : AppCompatActivity() {
     }
 }
 
-inline fun FragmentManager.inTransaction(func: FragmentTransaction.() -> FragmentTransaction) =
-    beginTransaction().func().commit()
-
 inline fun Activity?.base(block: BaseActivity.() -> Unit) {
     (this as? BaseActivity)?.let(block)
 }

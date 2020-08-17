@@ -40,6 +40,7 @@ interface AppComponent {
     fun inject(activity: StartActivity)
 
     // fragments
+    fun inject(fragment: SignFragmentBase)
     fun inject(fragment: RegisterFragment)
     fun inject(fragment: LoginFragment)
     fun inject(fragment: RegisterNameFragment)

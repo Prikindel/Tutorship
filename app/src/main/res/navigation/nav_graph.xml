@@ -38,12 +38,12 @@
             app:popEnterAnim="@anim/fragment_close_enter"
             app:popExitAnim="@anim/fragment_close_exit" />
         <action
-            android:id="@+id/action_loginFragment_to_registerTypeFragment"
-            app:destination="@id/registerTypeFragment"
+            android:id="@+id/action_loginFragment_to_registerNameFragment"
+            app:destination="@id/registerNameFragment"
             app:enterAnim="@android:anim/fade_in"
             app:exitAnim="@android:anim/fade_out"
             app:popEnterAnim="@android:anim/slide_in_left"
-            app:popExitAnim="@android:anim/slide_out_right" />
+            app:popExitAnim="@android:anim/slide_out_right"  />
     </fragment>
     <activity
         android:id="@+id/appActivity"
@@ -62,8 +62,8 @@
             app:popEnterAnim="@android:anim/fade_in"
             app:popExitAnim="@android:anim/fade_out" />
         <action
-            android:id="@+id/action_registerNameFragment_to_registerInfoFragment"
-            app:destination="@id/registerInfoFragment"
+            android:id="@+id/action_registerNameFragment_to_registerTypeFragment"
+            app:destination="@id/registerTypeFragment"
             app:enterAnim="@android:anim/fade_in"
             app:exitAnim="@android:anim/fade_out"
             app:popEnterAnim="@android:anim/slide_in_left"
@@ -82,8 +82,8 @@
             app:popEnterAnim="@android:anim/fade_in"
             app:popExitAnim="@android:anim/fade_out" />
         <action
-            android:id="@+id/action_registerTypeFragment_to_registerNameFragment"
-            app:destination="@id/registerNameFragment"
+            android:id="@+id/action_registerTypeFragment_to_registerInfoFragment"
+            app:destination="@id/registerInfoFragment"
             app:enterAnim="@android:anim/fade_in"
             app:exitAnim="@android:anim/fade_out"
             app:popEnterAnim="@android:anim/slide_in_left"

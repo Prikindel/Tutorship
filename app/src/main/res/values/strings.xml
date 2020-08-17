@@ -33,7 +33,7 @@
     <string name="fio">ФИО</string>
     <string name="connect">В сети</string>
     <string name="what_is_your_name">Как вас зовут?</string>
-    <string name="what_is_your_type">Кто вы?</string>
+    <string name="what_is_your_type">Выбери свой тип:</string>
     <string name="what_is_your_info">Расскажите пожалуйста о себе</string>
     <string name="hello_info">Привет, </string>
     <string name="next_step_registration">Продолжить</string>

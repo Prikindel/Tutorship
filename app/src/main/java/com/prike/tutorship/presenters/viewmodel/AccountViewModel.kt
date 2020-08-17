@@ -1,6 +1,7 @@
 package com.prike.tutorship.presenters.viewmodel
 
 import androidx.lifecycle.MutableLiveData
+import com.prike.tutorship.R
 import com.prike.tutorship.domain.account.*
 import com.prike.tutorship.domain.type.None
 import javax.inject.Inject
@@ -99,6 +100,8 @@ class AccountViewModel @Inject constructor(
             )
         }
     }
+
+    fun getAccountRegister() = accountRegisterData.value
 
     private fun handleRegister(none: None) {
         this.registerData.value = none
