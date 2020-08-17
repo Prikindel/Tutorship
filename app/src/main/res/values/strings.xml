@@ -32,13 +32,23 @@
     <string name="logout">Выход</string>
     <string name="fio">ФИО</string>
     <string name="connect">В сети</string>
-    <string name="what_is_your_name">Как вас зовут?</string>
+    <string name="what_is_your_name">Как Вас зовут?</string>
     <string name="what_is_your_type">Выбери свой тип:</string>
-    <string name="what_is_your_info">Расскажите пожалуйста о себе</string>
+    <string name="what_is_your_info">Расскажи пожалуйста о себе</string>
+    <string name="what_is_your_info_birthday">Укажи свой день рождения</string>
+    <string name="what_is_your_info_city">А где ты проживаешь?</string>
+    <string name="what_is_your_info_sex">Выбери свой пол:</string>
     <string name="hello_info">Привет, </string>
     <string name="next_step_registration">Продолжить</string>
-    <string name="teacher">Преподаватель</string>
+    <string name="teacher">Учитель</string>
     <string name="student">Ученик</string>
+    <string name="numberDay">Д</string>
+    <string name="numberMonth">М</string>
+    <string name="numberYear">Г</string>
+    <string name="man_sex">Мужской</string>
+    <string name="woman_sex">Женский</string>
+    <string name="country">Страна</string>
+    <string name="city">Город</string>
 
     <!-- Actions -->
     <string name="account_created">Аккаунт создан</string>

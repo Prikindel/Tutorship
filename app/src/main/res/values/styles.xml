@@ -4,6 +4,7 @@
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
     </style>
 
     <!-- Toolbar -->
@@ -46,6 +47,14 @@
     <!-- EditText -->
     <style name="EditTextSign" parent="AppTheme">
         <item name="boxBackgroundColor">@color/backgroundSignEditText</item>
+        <item name="hintTextColor">@color/hintSignEditText</item>
+        <item name="boxStrokeColor">@color/hintSignEditText</item>
+        <item name="startIconTint">@color/hintSignEditText</item>
+        <item name="endIconTint">@color/hintSignEditText</item>
+    </style>
+
+    <style name="EditTextDropdown" parent="Widget.MaterialComponents.TextInputLayout.FilledBox.Dense.ExposedDropdownMenu">
+        <item name="boxBackgroundColor">@color/backgroundSignCard</item>
         <item name="hintTextColor">@color/hintSignEditText</item>
         <item name="boxStrokeColor">@color/hintSignEditText</item>
         <item name="startIconTint">@color/hintSignEditText</item>
