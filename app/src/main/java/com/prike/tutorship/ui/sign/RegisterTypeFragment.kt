@@ -3,7 +3,6 @@ package com.prike.tutorship.ui.sign
 import android.os.Bundle
 import android.view.View
 import com.prike.tutorship.R
-import kotlinx.android.synthetic.main.register_name_fragment.btnLogin
 import kotlinx.android.synthetic.main.register_type_fragment.*
 
 class RegisterTypeFragment : SignFragmentBase(R.layout.register_type_fragment) {
