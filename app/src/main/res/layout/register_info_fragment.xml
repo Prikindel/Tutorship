@@ -3,6 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
@@ -23,6 +24,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:orientation="vertical"
             android:padding="8dp">
 
@@ -43,97 +45,126 @@
                 android:layout_marginTop="16dp"
                 android:orientation="horizontal">
 
-                <androidx.appcompat.widget.AppCompatEditText
-                    android:id="@+id/oneNumberDay"
+                <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:hint="@string/numberDay"
-                    android:inputType="numberDecimal"
-                    android:gravity="center"
-                    android:maxLength="1"
-                    android:maxLines="1"
-                    tools:hint="@string/numberDay" />
+                    android:orientation="vertical">
 
-                <androidx.appcompat.widget.AppCompatEditText
-                    android:id="@+id/twoNumberDay"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:hint="@string/numberDay"
-                    android:inputType="numberDecimal"
-                    android:gravity="center"
-                    android:maxLength="1"
-                    android:maxLines="1"
-                    tools:hint="@string/numberDay" />
+                    <TextView
+                        style="@style/BirthdayTextViewDayMonthYear"
+                        android:text="@string/day_text" />
 
-                <androidx.appcompat.widget.AppCompatEditText
-                    android:id="@+id/oneNumberMonth"
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <androidx.appcompat.widget.AppCompatEditText
+                            style="@style/EditTextBirthday"
+                            android:theme="@style/ThemeEditTextBirthday"
+                            android:id="@+id/oneNumberDay"
+                            android:hint="@string/numberDay"
+                            tools:hint="@string/numberDay" />
+
+                        <androidx.appcompat.widget.AppCompatEditText
+                            style="@style/EditTextBirthday"
+                            android:theme="@style/ThemeEditTextBirthday"
+                            android:id="@+id/twoNumberDay"
+                            android:hint="@string/numberDay"
+                            tools:hint="@string/numberDay" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
-                    android:hint="@string/numberMonth"
-                    android:inputType="numberDecimal"
-                    android:gravity="center"
-                    android:maxLength="1"
-                    android:maxLines="1"
-                    tools:hint="@string/numberMonth" />
+                    android:orientation="vertical">
 
-                <androidx.appcompat.widget.AppCompatEditText
-                    android:id="@+id/twoNumberMonth"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:hint="@string/numberMonth"
-                    android:inputType="numberDecimal"
-                    android:gravity="center"
-                    android:maxLength="1"
-                    android:maxLines="1"
-                    tools:hint="@string/numberMonth" />
+                    <TextView
+                        style="@style/BirthdayTextViewDayMonthYear"
+                        android:text="@string/month_text"/>
 
-                <androidx.appcompat.widget.AppCompatEditText
-                    android:id="@+id/oneNumberYear"
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <androidx.appcompat.widget.AppCompatEditText
+                            android:id="@+id/oneNumberMonth"
+                            style="@style/EditTextBirthday"
+                            android:theme="@style/ThemeEditTextBirthday"
+                            android:hint="@string/numberMonth"
+                            tools:hint="@string/numberMonth" />
+
+                        <androidx.appcompat.widget.AppCompatEditText
+                            android:id="@+id/twoNumberMonth"
+                            style="@style/EditTextBirthday"
+                            android:theme="@style/ThemeEditTextBirthday"
+                            android:hint="@string/numberMonth"
+                            tools:hint="@string/numberMonth" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
-                    android:hint="@string/numberYear"
-                    android:inputType="numberDecimal"
-                    android:gravity="center"
-                    android:maxLength="1"
-                    android:maxLines="1"
-                    tools:hint="@string/numberYear" />
+                    android:orientation="vertical">
 
-                <androidx.appcompat.widget.AppCompatEditText
-                    android:id="@+id/twoNumberYear"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:hint="@string/numberYear"
-                    android:inputType="numberDecimal"
-                    android:gravity="center"
-                    android:maxLength="1"
-                    android:maxLines="1"
-                    tools:hint="@string/numberYear" />
+                    <TextView
+                        style="@style/BirthdayTextViewDayMonthYear"
+                        android:text="@string/year_text" />
 
-                <androidx.appcompat.widget.AppCompatEditText
-                    android:id="@+id/threeNumberYear"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:hint="@string/numberYear"
-                    android:inputType="numberDecimal"
-                    android:gravity="center"
-                    android:maxLength="1"
-                    android:maxLines="1"
-                    tools:hint="@string/numberYear" />
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
 
-                <androidx.appcompat.widget.AppCompatEditText
-                    android:id="@+id/fourNumberYear"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:hint="@string/numberYear"
-                    android:inputType="numberDecimal"
-                    android:gravity="center"
-                    android:maxLength="1"
-                    android:maxLines="1"
-                    tools:hint="@string/numberYear" />
+                        <androidx.appcompat.widget.AppCompatEditText
+                            android:id="@+id/oneNumberYear"
+                            style="@style/EditTextBirthday"
+                            android:theme="@style/ThemeEditTextBirthday"
+                            android:hint="@string/numberYear"
+                            tools:hint="@string/numberYear" />
+
+                        <androidx.appcompat.widget.AppCompatEditText
+                            android:id="@+id/twoNumberYear"
+                            style="@style/EditTextBirthday"
+                            android:theme="@style/ThemeEditTextBirthday"
+                            android:hint="@string/numberYear"
+                            tools:hint="@string/numberYear" />
+
+                        <androidx.appcompat.widget.AppCompatEditText
+                            android:id="@+id/threeNumberYear"
+                            style="@style/EditTextBirthday"
+                            android:theme="@style/ThemeEditTextBirthday"
+                            android:hint="@string/numberYear"
+                            tools:hint="@string/numberYear" />
+
+                        <androidx.appcompat.widget.AppCompatEditText
+                            android:id="@+id/fourNumberYear"
+                            style="@style/EditTextBirthday"
+                            android:theme="@style/ThemeEditTextBirthday"
+                            android:hint="@string/numberYear"
+                            tools:hint="@string/numberYear" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
 
             </LinearLayout>
+
+            <TextView
+                android:id="@+id/birthdayError"
+                style="@style/birthdayTextViewError"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/error_birthday_date" />
 
         </LinearLayout>
 
@@ -150,6 +181,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:orientation="vertical"
             android:padding="8dp">
 
@@ -220,6 +252,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:orientation="vertical"
             android:padding="8dp">
 

@@ -46,6 +46,8 @@ abstract class BaseFragment : Fragment() {
 
     fun hideSoftKeyboard() = base { hideSoftKeyboard() }
 
+    fun showSoftKeyboard() = base { showSoftKeyboard() }
+
     open fun handleFailure(failure: Failure?) = base { handleFailure(failure) }
 
     fun showMessage(message: String) = base { showMessage(message) }

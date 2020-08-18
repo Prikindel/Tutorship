@@ -13,6 +13,9 @@ class RegisterNameFragment : SignFragmentBase(R.layout.register_name_fragment) {
         setTextTextInput(accountViewModel.getAccountRegister()?.firstName ?: "", etName)
         setTextTextInput(accountViewModel.getAccountRegister()?.lastName  ?: "", etLastName)
 
+        etName.requestFocus()
+        showSoftKeyboard()
+
         etName.addOnTextChangedListener()
         etLastName.addOnTextChangedListener()
 
