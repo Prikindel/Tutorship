@@ -2,6 +2,8 @@ package com.prike.tutorship.remote.service
 
 import com.prike.tutorship.remote.account.AuthResponse
 import com.prike.tutorship.remote.core.BaseResponse
+import com.prike.tutorship.remote.residence.CityResponse
+import com.prike.tutorship.remote.residence.CountryResponse
 import retrofit2.Call
 import retrofit2.http.FieldMap
 import retrofit2.http.FormUrlEncoded
@@ -12,7 +14,7 @@ interface ApiService {
         // Methods
         const val REGISTER                      = "register.php"
         const val LOGIN                         = "login.php"
-        const val GET_COUNTIES                  = "getCountries.php"
+        const val GET_COUNTRIES                  = "getCountries.php"
         const val GET_CITIES_WITHOUT_COUNTRY    = "getCitiesWithoutCountry.php"
 
         // Params
@@ -26,6 +28,7 @@ interface ApiService {
         const val PARAM_BIRTHDAY                = "birthday"
         const val PARAM_SEX                     = "sex"
         const val PARAM_CITY                    = "city"
+        const val PARAM_COUNTRY                 = "country"
     }
 
     @FormUrlEncoded
@@ -35,4 +38,12 @@ interface ApiService {
     @FormUrlEncoded
     @POST(LOGIN)
     fun login(@FieldMap params: Map<String, String>): Call<AuthResponse>
+
+    @FormUrlEncoded
+    @POST(GET_COUNTRIES)
+    fun getCountries(): Call<CountryResponse>
+
+    @FormUrlEncoded
+    @POST(GET_CITIES_WITHOUT_COUNTRY)
+    fun getCities(@FieldMap params: Map<String, String>): Call<CityResponse>
 }

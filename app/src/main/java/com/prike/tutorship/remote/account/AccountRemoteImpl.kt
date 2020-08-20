@@ -1,6 +1,5 @@
 package com.prike.tutorship.remote.account
 
-import com.google.android.gms.tasks.Tasks
 import com.google.firebase.auth.AuthResult
 import com.prike.tutorship.data.account.AccountRemote
 import com.prike.tutorship.domain.account.AccountEntity
@@ -27,7 +26,7 @@ class AccountRemoteImpl @Inject constructor(
         birthday:   String,
         sex:        String,
         city:       String
-    ): Either<Failure, None> = request.make(service.register(createRagisterMap(first_name, last_name, email, password, token, type, phone, birthday, sex, city))) { None() }
+    ): Either<Failure, None> = request.make(service.register(createRegisterMap(first_name, last_name, email, password, token, type, phone, birthday, sex, city))) { None() }
 
     override fun login(
         email: String,
@@ -40,7 +39,7 @@ class AccountRemoteImpl @Inject constructor(
         return AccountEntity(user.uid, user.displayName ?: "No name", "", "", user.email ?: "", "", "", "", "", "", "", "", "", "", "")
     }
 
-    private fun createRagisterMap(
+    private fun createRegisterMap(
         first_name: String,
         last_name:  String,
         email:      String,
