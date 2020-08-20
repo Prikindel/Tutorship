@@ -39,7 +39,6 @@ interface ApiService {
     @POST(LOGIN)
     fun login(@FieldMap params: Map<String, String>): Call<AuthResponse>
 
-    @FormUrlEncoded
     @POST(GET_COUNTRIES)
     fun getCountries(): Call<CountryResponse>
 

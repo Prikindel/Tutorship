@@ -1,24 +1,48 @@
 package com.prike.tutorship.ui.sign
 
-import android.content.res.Resources
-import android.graphics.ColorFilter
-import android.graphics.PorterDuff
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.util.Log
 import android.view.View
+import android.widget.ArrayAdapter
+import android.widget.AutoCompleteTextView
 import android.widget.EditText
 import androidx.appcompat.widget.AppCompatEditText
 import com.prike.tutorship.R
+import com.prike.tutorship.domain.account.AccountEntity
+import com.prike.tutorship.domain.residence.CitiesEntity
+import com.prike.tutorship.domain.residence.CountriesEntity
+import com.prike.tutorship.presenters.viewmodel.AccountViewModel
+import com.prike.tutorship.presenters.viewmodel.ResidenceViewModel
+import com.prike.tutorship.ui.App
+import com.prike.tutorship.ui.core.ext.onFailure
+import com.prike.tutorship.ui.core.ext.onSuccess
 import kotlinx.android.synthetic.main.register_info_fragment.*
 import java.util.*
 
 class RegisterInfoFragment : SignFragmentBase(R.layout.register_info_fragment) {
 
+    private lateinit var residenceViewModel: ResidenceViewModel
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        App.appComponent.inject(this)
+
+        residenceViewModel = viewModel {
+            onSuccess(citiesData, ::renderCities)
+            onSuccess(countriesData, ::renderCountries)
+            onFailure(failureData, ::handleFailure)
+        }
+
+        getCountries()
+        showProgress()
+    }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        // Прослушивание ввода даты рождения
         assignListenerEditText(oneNumberDay, twoNumberDay)
         assignListenerEditText(twoNumberDay, oneNumberMonth)
         assignListenerEditText(oneNumberMonth, twoNumberMonth)
@@ -26,7 +50,18 @@ class RegisterInfoFragment : SignFragmentBase(R.layout.register_info_fragment) {
         assignListenerEditText(oneNumberYear, twoNumberYear)
         assignListenerEditText(twoNumberYear, threeNumberYear)
         assignListenerEditText(threeNumberYear, fourNumberYear)
-        assignListenerEditText(fourNumberYear, cardCity) { hideSoftKeyboard() }
+        assignListenerEditText(fourNumberYear, etCountry)
+
+        etCountry.setOnItemClickListener { adapterView, view, i, l ->
+            showProgress()
+            residenceViewModel.getCitiesBD(adapterView.getItemAtPosition(i).toString())
+            etCity.requestFocus()
+        }
+
+        etCity.setOnItemClickListener { adapterView, view, i, l ->
+            hideSoftKeyboard()
+            cardSex.requestFocus()
+        }
 
         btnMan.setOnClickListener {
             showMessage("Здесь будет переход на следующий шаг регистрации")
@@ -59,6 +94,20 @@ class RegisterInfoFragment : SignFragmentBase(R.layout.register_info_fragment) {
 
         })
     }
+
+    private fun renderCities(cities: CitiesEntity?) {
+        hideProgress()
+        etCity.setAdapter(ArrayAdapter(requireContext(), R.layout.list_item_dropdown, cities?.toStringList() ?: listOf()))
+    }
+
+    private fun renderCountries(countries: CountriesEntity?) {
+        hideProgress()
+        etCountry.setAdapter(ArrayAdapter(requireContext(), R.layout.list_item_dropdown, countries?.toStringList() ?: listOf()))
+    }
+
+    protected fun getCountries() = residenceViewModel.getCountriesBD()
+
+    protected fun getCities(country: String) = residenceViewModel.getCitiesBD(country)
 
     private fun errorBirthday(flag: Boolean) = if (flag) {
         birthdayError.visibility = View.VISIBLE
@@ -130,4 +179,9 @@ class RegisterInfoFragment : SignFragmentBase(R.layout.register_info_fragment) {
         val days = GregorianCalendar(year, month - 1, 1).getActualMaximum(Calendar.DAY_OF_MONTH)
         return days
     }
+
+    private fun countiesItemsList() = residenceViewModel.getCountriesData().toStringList()
+
+    private fun citiesItemsList() = residenceViewModel.getCitiesData().toStringList()
+
 }

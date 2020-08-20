@@ -13,9 +13,9 @@ class ResidenceRemoteImpl @Inject constructor(
     private val request: Request,
     private val service: ApiService
 ) : ResidenceRemote {
-    override fun getCounties(): Either<Failure, CountriesEntity> = request.make(service.getCountries()) { it.countries }
+    override fun getCounties(): Either<Failure, CountriesEntity> = request.make(service.getCountries()) { CountriesEntity(it.countries) }
 
-    override fun getCities(country: String): Either<Failure, CitiesEntity> = request.make(service.getCities(createCitiesMap(country))) { it.cities }
+    override fun getCities(country: String): Either<Failure, CitiesEntity> = request.make(service.getCities(createCitiesMap(country))) { CitiesEntity(it.cities) }
 
     private fun createCitiesMap(
         country: String

@@ -1,6 +1,5 @@
 package com.prike.tutorship.remote.core
 
-import android.util.Log
 import com.google.android.gms.tasks.Task
 import com.google.android.gms.tasks.Tasks
 import com.prike.tutorship.domain.type.Either
@@ -60,7 +59,6 @@ class Request @Inject constructor(private val networkHandler: NetworkHandler) {
 }
 
 fun <T> Task<T>.parseError(): Failure {
-    Log.i("TAG", "parse ${exception?.message}")
     return when (exception?.message) {
         "The email address is already in use by another account." -> Failure.EmailAlreadyExistError
         "The password is invalid or the user does not have a password." -> Failure.AuthError

@@ -203,36 +203,36 @@
                 android:orientation="horizontal" >
 
                 <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/etCountry"
+                    android:id="@+id/etCountryLayer"
                     style="@style/EditTextDropdown"
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:layout_marginEnd="8dp"
                     android:hint="@string/country"
                     tools:hint="@string/country">
 
                     <AutoCompleteTextView
+                        android:id="@+id/etCountry"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:inputType="none" />
+                        android:layout_height="match_parent"/>
 
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/etCity"
+                    android:id="@+id/etCityLayer"
                     style="@style/EditTextDropdown"
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:layout_marginStart="8dp"
                     android:hint="@string/city"
                     tools:hint="@string/city">
 
                     <AutoCompleteTextView
+                        android:id="@+id/etCity"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:inputType="none" />
+                        android:layout_height="match_parent" />
 
                 </com.google.android.material.textfield.TextInputLayout>
 

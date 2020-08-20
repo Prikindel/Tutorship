@@ -54,7 +54,7 @@
         <item name="android:ems">10</item>
     </style>
 
-    <style name="EditTextDropdown" parent="Widget.MaterialComponents.TextInputLayout.FilledBox.Dense.ExposedDropdownMenu">
+    <style name="EditTextDropdown" parent="Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu">
         <item name="boxBackgroundColor">@color/backgroundSignCard</item>
         <item name="hintTextColor">@color/hintSignEditText</item>
         <item name="boxStrokeColor">@color/hintSignEditText</item>
