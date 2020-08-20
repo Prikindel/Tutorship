@@ -13,4 +13,5 @@ sealed class Failure {
     object PhoneAlreadyExistError : Failure()
     object UserIsNotFound: Failure()
     object NoSavesAccountsError: Failure()
+    object CountryError : Failure()
 }

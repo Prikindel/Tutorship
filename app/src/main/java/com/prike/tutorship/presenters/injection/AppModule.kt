@@ -7,8 +7,11 @@ import com.google.firebase.ktx.Firebase
 import com.prike.tutorship.data.account.AccountCache
 import com.prike.tutorship.data.account.AccountRemote
 import com.prike.tutorship.data.account.AccountRepositoryImpl
+import com.prike.tutorship.data.residence.ResidenceRemote
+import com.prike.tutorship.data.residence.ResidenceRepositoryImpl
 import com.prike.tutorship.domain.account.AccountRepository
 import com.prike.tutorship.domain.account.Authenticator
+import com.prike.tutorship.domain.residence.ResidenceRepository
 import com.prike.tutorship.ui.App
 import com.prike.tutorship.ui.core.navigation.Navigator
 import dagger.Module
@@ -29,6 +32,10 @@ class AppModule(
     fun provideAccountRepository(remote: AccountRemote, cache: AccountCache): AccountRepository {
         return AccountRepositoryImpl(remote, cache)
     }
+
+    @Provides
+    @Singleton
+    fun provideResidenceRepository(remote: ResidenceRemote): ResidenceRepository = ResidenceRepositoryImpl(remote)
 
     @Provides
     @Singleton

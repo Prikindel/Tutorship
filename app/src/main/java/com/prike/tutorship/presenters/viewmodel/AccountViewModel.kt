@@ -3,6 +3,10 @@ package com.prike.tutorship.presenters.viewmodel
 import androidx.lifecycle.MutableLiveData
 import com.prike.tutorship.R
 import com.prike.tutorship.domain.account.*
+import com.prike.tutorship.domain.residence.CitiesEntity
+import com.prike.tutorship.domain.residence.CountriesEntity
+import com.prike.tutorship.domain.residence.GetCities
+import com.prike.tutorship.domain.residence.GetCountries
 import com.prike.tutorship.domain.type.None
 import javax.inject.Inject
 
@@ -10,12 +14,16 @@ class AccountViewModel @Inject constructor(
     val registerUseCase: Register,
     val loginUseCase: Login,
     val getAccount: GetAccount,
-    val logout: Logout
+    val logout: Logout,
+    val getCountriesUseCase: GetCountries,
+    val getCitiesUseCase: GetCities
 ) : BaseViewModel() {
 
     var registerData: MutableLiveData<None> = MutableLiveData()
     var accountData: MutableLiveData<AccountEntity> = MutableLiveData()
     var logoutData: MutableLiveData<None> = MutableLiveData()
+    var countriesData: MutableLiveData<CountriesEntity> = MutableLiveData()
+    var citiesData: MutableLiveData<CitiesEntity> = MutableLiveData()
 
     // Параметры, которые были введины или выбраны в UI layer при регистрации
     var accountRegisterData: MutableLiveData<AccountEntity> = MutableLiveData(
@@ -59,6 +67,10 @@ class AccountViewModel @Inject constructor(
     fun getAccount() = getAccount(None()) { it.either(::handleFailure, ::handleAccount) }
 
     fun logout() = logout(None()) { it.either(::handleFailure, ::handleLogout) }
+
+    fun getCounties() = getCountriesUseCase(None()) { it.either(::handleFailure, ::handleCounties) }
+
+    fun getCities(country: String) = getCitiesUseCase(GetCities.Params(country)) { it.either(::handleFailure, ::handleCities) }
 
     // Методы регистрации
     fun typeRegister(type: String) {
@@ -114,6 +126,16 @@ class AccountViewModel @Inject constructor(
     private fun handleLogout(none: None) {
         this.logoutData.value = none
     }
+
+    private fun handleCounties(counties: CountriesEntity) {
+        this.countriesData.value = counties
+    }
+
+
+    private fun handleCities(cities: CitiesEntity) {
+        this.citiesData.value = cities
+    }
+
 
     override fun onCleared() {
         super.onCleared()

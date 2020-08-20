@@ -3,10 +3,12 @@ package com.prike.tutorship.presenters.injection
 import android.content.Context
 import com.prike.tutorship.BuildConfig
 import com.prike.tutorship.data.account.AccountRemote
+import com.prike.tutorship.data.residence.ResidenceRemote
 import com.prike.tutorship.remote.account.AccountApiService
 import com.prike.tutorship.remote.account.AccountRemoteImpl
 import com.prike.tutorship.remote.core.NetworkHandler
 import com.prike.tutorship.remote.core.Request
+import com.prike.tutorship.remote.residence.ResidenceRemoteImpl
 import com.prike.tutorship.remote.service.ApiService
 import com.prike.tutorship.remote.service.ServiceFactory
 import dagger.Module
@@ -31,4 +33,8 @@ class RemoteModule {
     fun provideAccountRemote(request: Request, service: ApiService, serviceFirebase: AccountApiService): AccountRemote {
         return AccountRemoteImpl(request, service, serviceFirebase)
     }
+
+    @Singleton
+    @Provides
+    fun provideResidenceRemote(request: Request, service: ApiService): ResidenceRemote = ResidenceRemoteImpl(request, service)
 }
