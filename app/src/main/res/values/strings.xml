@@ -39,6 +39,8 @@
     <string name="what_is_your_info_birthday">Укажи свой день рождения:</string>
     <string name="what_is_your_info_city">Место проживания:</string>
     <string name="what_is_your_info_sex">Выбери свой пол:</string>
+    <string name="what_is_your_phone">Укажи свой номер телефона:</string>
+    <string name="what_is_your_email">Укажи свой email и придумай пароль</string>
     <string name="hello_info">Привет, </string>
     <string name="next_step_registration">Продолжить</string>
     <string name="teacher">Учитель</string>

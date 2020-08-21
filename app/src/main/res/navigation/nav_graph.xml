@@ -101,5 +101,45 @@
             app:exitAnim="@android:anim/slide_out_right"
             app:popEnterAnim="@android:anim/fade_in"
             app:popExitAnim="@android:anim/fade_out"  />
+        <action
+            android:id="@+id/action_registerInfoFragment_to_registerPhoneFragment"
+            app:destination="@id/registerPhoneFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out"
+            app:popEnterAnim="@android:anim/slide_in_left"
+            app:popExitAnim="@android:anim/slide_out_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/registerPhoneFragment"
+        android:name="com.prike.tutorship.ui.sign.RegisterPhoneFragment"
+        android:label="RegisterPhoneFragment"
+        tools:layout="@layout/register_phone_fragment">
+        <action
+            android:id="@+id/action_registerPhoneFragment_to_loginFragment"
+            app:destination="@id/loginFragment"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:exitAnim="@android:anim/slide_out_right"
+            app:popEnterAnim="@android:anim/fade_in"
+            app:popExitAnim="@android:anim/fade_out" />
+        <action
+            android:id="@+id/action_registerPhoneFragment_to_registerEmailFragment2"
+            app:destination="@id/registerEmailFragment2"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out"
+            app:popEnterAnim="@android:anim/slide_in_left"
+            app:popExitAnim="@android:anim/slide_out_right"  />
+    </fragment>
+    <fragment
+        android:id="@+id/registerEmailFragment2"
+        android:name="com.prike.tutorship.ui.sign.RegisterEmailFragment"
+        android:label="RegisterEmailFragment"
+        tools:layout="@layout/register_email_fragment">
+        <action
+            android:id="@+id/action_registerEmailFragment2_to_loginFragment"
+            app:destination="@id/loginFragment"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:exitAnim="@android:anim/slide_out_right"
+            app:popEnterAnim="@android:anim/fade_in"
+            app:popExitAnim="@android:anim/fade_out" />
     </fragment>
 </navigation>

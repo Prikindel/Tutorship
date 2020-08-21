@@ -64,10 +64,10 @@ class RegisterInfoFragment : SignFragmentBase(R.layout.register_info_fragment) {
         }
 
         btnMan.setOnClickListener {
-            showMessage("Здесь будет переход на следующий шаг регистрации")
+            findNav(R.id.action_registerInfoFragment_to_registerPhoneFragment)
         }
         btnWoman.setOnClickListener {
-            showMessage("Здесь будет переход на следующий шаг регистрации")
+            findNav(R.id.action_registerInfoFragment_to_registerPhoneFragment)
         }
 
         btnLogin.setOnClickListener {
