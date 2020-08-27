@@ -118,4 +118,9 @@
         <item name="android:calendarViewShown">false</item>
     </style>
 
+    <!-- view -->
+    <style name="ViewLineProgressSign">
+        <item name="android:background">@color/colorPrimary</item>
+    </style>
+
 </resources>

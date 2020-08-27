@@ -10,6 +10,8 @@ class RegisterTypeFragment : SignFragmentBase(R.layout.register_type_fragment) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        showProgressRegister(2f)
+
         textView.text = generateHead()
 
         btnTeacher.setOnClickListener {

@@ -10,6 +10,8 @@ class RegisterEmailFragment : SignFragmentBase(R.layout.register_email_fragment)
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        showProgressRegister(5f)
+
         btnRegister.setOnClickListener {
             findNav(R.id.action_registerEmailFragment2_to_loginFragment)
         }

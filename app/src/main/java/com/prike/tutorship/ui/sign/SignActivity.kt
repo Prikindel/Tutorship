@@ -1,17 +1,15 @@
 package com.prike.tutorship.ui.sign
 
 import android.os.Bundle
-import androidx.navigation.findNavController
-import androidx.navigation.ui.NavigationUI
+import android.view.View
+import android.view.ViewGroup
+import android.widget.LinearLayout
 import com.prike.tutorship.R
 import com.prike.tutorship.presenters.viewmodel.AccountViewModel
 import com.prike.tutorship.ui.App
 import com.prike.tutorship.ui.activity.BaseActivity
 import com.prike.tutorship.ui.core.ext.onFailure
-import kotlinx.android.synthetic.main.activity_app.*
-import kotlinx.android.synthetic.main.navigation_account.*
 import kotlinx.android.synthetic.main.sign_layout.*
-import kotlinx.android.synthetic.main.sign_layout.fragmentContainer
 
 class SignActivity : BaseActivity() {
     override val contentId = R.layout.sign_layout
@@ -40,6 +38,19 @@ class SignActivity : BaseActivity() {
     override fun hideProgress() {
         blackout(false)
         super.hideProgress()
+    }
+
+    fun hideProgressRegister() {
+        viewsProgressRegister.visibility = View.GONE
+    }
+
+    fun showProgressRegister(numberDisplay: Float = 0f) {
+        viewsProgressRegister.visibility = View.VISIBLE
+        viewProgressLineRegister.apply {
+            layoutParams = (layoutParams as LinearLayout.LayoutParams).apply {
+                weight = numberDisplay
+            }
+        }
     }
 
     private fun blackout(flag: Boolean) =

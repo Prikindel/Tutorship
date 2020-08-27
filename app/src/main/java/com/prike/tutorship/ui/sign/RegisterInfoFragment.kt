@@ -42,6 +42,8 @@ class RegisterInfoFragment : SignFragmentBase(R.layout.register_info_fragment) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        showProgressRegister(3f)
+
         // Прослушивание ввода даты рождения
         assignListenerEditText(oneNumberDay, twoNumberDay)
         assignListenerEditText(twoNumberDay, oneNumberMonth)

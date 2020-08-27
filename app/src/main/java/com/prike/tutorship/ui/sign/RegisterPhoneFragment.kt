@@ -10,6 +10,8 @@ class RegisterPhoneFragment : SignFragmentBase(R.layout.register_phone_fragment)
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        showProgressRegister(4f)
+
         //setTextTextInput(accountViewModel.getAccountRegister()?.firstName ?: "", etName)
 
         etPhoneCode.requestFocus()

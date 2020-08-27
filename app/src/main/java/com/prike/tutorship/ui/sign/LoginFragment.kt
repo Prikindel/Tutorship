@@ -12,6 +12,7 @@ import com.prike.tutorship.ui.core.ext.onSuccess
 import com.prike.tutorship.ui.fragment.BaseFragment
 import com.prike.tutorship.presenters.viewmodel.AccountViewModel
 import kotlinx.android.synthetic.main.fragment_login.*
+import kotlinx.android.synthetic.main.sign_layout.*
 
 class LoginFragment : BaseFragment() {
     override val layoutId = R.layout.fragment_login
@@ -32,6 +33,8 @@ class LoginFragment : BaseFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        base { viewsProgressRegister.visibility = View.GONE }
 
         btnLogin.setOnClickListener {
             if(validateFieldsNotEmpty()) {

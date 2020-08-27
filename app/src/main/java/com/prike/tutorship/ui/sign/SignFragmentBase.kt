@@ -7,6 +7,8 @@ import com.google.android.material.textfield.TextInputLayout
 import com.prike.tutorship.R
 import com.prike.tutorship.presenters.viewmodel.AccountViewModel
 import com.prike.tutorship.ui.App
+import com.prike.tutorship.ui.activity.BaseActivity
+import com.prike.tutorship.ui.activity.base
 import com.prike.tutorship.ui.fragment.BaseFragment
 
 open class SignFragmentBase(override val layoutId: Int) : BaseFragment() {
@@ -19,6 +21,10 @@ open class SignFragmentBase(override val layoutId: Int) : BaseFragment() {
         App.appComponent.inject(this)
         accountViewModel = getViewModel()
     }
+
+    fun hideProgressRegister() = (activity as SignActivity).hideProgressRegister()
+
+    fun showProgressRegister(numberDisplay: Float = 0f) = (activity as SignActivity).showProgressRegister(numberDisplay)
 
     protected fun getTextEditText(field: TextInputLayout) = field.editText?.text.toString()
 
