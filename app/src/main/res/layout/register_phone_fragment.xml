@@ -21,7 +21,7 @@
 
     <LinearLayout
         android:id="@+id/phoneLayout"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="32dp"
@@ -35,26 +35,30 @@
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/etPhoneCodeLayer"
             style="@style/EditTextDropdown"
-            android:layout_width="0dp"
+            android:layout_width="45dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:layout_marginEnd="8dp"
-            android:hint="@string/country"
-            tools:hint="@string/country">
+            android:layout_gravity="center_vertical"
+            android:layout_marginEnd="8dp">
 
             <AutoCompleteTextView
                 android:id="@+id/etPhoneCode"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"/>
+                android:layout_height="wrap_content"
+                android:gravity="end"
+                android:dropDownAnchor="@id/etPhoneCode"/>
 
         </com.google.android.material.textfield.TextInputLayout>
 
         <androidx.appcompat.widget.AppCompatEditText
             android:id="@+id/etPhoneNumber"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="4"
+            android:layout_gravity="center_vertical"
+            android:maxLength="14"
             android:selectAllOnFocus="true"
-            android:inputType="number"
+            android:inputType="phone"
             android:maxLines="1" />
 
     </LinearLayout>

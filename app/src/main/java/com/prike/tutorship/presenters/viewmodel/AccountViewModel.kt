@@ -49,6 +49,30 @@ class AccountViewModel @Inject constructor(
         registerUseCase(Register.Params(first_name, last_name, email, password, type, phone, birthday, sex, city)) { it.either(::handleFailure, ::handleRegister) }
     }
 
+    fun register(
+        account:    AccountEntity,
+        password:   String
+    ) {
+        registerUseCase(
+            Register.Params(
+                account.firstName,
+                account.lastName,
+                account.email,
+                password,
+                account.type,
+                account.phone,
+                account.birthday,
+                account.sex,
+                account.city
+            )
+        ) {
+            it.either(
+                ::handleFailure,
+                ::handleRegister
+            )
+        }
+    }
+
     fun login(email: String, password: String) {
         loginUseCase(Login.Params(email, password)) {
             it.either(::handleFailure, ::handleAccount)
@@ -79,25 +103,8 @@ class AccountViewModel @Inject constructor(
         this.accountRegisterData.value?.phone = phone
     }
 
-    fun emailRegister(email: String, password: String) {
-        registerUseCase(
-            Register.Params(
-                this.accountRegisterData.value!!.firstName,
-                this.accountRegisterData.value!!.lastName,
-                email,
-                password,
-                this.accountRegisterData.value!!.type,
-                this.accountRegisterData.value!!.phone,
-                this.accountRegisterData.value!!.birthday,
-                this.accountRegisterData.value!!.sex,
-                this.accountRegisterData.value!!.city
-            )
-        ) {
-            it.either(
-                ::handleFailure,
-                ::handleRegister
-            )
-        }
+    fun emailRegister(email: String) {
+        this.accountRegisterData.value?.email = email
     }
 
     fun getAccountRegister() = accountRegisterData.value

@@ -19,6 +19,8 @@ import com.prike.tutorship.ui.App
 import com.prike.tutorship.ui.core.ext.onFailure
 import com.prike.tutorship.ui.core.ext.onSuccess
 import kotlinx.android.synthetic.main.register_info_fragment.*
+import kotlinx.datetime.*
+import kotlinx.datetime.TimeZone
 import java.util.*
 
 class RegisterInfoFragment : SignFragmentBase(R.layout.register_info_fragment) {
@@ -34,13 +36,13 @@ class RegisterInfoFragment : SignFragmentBase(R.layout.register_info_fragment) {
             onSuccess(countriesData, ::renderCountries)
             onFailure(failureData, ::handleFailure)
         }
-
-        getCountries()
-        showProgress()
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        getCountries()
+        showProgress()
 
         showProgressRegister(3f)
 
@@ -66,9 +68,11 @@ class RegisterInfoFragment : SignFragmentBase(R.layout.register_info_fragment) {
         }
 
         btnMan.setOnClickListener {
+            nextStep("man")
             findNav(R.id.action_registerInfoFragment_to_registerPhoneFragment)
         }
         btnWoman.setOnClickListener {
+            nextStep("woman")
             findNav(R.id.action_registerInfoFragment_to_registerPhoneFragment)
         }
 
@@ -185,5 +189,21 @@ class RegisterInfoFragment : SignFragmentBase(R.layout.register_info_fragment) {
     private fun countiesItemsList() = residenceViewModel.getCountriesData().toStringList()
 
     private fun citiesItemsList() = residenceViewModel.getCitiesData().toStringList()
+
+    private fun nextStep(sex: String): Boolean {
+        val city = etCity.text.toString()
+        if (!validationDate() && city.isEmpty()) return false
+        accountViewModel.infoRegister(
+            "${getYear()}-${getMonth()}-${getDay()}"
+                .toLocalDate()
+                .atStartOfDayIn(TimeZone.UTC)
+                .epochSeconds
+                .toString(),
+            residenceViewModel.getCitiesData().cities.find { city == it.title }?.id ?: "",
+            sex
+        )
+
+        return true
+    }
 
 }

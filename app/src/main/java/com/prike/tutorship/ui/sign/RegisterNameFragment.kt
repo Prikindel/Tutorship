@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.view.View
 import com.prike.tutorship.R
 import kotlinx.android.synthetic.main.register_name_fragment.*
-import kotlinx.android.synthetic.main.sign_layout.*
 
 class RegisterNameFragment : SignFragmentBase(R.layout.register_name_fragment) {
 

@@ -1,14 +1,14 @@
 package com.prike.tutorship.ui.sign
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import android.util.Log
 import com.google.android.material.textfield.TextInputLayout
 import com.prike.tutorship.R
 import com.prike.tutorship.presenters.viewmodel.AccountViewModel
 import com.prike.tutorship.ui.App
-import com.prike.tutorship.ui.activity.BaseActivity
-import com.prike.tutorship.ui.activity.base
 import com.prike.tutorship.ui.fragment.BaseFragment
 
 open class SignFragmentBase(override val layoutId: Int) : BaseFragment() {
@@ -16,6 +16,7 @@ open class SignFragmentBase(override val layoutId: Int) : BaseFragment() {
 
     protected lateinit var accountViewModel: AccountViewModel
 
+    @SuppressLint("HardwareIds")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         App.appComponent.inject(this)
@@ -58,5 +59,9 @@ open class SignFragmentBase(override val layoutId: Int) : BaseFragment() {
                 checkedEditText(this@addOnTextChangedListener)
             }
         })
+    }
+
+    fun logMessage(msg: String) {
+        Log.i("SIGN", msg)
     }
 }

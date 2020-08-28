@@ -211,7 +211,9 @@
                     <AutoCompleteTextView
                         android:id="@+id/etCountry"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"/>
+                        android:layout_height="match_parent"
+                        android:gravity="end"
+                        android:dropDownAnchor="@id/etCountryLayer" />
 
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -228,7 +230,9 @@
                     <AutoCompleteTextView
                         android:id="@+id/etCity"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent" />
+                        android:layout_height="match_parent"
+                        android:gravity="end"
+                        android:dropDownAnchor="@id/etCity" />
 
                 </com.google.android.material.textfield.TextInputLayout>
 
