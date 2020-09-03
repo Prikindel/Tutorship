@@ -1,0 +1,306 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    style="@style/RegisterFragmentContainer">
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cardBirthday"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginBottom="8dp"
+        android:layout_weight="1"
+        app:cardBackgroundColor="@color/backgroundSignCard" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:orientation="vertical"
+            android:padding="8dp">
+
+            <TextView
+                android:id="@+id/textViewBirthday"
+                style="@style/TextHeadRegister"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:text="@string/what_is_your_info_birthday"
+                tools:text="@string/what_is_your_info_birthday" />
+
+            <LinearLayout
+                android:id="@+id/birthdayLayout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="16dp"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        style="@style/BirthdayTextViewDayMonthYear"
+                        android:text="@string/day_text" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <androidx.appcompat.widget.AppCompatEditText
+                            style="@style/EditTextBirthday"
+                            android:theme="@style/ThemeEditTextBirthday"
+                            android:id="@+id/oneNumberDay"
+                            android:hint="@string/numberDay"
+                            tools:hint="@string/numberDay" />
+
+                        <androidx.appcompat.widget.AppCompatEditText
+                            style="@style/EditTextBirthday"
+                            android:theme="@style/ThemeEditTextBirthday"
+                            android:id="@+id/twoNumberDay"
+                            android:hint="@string/numberDay"
+                            tools:hint="@string/numberDay" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        style="@style/BirthdayTextViewDayMonthYear"
+                        android:text="@string/month_text"/>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <androidx.appcompat.widget.AppCompatEditText
+                            android:id="@+id/oneNumberMonth"
+                            style="@style/EditTextBirthday"
+                            android:theme="@style/ThemeEditTextBirthday"
+                            android:hint="@string/numberMonth"
+                            tools:hint="@string/numberMonth" />
+
+                        <androidx.appcompat.widget.AppCompatEditText
+                            android:id="@+id/twoNumberMonth"
+                            style="@style/EditTextBirthday"
+                            android:theme="@style/ThemeEditTextBirthday"
+                            android:hint="@string/numberMonth"
+                            tools:hint="@string/numberMonth" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        style="@style/BirthdayTextViewDayMonthYear"
+                        android:text="@string/year_text" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <androidx.appcompat.widget.AppCompatEditText
+                            android:id="@+id/oneNumberYear"
+                            style="@style/EditTextBirthday"
+                            android:theme="@style/ThemeEditTextBirthday"
+                            android:hint="@string/numberYear"
+                            tools:hint="@string/numberYear" />
+
+                        <androidx.appcompat.widget.AppCompatEditText
+                            android:id="@+id/twoNumberYear"
+                            style="@style/EditTextBirthday"
+                            android:theme="@style/ThemeEditTextBirthday"
+                            android:hint="@string/numberYear"
+                            tools:hint="@string/numberYear" />
+
+                        <androidx.appcompat.widget.AppCompatEditText
+                            android:id="@+id/threeNumberYear"
+                            style="@style/EditTextBirthday"
+                            android:theme="@style/ThemeEditTextBirthday"
+                            android:hint="@string/numberYear"
+                            tools:hint="@string/numberYear" />
+
+                        <androidx.appcompat.widget.AppCompatEditText
+                            android:id="@+id/fourNumberYear"
+                            style="@style/EditTextBirthday"
+                            android:theme="@style/ThemeEditTextBirthday"
+                            android:hint="@string/numberYear"
+                            tools:hint="@string/numberYear" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/birthdayError"
+                style="@style/birthdayTextViewError"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/error_birthday_date" />
+
+        </LinearLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cardCity"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginBottom="8dp"
+        android:layout_weight="1"
+        app:cardBackgroundColor="@color/backgroundSignCard" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:orientation="vertical"
+            android:padding="8dp">
+
+            <TextView
+                android:id="@+id/textViewCity"
+                style="@style/TextHeadRegister"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:text="@string/what_is_your_info_city"
+                tools:text="@string/what_is_your_info_city" />
+
+            <LinearLayout
+                android:id="@+id/cityLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_gravity="center_horizontal"
+                android:orientation="horizontal" >
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/etCountryLayer"
+                    style="@style/EditTextDropdown"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:layout_marginEnd="8dp"
+                    android:hint="@string/country"
+                    tools:hint="@string/country">
+
+                    <AutoCompleteTextView
+                        android:id="@+id/etCountry"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="end"
+                        android:dropDownAnchor="@id/etCountryLayer" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/etCityLayer"
+                    style="@style/EditTextDropdown"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:layout_marginStart="8dp"
+                    android:hint="@string/city"
+                    tools:hint="@string/city">
+
+                    <AutoCompleteTextView
+                        android:id="@+id/etCity"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="end"
+                        android:dropDownAnchor="@id/etCity" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cardSex"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        app:cardBackgroundColor="@color/backgroundSignCard" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:orientation="vertical"
+            android:padding="8dp">
+
+            <TextView
+                android:id="@+id/textViewSex"
+                style="@style/TextHeadRegister"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:text="@string/what_is_your_info_sex"
+                tools:text="@string/what_is_your_info_sex" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="16dp"
+                android:orientation="horizontal" >
+
+                <Button
+                    android:id="@+id/btnMan"
+                    style="@style/Widget.MaterialComponents.Button.Icon"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    android:layout_weight="1"
+                    android:text="@string/man_sex" />
+
+                <Button
+                    android:id="@+id/btnWoman"
+                    style="@style/Widget.MaterialComponents.Button.Icon"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_weight="1"
+                    android:text="@string/woman_sex" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnLogin"
+        style="@style/ButtonSignText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="@string/already_have_account"/>
+
+</LinearLayout>

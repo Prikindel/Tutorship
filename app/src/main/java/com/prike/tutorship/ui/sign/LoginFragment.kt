@@ -10,8 +10,9 @@ import com.prike.tutorship.ui.App
 import com.prike.tutorship.ui.core.ext.onFailure
 import com.prike.tutorship.ui.core.ext.onSuccess
 import com.prike.tutorship.ui.fragment.BaseFragment
-import com.prike.tutorship.ui.presenters.viewmodel.AccountViewModel
+import com.prike.tutorship.presenters.viewmodel.AccountViewModel
 import kotlinx.android.synthetic.main.fragment_login.*
+import kotlinx.android.synthetic.main.sign_layout.*
 
 class LoginFragment : BaseFragment() {
     override val layoutId = R.layout.fragment_login
@@ -33,10 +34,16 @@ class LoginFragment : BaseFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        base { viewsProgressRegister.visibility = View.GONE }
+
         btnLogin.setOnClickListener {
             if(validateFieldsNotEmpty()) {
                 validateFields()
             }
+        }
+
+        btnNewRegister.setOnClickListener {
+            findNav(R.id.action_loginFragment_to_registerNameFragment)
         }
 
         btnRegister.setOnClickListener {
@@ -81,8 +88,8 @@ class LoginFragment : BaseFragment() {
 
     private fun renderAccount(account: AccountEntity?) {
         hideProgress()
-        showMessage(getString(R.string.account_login))
         findNav(R.id.action_loginFragment_to_appActivity)
+        base { finish() }
     }
 }
 

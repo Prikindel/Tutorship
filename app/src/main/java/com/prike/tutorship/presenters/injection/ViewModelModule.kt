@@ -1,9 +1,10 @@
-package com.prike.tutorship.ui.presenters.injection
+package com.prike.tutorship.presenters.injection
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.prike.tutorship.ui.presenters.viewmodel.AccountViewModel
-import com.prike.tutorship.ui.presenters.viewmodel.ViewModelFactory
+import com.prike.tutorship.presenters.viewmodel.AccountViewModel
+import com.prike.tutorship.presenters.viewmodel.ResidenceViewModel
+import com.prike.tutorship.presenters.viewmodel.ViewModelFactory
 import dagger.Binds
 import dagger.Module
 import dagger.multibindings.IntoMap
@@ -17,4 +18,9 @@ abstract class ViewModelModule {
     @IntoMap
     @ViewModelKey(AccountViewModel::class)
     abstract fun bindAccountViewModel(accountViewModel: AccountViewModel): ViewModel
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(ResidenceViewModel::class)
+    abstract fun bindResidenceViewModel(residenceViewModel: ResidenceViewModel): ViewModel
 }

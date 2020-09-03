@@ -1,4 +1,4 @@
-package com.prike.tutorship.ui.presenters.injection
+package com.prike.tutorship.presenters.injection
 
 import androidx.lifecycle.ViewModel
 import dagger.MapKey

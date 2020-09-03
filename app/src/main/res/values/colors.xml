@@ -2,19 +2,23 @@
 <resources>
     <color name="colorPrimary">@color/orange</color>
     <color name="colorPrimaryDark">@color/darkOrange</color>
+    <color name="colorAccent">@color/orange</color>
 
     <!-- Colors -->
     <color name="white">#FFFFFF</color>
     <color name="orange">#FFB74D</color>
     <color name="darkOrange">#F57C00</color>
     <color name="lightOrange">#FFF3E0</color>
+    <color name="lightOrangeCard">#FFF6E6</color>
     <color name="lightOrangeNavBottom">#E5DBC9</color>
     <color name="darkGray">#454e4f</color>
     <color name="blackout">#99000000</color>
     <color name="clarification">#00000000</color>
+    <color name="test">#673AB7</color>
 
     <!-- Background -->
     <color name="backgroundSign">@color/lightOrange</color>
+    <color name="backgroundSignCard">@color/lightOrangeCard</color>
     <color name="backgroundSignEditText">@color/lightOrange</color>
     <color name="backgroundBottomNavigation">@color/lightOrangeNavBottom</color>
     <color name="backgroundLoadApp">@color/orange</color>

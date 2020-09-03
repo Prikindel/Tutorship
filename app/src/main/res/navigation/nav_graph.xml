@@ -37,9 +37,109 @@
             app:exitAnim="@anim/fragment_open_exit"
             app:popEnterAnim="@anim/fragment_close_enter"
             app:popExitAnim="@anim/fragment_close_exit" />
+        <action
+            android:id="@+id/action_loginFragment_to_registerNameFragment"
+            app:destination="@id/registerNameFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out"
+            app:popEnterAnim="@android:anim/slide_in_left"
+            app:popExitAnim="@android:anim/slide_out_right"  />
     </fragment>
     <activity
         android:id="@+id/appActivity"
         android:name="com.prike.tutorship.ui.activity.AppActivity"
         android:label="AppActivity" />
+    <fragment
+        android:id="@+id/registerNameFragment"
+        android:name="com.prike.tutorship.ui.sign.RegisterNameFragment"
+        android:label="RegisterNameFragment"
+        tools:layout="@layout/register_name_fragment" >
+        <action
+            android:id="@+id/action_registerNameFragment_to_loginFragment"
+            app:destination="@id/loginFragment"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:exitAnim="@android:anim/slide_out_right"
+            app:popEnterAnim="@android:anim/fade_in"
+            app:popExitAnim="@android:anim/fade_out" />
+        <action
+            android:id="@+id/action_registerNameFragment_to_registerTypeFragment"
+            app:destination="@id/registerTypeFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out"
+            app:popEnterAnim="@android:anim/slide_in_left"
+            app:popExitAnim="@android:anim/slide_out_right"  />
+    </fragment>
+    <fragment
+        android:id="@+id/registerTypeFragment"
+        android:name="com.prike.tutorship.ui.sign.RegisterTypeFragment"
+        android:label="RegisterTypeFragment"
+        tools:layout="@layout/register_type_fragment">
+        <action
+            android:id="@+id/action_registerTypeFragment_to_loginFragment"
+            app:destination="@id/loginFragment"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:exitAnim="@android:anim/slide_out_right"
+            app:popEnterAnim="@android:anim/fade_in"
+            app:popExitAnim="@android:anim/fade_out" />
+        <action
+            android:id="@+id/action_registerTypeFragment_to_registerInfoFragment"
+            app:destination="@id/registerInfoFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out"
+            app:popEnterAnim="@android:anim/slide_in_left"
+            app:popExitAnim="@android:anim/slide_out_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/registerInfoFragment"
+        android:name="com.prike.tutorship.ui.sign.RegisterInfoFragment"
+        android:label="RegisterInfoFragment"
+        tools:layout="@layout/register_info_fragment">
+        <action
+            android:id="@+id/action_registerInfoFragment_to_loginFragment"
+            app:destination="@id/loginFragment"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:exitAnim="@android:anim/slide_out_right"
+            app:popEnterAnim="@android:anim/fade_in"
+            app:popExitAnim="@android:anim/fade_out"  />
+        <action
+            android:id="@+id/action_registerInfoFragment_to_registerPhoneFragment"
+            app:destination="@id/registerPhoneFragment"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out"
+            app:popEnterAnim="@android:anim/slide_in_left"
+            app:popExitAnim="@android:anim/slide_out_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/registerPhoneFragment"
+        android:name="com.prike.tutorship.ui.sign.RegisterPhoneFragment"
+        android:label="RegisterPhoneFragment"
+        tools:layout="@layout/register_phone_fragment">
+        <action
+            android:id="@+id/action_registerPhoneFragment_to_loginFragment"
+            app:destination="@id/loginFragment"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:exitAnim="@android:anim/slide_out_right"
+            app:popEnterAnim="@android:anim/fade_in"
+            app:popExitAnim="@android:anim/fade_out" />
+        <action
+            android:id="@+id/action_registerPhoneFragment_to_registerEmailFragment2"
+            app:destination="@id/registerEmailFragment2"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out"
+            app:popEnterAnim="@android:anim/slide_in_left"
+            app:popExitAnim="@android:anim/slide_out_right"  />
+    </fragment>
+    <fragment
+        android:id="@+id/registerEmailFragment2"
+        android:name="com.prike.tutorship.ui.sign.RegisterEmailFragment"
+        android:label="RegisterEmailFragment"
+        tools:layout="@layout/register_email_fragment">
+        <action
+            android:id="@+id/action_registerEmailFragment2_to_loginFragment"
+            app:destination="@id/loginFragment"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:exitAnim="@android:anim/slide_out_right"
+            app:popEnterAnim="@android:anim/fade_in"
+            app:popExitAnim="@android:anim/fade_out" />
+    </fragment>
 </navigation>

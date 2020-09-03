@@ -10,7 +10,7 @@ import com.prike.tutorship.ui.App
 import com.prike.tutorship.ui.core.ext.onFailure
 import com.prike.tutorship.ui.core.ext.onSuccess
 import com.prike.tutorship.ui.fragment.BaseFragment
-import com.prike.tutorship.ui.presenters.viewmodel.AccountViewModel
+import com.prike.tutorship.presenters.viewmodel.AccountViewModel
 import kotlinx.android.synthetic.main.fragment_register.*
 
 class RegisterFragment : BaseFragment() {
@@ -102,9 +102,30 @@ class RegisterFragment : BaseFragment() {
             showProgress()
 
             accountViewModel.register(
+                getTextEditText(etName),
+                getTextEditText(etLastName),
                 getTextEditText(etEmail),
-                getTextEditText(etPassword)
+                getTextEditText(etPassword),
+                when (type.checkedRadioButtonId) {
+                    R.id.teacher -> "1"
+                    R.id.student -> "2"
+                    else -> "1"
+                },
+                getTextEditText(etPhone),
+                getTextEditText(etBirthday),
+                when (sex.checkedRadioButtonId) {
+                    R.id.man -> "1"
+                    R.id.woman -> "2"
+                    else -> "1"
+                },
+                getTextEditText(etCity)
             )
+
+            /*accountViewModel.register(
+                getTextEditText(etEmail),
+                getTextEditText(etPassword),
+                getTextEditText(etName)
+            )*/
         }
     }
 

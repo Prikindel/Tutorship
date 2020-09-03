@@ -6,13 +6,21 @@
     <fragment
         android:id="@+id/timetable_page"
         android:name="com.prike.tutorship.ui.fragment.TimetableFragment"
-        android:label="TimetableFragment" />
+        android:label="TimetableFragment" >
+        <action
+            android:id="@+id/action_timetable_page_to_signActivity2"
+            app:destination="@id/signActivity2" />
+    </fragment>
     <fragment
         android:id="@+id/chat_page"
-        android:name="com.prike.tutorship.ui.fragment.ProfileFragment"
-        android:label="ProfileFragment" />
-    <fragment
-        android:id="@+id/profile_page"
         android:name="com.prike.tutorship.ui.fragment.ChatFragment"
         android:label="ChatFragment" />
+    <fragment
+        android:id="@+id/profile_page"
+        android:name="com.prike.tutorship.ui.fragment.ProfileFragment"
+        android:label="ProfileFragment" />
+    <activity
+        android:id="@+id/signActivity2"
+        android:name="com.prike.tutorship.ui.sign.SignActivity"
+        android:label="SignActivity" />
 </navigation>

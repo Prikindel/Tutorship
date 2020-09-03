@@ -1,13 +1,17 @@
-package com.prike.tutorship.ui.presenters.injection
+package com.prike.tutorship.presenters.injection
 
 import android.content.Context
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
+import com.prike.tutorship.data.account.AccountCache
 import com.prike.tutorship.data.account.AccountRemote
 import com.prike.tutorship.data.account.AccountRepositoryImpl
+import com.prike.tutorship.data.residence.ResidenceRemote
+import com.prike.tutorship.data.residence.ResidenceRepositoryImpl
 import com.prike.tutorship.domain.account.AccountRepository
 import com.prike.tutorship.domain.account.Authenticator
+import com.prike.tutorship.domain.residence.ResidenceRepository
 import com.prike.tutorship.ui.App
 import com.prike.tutorship.ui.core.navigation.Navigator
 import dagger.Module
@@ -25,9 +29,13 @@ class AppModule(
 
     @Provides
     @Singleton
-    fun provideAccountRepository(remote: AccountRemote): AccountRepository {
-        return AccountRepositoryImpl(remote)
+    fun provideAccountRepository(remote: AccountRemote, cache: AccountCache): AccountRepository {
+        return AccountRepositoryImpl(remote, cache)
     }
+
+    @Provides
+    @Singleton
+    fun provideResidenceRepository(remote: ResidenceRemote): ResidenceRepository = ResidenceRepositoryImpl(remote)
 
     @Provides
     @Singleton
@@ -35,7 +43,7 @@ class AppModule(
 
     @Provides
     @Singleton
-    fun provideAuthenticator(auth: FirebaseAuth): Authenticator = Authenticator(auth)
+    fun provideAuthenticator(cache: AccountCache): Authenticator = Authenticator(cache)
 
     @Provides
     @Singleton

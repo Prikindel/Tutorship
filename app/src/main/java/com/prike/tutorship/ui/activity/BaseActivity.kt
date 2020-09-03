@@ -63,14 +63,22 @@ abstract class BaseActivity : AppCompatActivity() {
         }
     }
 
+    fun showSoftKeyboard() {
+        if (currentFocus != null) {
+            val inputMethodManager = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+            inputMethodManager.toggleSoftInput(InputMethodManager.SHOW_FORCED, 0)
+        }
+    }
+
     fun handleFailure(failure: Failure?) {
         hideProgress()
         when (failure) {
             is Failure.NetworkConnectionError -> showMessage(getString(R.string.error_network))
             is Failure.ServerError -> showMessage(getString(R.string.error_server))
             is Failure.EmailAlreadyExistError -> showMessage(getString(R.string.error_email_already_exist))
+            is Failure.PhoneAlreadyExistError -> showMessage(getString(R.string.error_email_already_exist))
             is Failure.AuthError -> showMessage(getString(R.string.error_auth))
-            is Failure.UserIsNotFound -> showMessage(getString(R.string.uset_is_not_found))
+            is Failure.UserIsNotFound -> showMessage(getString(R.string.error_user_is_not_found))
         }
     }
 
@@ -84,9 +92,6 @@ abstract class BaseActivity : AppCompatActivity() {
         return vm
     }
 }
-
-inline fun FragmentManager.inTransaction(func: FragmentTransaction.() -> FragmentTransaction) =
-    beginTransaction().func().commit()
 
 inline fun Activity?.base(block: BaseActivity.() -> Unit) {
     (this as? BaseActivity)?.let(block)
