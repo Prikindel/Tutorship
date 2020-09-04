@@ -17,7 +17,8 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="m">
         <!-- ACTIVITIES -->
-        <activity android:name=".ui.sign.SignActivity">
+        <activity android:name=".ui.sign.SignActivity"
+            android:windowSoftInputMode="adjustUnspecified" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

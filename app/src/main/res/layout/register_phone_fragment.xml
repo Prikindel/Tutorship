@@ -44,9 +44,9 @@
             <AutoCompleteTextView
                 android:id="@+id/etPhoneCode"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="end"
-                android:dropDownAnchor="@id/etPhoneCode"/>
+                android:layout_height="match_parent"
+                android:dropDownAnchor="@id/etPhoneCode"
+                android:gravity="end" />
 
         </com.google.android.material.textfield.TextInputLayout>
 

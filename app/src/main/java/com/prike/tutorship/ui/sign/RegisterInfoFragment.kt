@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.util.Log
+import android.view.KeyEvent
 import android.view.View
 import android.widget.ArrayAdapter
 import android.widget.AutoCompleteTextView
@@ -47,14 +48,14 @@ class RegisterInfoFragment : SignFragmentBase(R.layout.register_info_fragment) {
         showProgressRegister(3f)
 
         // Прослушивание ввода даты рождения
-        assignListenerEditText(oneNumberDay, twoNumberDay)
-        assignListenerEditText(twoNumberDay, oneNumberMonth)
-        assignListenerEditText(oneNumberMonth, twoNumberMonth)
-        assignListenerEditText(twoNumberMonth, oneNumberYear)
-        assignListenerEditText(oneNumberYear, twoNumberYear)
-        assignListenerEditText(twoNumberYear, threeNumberYear)
-        assignListenerEditText(threeNumberYear, fourNumberYear)
-        assignListenerEditText(fourNumberYear, etCountry)
+        assignListenerEditText(oneNumberDay,    twoNumberDay,       oneNumberDay)
+        assignListenerEditText(twoNumberDay,    oneNumberMonth,     oneNumberDay)
+        assignListenerEditText(oneNumberMonth,  twoNumberMonth,     twoNumberDay)
+        assignListenerEditText(twoNumberMonth,  oneNumberYear,      oneNumberMonth)
+        assignListenerEditText(oneNumberYear,   twoNumberYear,      twoNumberMonth)
+        assignListenerEditText(twoNumberYear,   threeNumberYear,    oneNumberYear)
+        assignListenerEditText(threeNumberYear, fourNumberYear,     twoNumberYear)
+        assignListenerEditText(fourNumberYear,  etCountry,          threeNumberYear)
 
         etCountry.setOnItemClickListener { adapterView, view, i, l ->
             showProgress()
@@ -81,15 +82,42 @@ class RegisterInfoFragment : SignFragmentBase(R.layout.register_info_fragment) {
         }
     }
 
-    private fun assignListenerEditText(editText: EditText, toEditText: View, func: () -> Unit = {}) {
+    /**
+     * Применяет слушателя нажатий клавиш к полю editText
+     *
+     * @param editText - EditText, к которому будет применен слушатель
+     * @param toEditText - view, к которому будет передан фокус при успешном срабатывании условия слушателя ввода символа
+     * @param endEditText - EditText, к которому будет передан фокус при успешном срабатывании условия слушателя удаления символа
+     * @param func - функция, которая будет выполнена при срабатывании условия ввода символа
+     */
+    private fun assignListenerEditText(editText: EditText, toEditText: View, endEditText: EditText, func: () -> Unit = {}) {
+        /**
+         * Обработка нажатия клавиши стереть при пустом EditText
+         * Необходимо для удобного стирания даты рождения
+         * переводим фокус на пердыдущий EditText (параметр endEditText)
+         * и очищаем его
+         */
+        editText.setOnKeyListener { view, i, keyEvent ->
+            if (keyEvent.action == KeyEvent.ACTION_DOWN
+                && keyEvent.keyCode == KeyEvent.KEYCODE_DEL
+                && (view as EditText).text.isEmpty()
+            ) {
+                endEditText.requestFocus()
+                endEditText.text.clear()
+            }
+            false
+        }
+
+        /**
+         * Слушатель ввода символов
+         * При вводе одного символа переводится на следующий EditText (параметр toEditText)
+         */
         editText.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(p0: Editable?) {
                 validationDate()
             }
 
-            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-                // code
-            }
+            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) = Unit
 
             override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
                 if (p1 == 0 && p3 == 1) {

@@ -1,6 +1,5 @@
 package com.prike.tutorship.remote.core
 
-import android.util.Log
 import com.google.android.gms.tasks.Task
 import com.google.android.gms.tasks.Tasks
 import com.prike.tutorship.domain.type.Either
@@ -33,13 +32,11 @@ class Request @Inject constructor(private val networkHandler: NetworkHandler) {
     private fun <T : BaseResponse, R> execute(call: Call<T>, transform: (T) -> R): Either<Failure, R> {
         return try {
             val response = call.execute()
-            Log.i("TAG", response.body().toString())
             when (response.isSucceed()) {
                 true -> Either.Right(transform(response.body()!!))
                 false -> Either.Left(response.parseError())
             }
         } catch (exception: Throwable) {
-            Log.e("TAG", exception.message)
             Either.Left(Failure.ServerError)
         }
     }
