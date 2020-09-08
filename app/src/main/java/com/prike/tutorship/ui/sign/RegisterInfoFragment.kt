@@ -70,11 +70,9 @@ class RegisterInfoFragment : SignFragmentBase(R.layout.register_info_fragment) {
 
         btnMan.setOnClickListener {
             nextStep("man")
-            findNav(R.id.action_registerInfoFragment_to_registerPhoneFragment)
         }
         btnWoman.setOnClickListener {
             nextStep("woman")
-            findNav(R.id.action_registerInfoFragment_to_registerPhoneFragment)
         }
 
         btnLogin.setOnClickListener {
@@ -220,7 +218,10 @@ class RegisterInfoFragment : SignFragmentBase(R.layout.register_info_fragment) {
 
     private fun nextStep(sex: String): Boolean {
         val city = etCity.text.toString()
-        if (!validationDate() && city.isEmpty()) return false
+        if (!validationDate() && city.isEmpty()) {
+            showMessage(getString(R.string.error_info_fields_empty))
+            return false
+        }
         accountViewModel.infoRegister(
             "${getYear()}-${getMonth()}-${getDay()}"
                 .toLocalDate()
@@ -230,6 +231,8 @@ class RegisterInfoFragment : SignFragmentBase(R.layout.register_info_fragment) {
             residenceViewModel.getCitiesData().cities.find { city == it.title }?.id ?: "",
             sex
         )
+
+        findNav(R.id.action_registerInfoFragment_to_registerPhoneFragment)
 
         return true
     }

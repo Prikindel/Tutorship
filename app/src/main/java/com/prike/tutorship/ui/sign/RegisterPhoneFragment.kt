@@ -4,6 +4,7 @@ import android.content.Context
 import android.os.Bundle
 import android.telephony.PhoneNumberFormattingTextWatcher
 import android.telephony.TelephonyManager
+import android.text.TextUtils
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
@@ -30,7 +31,6 @@ class RegisterPhoneFragment : SignFragmentBase(R.layout.register_phone_fragment)
 
         btnNextStep.setOnClickListener {
             nextStep()
-            findNav(R.id.action_registerPhoneFragment_to_registerEmailFragment2)
         }
 
         btnLogin.setOnClickListener {
@@ -69,9 +69,20 @@ class RegisterPhoneFragment : SignFragmentBase(R.layout.register_phone_fragment)
     }
 
     private fun nextStep(): Boolean {
-        if (etPhoneCode.text.isEmpty() && etPhoneNumber.text.isNullOrEmpty()) return false
+        if (etPhoneCode.text.isEmpty() || etPhoneNumber.text.isNullOrEmpty()) {
+            showMessage(getString(R.string.error_info_fields_empty))
+            return false
+        }
+        if (!etPhoneNumber.text.toString().isPhoneValid()) {
+            showMessage(getString(R.string.error_info_fields_empty))
+            return false
+        }
         accountViewModel.phoneRegister(etPhoneCode.text.toString() + etPhoneNumber.text?.replace(Regex("[^0-9]"), ""))
+
+        findNav(R.id.action_registerPhoneFragment_to_registerEmailFragment2)
         return true
     }
 
 }
+
+fun String.isPhoneValid() = """^(?=.*[0-9]){8,}""".toRegex().matches(this)
