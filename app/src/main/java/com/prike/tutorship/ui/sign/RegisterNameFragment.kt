@@ -12,9 +12,6 @@ class RegisterNameFragment : SignFragmentBase(R.layout.register_name_fragment) {
 
         showProgressRegister(1f)
 
-        setTextTextInput(accountViewModel.getAccountRegister()?.firstName ?: "", etName)
-        setTextTextInput(accountViewModel.getAccountRegister()?.lastName  ?: "", etLastName)
-
         etName.requestFocus()
         //showSoftKeyboard()
 
@@ -35,5 +32,17 @@ class RegisterNameFragment : SignFragmentBase(R.layout.register_name_fragment) {
         }
     }
 
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
+
+        setTextTextInput(accountViewModel.getAccountRegister()?.firstName ?: "", etName)
+        setTextTextInput(accountViewModel.getAccountRegister()?.lastName  ?: "", etLastName)
+    }
+
     private fun checkFieldsOnEmpty() = checkedEditText(etName) || checkedEditText(etLastName)
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        accountViewModel.nameRegister(getTextEditText(etName), getTextEditText(etLastName))
+    }
 }

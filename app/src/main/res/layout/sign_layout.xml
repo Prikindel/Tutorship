@@ -42,11 +42,19 @@
         app:defaultNavHost="true"
         app:navGraph="@navigation/nav_graph" />
 
-    <ProgressBar
+    <FrameLayout
         android:id="@+id/progress_bar_load"
-        android:layout_width="142dp"
-        android:layout_height="127dp"
-        android:layout_centerInParent="true"
-        android:visibility="invisible" />
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="invisible"
+        android:clickable="true"
+        android:focusable="true">
+
+        <ProgressBar
+            android:layout_width="127dp"
+            android:layout_height="127dp"
+            android:layout_gravity="center" />
+
+    </FrameLayout>
 
 </RelativeLayout>

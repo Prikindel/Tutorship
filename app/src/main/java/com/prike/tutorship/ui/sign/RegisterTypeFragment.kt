@@ -12,8 +12,6 @@ class RegisterTypeFragment : SignFragmentBase(R.layout.register_type_fragment) {
 
         showProgressRegister(2f)
 
-        textView.text = generateHead()
-
         btnTeacher.setOnClickListener {
             accountViewModel.typeRegister("teacher")
             findNav(R.id.action_registerTypeFragment_to_registerInfoFragment)
@@ -27,6 +25,12 @@ class RegisterTypeFragment : SignFragmentBase(R.layout.register_type_fragment) {
         btnLogin.setOnClickListener {
             findNav(R.id.action_registerTypeFragment_to_loginFragment)
         }
+    }
+
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
+
+        textView.text = generateHead()
     }
 
     private fun generateHead() = getString(R.string.hello_info) + " " + accountViewModel.accountRegisterData.value?.firstName + "! \n" + getString(R.string.what_is_your_type)

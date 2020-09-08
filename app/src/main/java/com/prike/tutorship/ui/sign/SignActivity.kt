@@ -1,8 +1,8 @@
 package com.prike.tutorship.ui.sign
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.View
-import android.view.ViewGroup
 import android.widget.LinearLayout
 import com.prike.tutorship.R
 import com.prike.tutorship.presenters.viewmodel.AccountViewModel
@@ -53,6 +53,7 @@ class SignActivity : BaseActivity() {
         }
     }
 
+    @SuppressLint("UseCompatLoadingForDrawables")
     private fun blackout(flag: Boolean) =
         if (flag)
             fragmentContainer.foreground = getDrawable(R.color.foregroundBlackoutColor)

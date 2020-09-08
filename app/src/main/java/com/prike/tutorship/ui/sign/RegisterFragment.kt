@@ -6,11 +6,11 @@ import com.google.android.material.textfield.TextInputLayout
 import com.prike.tutorship.R
 import com.prike.tutorship.domain.account.AccountEntity
 import com.prike.tutorship.domain.type.None
+import com.prike.tutorship.presenters.viewmodel.AccountViewModel
 import com.prike.tutorship.ui.App
 import com.prike.tutorship.ui.core.ext.onFailure
 import com.prike.tutorship.ui.core.ext.onSuccess
 import com.prike.tutorship.ui.fragment.BaseFragment
-import com.prike.tutorship.presenters.viewmodel.AccountViewModel
 import kotlinx.android.synthetic.main.fragment_register.*
 
 class RegisterFragment : BaseFragment() {
@@ -139,5 +139,3 @@ class RegisterFragment : BaseFragment() {
         showMessage(getString(R.string.account_created))
     }
 }
-
-fun String.isPasswordValid() = """^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#${'$'}%!\-_?&])(?=\S+${'$'}).{8,}""".toRegex().matches(this)

@@ -7,8 +7,6 @@ import android.view.View
 import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.fragment.app.FragmentManager
-import androidx.fragment.app.FragmentTransaction
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
@@ -18,9 +16,6 @@ import kotlinx.android.synthetic.main.toolbar.*
 import javax.inject.Inject
 
 abstract class BaseActivity : AppCompatActivity() {
-
-    //abstract val fragment: BaseFragment
-
     @Inject
     lateinit var viewModelFactory: ViewModelProvider.Factory
 
@@ -76,7 +71,7 @@ abstract class BaseActivity : AppCompatActivity() {
             is Failure.NetworkConnectionError -> showMessage(getString(R.string.error_network))
             is Failure.ServerError -> showMessage(getString(R.string.error_server))
             is Failure.EmailAlreadyExistError -> showMessage(getString(R.string.error_email_already_exist))
-            is Failure.PhoneAlreadyExistError -> showMessage(getString(R.string.error_email_already_exist))
+            is Failure.PhoneAlreadyExistError -> showMessage(getString(R.string.error_phone_already_exist))
             is Failure.AuthError -> showMessage(getString(R.string.error_auth))
             is Failure.UserIsNotFound -> showMessage(getString(R.string.error_user_is_not_found))
         }

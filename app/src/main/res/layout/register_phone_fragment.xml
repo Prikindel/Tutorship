@@ -59,7 +59,12 @@
             android:maxLength="14"
             android:selectAllOnFocus="true"
             android:inputType="phone"
-            android:maxLines="1" />
+            android:maxLines="1"
+            android:focusable="true" >
+
+            <requestFocus />
+
+        </androidx.appcompat.widget.AppCompatEditText>
 
     </LinearLayout>
 

@@ -1,6 +1,7 @@
 package com.prike.tutorship.ui.sign
 
 import android.os.Bundle
+import android.text.TextUtils
 import android.view.View
 import com.google.android.material.textfield.TextInputLayout
 import com.prike.tutorship.R
@@ -43,23 +44,48 @@ class RegisterEmailFragment : SignFragmentBase(R.layout.register_email_fragment)
         }
     }
 
+    /**
+     * Проверяет переданное поле на пустоту
+     *
+     * @param field - TextInputLayout (поле ввода данных)
+     * @return Boolean - резуьтат проверки
+     */
     private fun validateField(field: TextInputLayout) =
         if (getTextEditText(field).isEmpty()) {
-            field.error = getString(R.string.error_field_must_not_be_empty)
+            field.showHelper(getString(R.string.error_field_must_not_be_empty))
             false
         } else {
-            field.error = null
+            field.hideHelper()
             true
         }
 
-    private fun validateFieldsNotEmpty(allFields: Array<TextInputLayout>): Boolean {
+    /**
+     * Проверяет переданные поля ввода на валидность.
+     *
+     * @param allFields - Список полей ввода
+     * @return Boolean - результат проверки
+     */
+    private fun validateFieldsNotEmpty(allFields: List<TextInputLayout>): Boolean {
         var allValid = true
         for (field in allFields) {
-            allValid = (if (validateField(field)) validateFieldsData(field) else false) && allValid
+            allValid = (
+                    if (validateField(field))           // Проверка на наличие введнных данных
+                        validateFieldsData(field)       // Проверка на правильность введенных данных
+                    else
+                        false
+                    )
+                    && allValid
         }
         return allValid
     }
 
+    /**
+     * Проверка правильности введенных данных в переданном поле.
+     * Вывод информации о некоректности данных
+     *
+     * @param field - поле ввода
+     * @return Boolean - результат проверки
+     */
     private fun validateFieldsData(field: TextInputLayout): Boolean {
         var errorMessage = ""
         val valid = when (field.id) {
@@ -68,30 +94,45 @@ class RegisterEmailFragment : SignFragmentBase(R.layout.register_email_fragment)
                 getTextEditText(field).isEmailValid()
             }
             R.id.etPassword -> {
-                errorMessage = getString(R.string.error_password_not_valid)
+                errorMessage = getString(R.string.error_password_symbols)
                 getTextEditText(field).isPasswordValid()
             }
             else -> true
         }
 
         if (!valid)
-            field.error = errorMessage
+            field.showHelper(errorMessage)
         else
-            field.error = null
+            field.hideHelper()
 
         return valid
     }
 
-    private fun validateFields(): Boolean = validateFieldsNotEmpty(arrayOf(etEmail, etPassword, etReplPassword)) && validatePasswords()
+    /**
+     * Создает список из полей ввода данных и отправляет их на проверку валидности.
+     *
+     * @return Boolean - результат проверки
+     */
+    private fun validateFields(): Boolean = validateFieldsNotEmpty(listOf(etEmail, etPassword, etReplPassword)) && validatePasswords()
 
+    /**
+     * Сравнивает пароли между собой
+     *
+     * @return Boolean - сравнение
+     */
     private fun validatePasswords(): Boolean {
         val valid = getTextEditText(etPassword) == getTextEditText(etReplPassword)
         if (!valid) {
-            showMessage(getString(R.string.error_password_mismatch))
+            etReplPassword.showHelper(getString(R.string.error_password_mismatch))
         }
         return valid
     }
 
+    /**
+     * Метод регистрации.
+     * Проверяет поля на валидность и вызывает метод регистрации
+     *
+     */
     private fun register() {
         hideSoftKeyboard()
 
@@ -118,4 +159,16 @@ class RegisterEmailFragment : SignFragmentBase(R.layout.register_email_fragment)
     }
 }
 
-//fun String.isPasswordValid() = """^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#${'$'}%!\-_?&])(?=\S+${'$'}).{8,}""".toRegex().matches(this)
+// TextInputLayout helper text
+fun TextInputLayout.showHelper(message: String) {
+    isHelperTextEnabled = true
+    helperText = message
+}
+
+fun TextInputLayout.hideHelper() {
+    isHelperTextEnabled = false
+}
+
+// Validations strings
+fun String.isEmailValid() = !TextUtils.isEmpty(this) && android.util.Patterns.EMAIL_ADDRESS.matcher(this).matches()
+fun String.isPasswordValid() = """^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#${'$'}%!\-_?&])(?=\S+${'$'}).{8,}""".toRegex().matches(this)

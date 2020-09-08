@@ -1,6 +1,5 @@
 package com.prike.tutorship.ui.sign
 
-import android.annotation.SuppressLint
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
@@ -16,10 +15,13 @@ open class SignFragmentBase(override val layoutId: Int) : BaseFragment() {
 
     protected lateinit var accountViewModel: AccountViewModel
 
-    @SuppressLint("HardwareIds")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         App.appComponent.inject(this)
+    }
+
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
         accountViewModel = getViewModel()
     }
 
@@ -63,5 +65,10 @@ open class SignFragmentBase(override val layoutId: Int) : BaseFragment() {
 
     fun logMessage(msg: String) {
         Log.i("SIGN", msg)
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        hideProgress()
     }
 }

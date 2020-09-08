@@ -28,12 +28,6 @@ class RegisterPhoneFragment : SignFragmentBase(R.layout.register_phone_fragment)
             logMessage(parent.getItemAtPosition(pos).toString())
         }
 
-
-        //setTextTextInput(accountViewModel.getAccountRegister()?.firstName ?: "", etName)
-
-        etPhoneCode.requestFocus()
-        //showSoftKeyboard()
-
         btnNextStep.setOnClickListener {
             nextStep()
             findNav(R.id.action_registerPhoneFragment_to_registerEmailFragment2)
