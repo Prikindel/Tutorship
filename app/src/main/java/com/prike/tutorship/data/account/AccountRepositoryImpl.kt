@@ -26,12 +26,18 @@ class AccountRepositoryImpl @Inject constructor(
     override fun login(email: String, password: String): Either<Failure, AccountEntity> = accountCache.getToken().flatMap {
         accountRemote.login(email, password, it)
     }.onNext {
-        //accountCache.saveAccount(it)
+        accountCache.saveAccount(it)
     }
+
+    override fun logout(): Either<Failure, None> = accountCache.logout()
 
     override fun getAccount(): Either<Failure, AccountEntity> = accountCache.getAccount()
 
-    override fun updateAccountToken(token: String): Either<Failure, None> = accountCache.saveToken(token)
+    override fun updateAccountToken(token: String): Either<Failure, None> {
+        accountCache.saveToken(token)
 
-    override fun logout(): Either<Failure, None> = accountCache.logout()
+        return accountCache.getAccount().flatMap {
+            accountRemote.updateToken(it.id, token, it.token)
+        }
+    }
 }

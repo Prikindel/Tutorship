@@ -14,11 +14,9 @@ class AccountCacheImpl @Inject constructor(
 
     override fun saveToken(token: String): Either<Failure, None> = prefsManager.saveToken(token)
 
-    override fun getAccount(): Either<Failure, AccountEntity> {
-        TODO("Not yet implemented")
-    }
+    override fun getAccount(): Either<Failure, AccountEntity> = prefsManager.getAccount()
 
-    override fun logout(): Either<Failure, None> {
-        TODO("Not yet implemented")
-    }
+    override fun saveAccount(account: AccountEntity): Either<Failure, None> = prefsManager.saveAccount(account)
+
+    override fun logout(): Either<Failure, None> = prefsManager.removeAccount()
 }

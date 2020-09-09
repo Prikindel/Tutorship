@@ -34,6 +34,14 @@ class AccountRemoteImpl @Inject constructor(
         token: String
     ): Either<Failure, AccountEntity> = request.make(service.login(createLoginMap(email, password, token))) { it.user }
 
+    override fun updateToken(
+        userId: String,
+        token: String,
+        oldToken: String
+    ): Either<Failure, None> {
+        TODO("Not yet implemented")
+    }
+
     private fun firebaseUserToAccountEntity(result: AuthResult): AccountEntity {
         val user = result.user!!
         return AccountEntity(user.uid, user.displayName ?: "No name", "", "", user.email ?: "", "", "", "", "", "", "", "", "", "", "")

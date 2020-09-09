@@ -14,7 +14,7 @@ interface ApiService {
         // Methods
         const val REGISTER                      = "register.php"
         const val LOGIN                         = "login.php"
-        const val GET_COUNTRIES                  = "getCountries.php"
+        const val GET_COUNTRIES                 = "getCountries.php"
         const val GET_CITIES_WITHOUT_COUNTRY    = "getCitiesWithoutCountry.php"
 
         // Params
