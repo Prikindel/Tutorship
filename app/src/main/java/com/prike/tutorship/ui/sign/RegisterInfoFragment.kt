@@ -218,7 +218,7 @@ class RegisterInfoFragment : SignFragmentBase(R.layout.register_info_fragment) {
 
     private fun nextStep(sex: String): Boolean {
         val city = etCity.text.toString()
-        if (!validationDate() && city.isEmpty()) {
+        if (!validationDate() || city.isEmpty()) {
             showMessage(getString(R.string.error_info_fields_empty))
             return false
         }

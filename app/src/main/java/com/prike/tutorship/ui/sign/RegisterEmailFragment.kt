@@ -44,6 +44,11 @@ class RegisterEmailFragment : SignFragmentBase(R.layout.register_email_fragment)
         }
     }
 
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
+        setTextTextInput(accountViewModel.getAccountRegister()?.email ?: "", etEmail)
+    }
+
     /**
      * Проверяет переданное поле на пустоту
      *

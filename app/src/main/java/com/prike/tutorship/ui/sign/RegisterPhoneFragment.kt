@@ -73,11 +73,13 @@ class RegisterPhoneFragment : SignFragmentBase(R.layout.register_phone_fragment)
             showMessage(getString(R.string.error_info_fields_empty))
             return false
         }
-        if (!etPhoneNumber.text.toString().isPhoneValid()) {
+        val numberPhone = etPhoneNumber.text.toString().filter { it.isDigit() }
+
+        if (!numberPhone.isPhoneValid()) {
             showMessage(getString(R.string.error_info_fields_empty))
             return false
         }
-        accountViewModel.phoneRegister(etPhoneCode.text.toString() + etPhoneNumber.text?.replace(Regex("[^0-9]"), ""))
+        accountViewModel.phoneRegister(etPhoneCode.text.toString() + numberPhone)
 
         findNav(R.id.action_registerPhoneFragment_to_registerEmailFragment2)
         return true
@@ -85,4 +87,4 @@ class RegisterPhoneFragment : SignFragmentBase(R.layout.register_phone_fragment)
 
 }
 
-fun String.isPhoneValid() = """^(?=.*[0-9]){8,}""".toRegex().matches(this)
+fun String.isPhoneValid() = """^(?=.*[0-9]).{8,}""".toRegex().matches(this)
