@@ -12,12 +12,16 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
 import com.prike.tutorship.R
 import com.prike.tutorship.domain.type.Failure
+import com.prike.tutorship.ui.core.navigation.Navigator
 import kotlinx.android.synthetic.main.toolbar.*
 import javax.inject.Inject
 
 abstract class BaseActivity : AppCompatActivity() {
     @Inject
     lateinit var viewModelFactory: ViewModelProvider.Factory
+
+    @Inject
+    lateinit var navigator: Navigator
 
     open val contentId = R.layout.sign_layout
 
@@ -73,7 +77,7 @@ abstract class BaseActivity : AppCompatActivity() {
             is Failure.EmailAlreadyExistError       -> showMessage(getString(R.string.error_email_already_exist))
             is Failure.PhoneAlreadyExistError       -> showMessage(getString(R.string.error_phone_already_exist))
             is Failure.AuthError                    -> showMessage(getString(R.string.error_auth))
-            is Failure.TokenError                   -> showMessage(getString(R.string.error_token_invalid))
+            is Failure.TokenError                   -> navigator.showLogin(this)            // Запускаем activity аутентификации при данной ошибке
             is Failure.UserIsNotFound               -> showMessage(getString(R.string.error_user_is_not_found))
         }
     }
