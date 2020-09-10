@@ -9,6 +9,7 @@ class AccountViewModel @Inject constructor(
     val registerUseCase: Register,
     val loginUseCase: Login,
     val getAccount: GetAccount,
+    val getUser: GetUser,
     val logout: Logout
 ) : BaseViewModel() {
 
@@ -80,6 +81,8 @@ class AccountViewModel @Inject constructor(
     }
 
     fun getAccount() = getAccount(None()) { it.either(::handleFailure, ::handleAccount) }
+
+    fun getAccount(id: String) = getUser(GetUser.Params(id = id)) { it.either(::handleFailure, ::handleAccount) }
 
     fun logout() = logout(None()) { it.either(::handleFailure, ::handleLogout) }
 
