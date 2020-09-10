@@ -77,6 +77,7 @@ class SharedPrefsManager @Inject constructor(private val prefs: SharedPreference
             remove(ACCOUNT_FIRST_NAME)
             remove(ACCOUNT_LAST_NAME)
             remove(ACCOUNT_EMAIL)
+            remove(ACCOUNT_TOKEN)
             remove(ACCOUNT_TYPE)
             remove(ACCOUNT_PHONE)
             remove(ACCOUNT_IMAGE)

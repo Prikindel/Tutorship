@@ -1,14 +1,20 @@
 package com.prike.tutorship.domain.account
 
-import com.prike.tutorship.data.account.AccountCache
+import com.prike.tutorship.cache.SharedPrefsManager
 import javax.inject.Inject
 import javax.inject.Singleton
 
+/**
+ * Для проверки авторизации пользователя
+ * и выхода из аккаунта
+ *
+ * @property accountCache
+ */
 @Singleton
 class Authenticator @Inject constructor(
-    val accountCache: AccountCache
+    private val sharedPrefsManager: SharedPrefsManager
 ) {
-    fun userLoggedIn() = accountCache.getAccount()
+    fun userLoggedIn() = sharedPrefsManager.containsAnyAccount()
 
-    fun logout() = accountCache.logout()
+    fun logout() = sharedPrefsManager.removeAccount()
 }
