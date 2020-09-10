@@ -68,12 +68,13 @@ abstract class BaseActivity : AppCompatActivity() {
     fun handleFailure(failure: Failure?) {
         hideProgress()
         when (failure) {
-            is Failure.NetworkConnectionError -> showMessage(getString(R.string.error_network))
-            is Failure.ServerError -> showMessage(getString(R.string.error_server))
-            is Failure.EmailAlreadyExistError -> showMessage(getString(R.string.error_email_already_exist))
-            is Failure.PhoneAlreadyExistError -> showMessage(getString(R.string.error_phone_already_exist))
-            is Failure.AuthError -> showMessage(getString(R.string.error_auth))
-            is Failure.UserIsNotFound -> showMessage(getString(R.string.error_user_is_not_found))
+            is Failure.NetworkConnectionError       -> showMessage(getString(R.string.error_network))
+            is Failure.ServerError                  -> showMessage(getString(R.string.error_server))
+            is Failure.EmailAlreadyExistError       -> showMessage(getString(R.string.error_email_already_exist))
+            is Failure.PhoneAlreadyExistError       -> showMessage(getString(R.string.error_phone_already_exist))
+            is Failure.AuthError                    -> showMessage(getString(R.string.error_auth))
+            is Failure.TokenError                   -> showMessage(getString(R.string.error_token_invalid))
+            is Failure.UserIsNotFound               -> showMessage(getString(R.string.error_user_is_not_found))
         }
     }
 

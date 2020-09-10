@@ -75,6 +75,7 @@ fun <T : BaseResponse> Response<T>.parseError(): Failure {
         "email already exists"              -> Failure.EmailAlreadyExistError
         "phone already exists"              -> Failure.PhoneAlreadyExistError
         "error in email or password"        -> Failure.AuthError
+        "token is invalid"                  -> Failure.TokenError
         "error in country"                  -> Failure.CountryError
         else                                -> Failure.ServerError
     }
