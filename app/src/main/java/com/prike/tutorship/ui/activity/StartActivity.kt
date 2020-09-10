@@ -15,15 +15,11 @@ class StartActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.start_activity)
+        //setContentView(R.layout.start_activity)
 
         App.appComponent.inject(this)
 
-        navigator.showMain({
-            findNavController(R.id.fragmentContainer).navigate(R.id.action_loadAppFragment_to_appActivity)
-        }, {
-            findNavController(R.id.fragmentContainer).navigate(R.id.action_loadAppFragment_to_signActivity)
-        })
+        navigator.showMain(this)
 
         finish()
     }
