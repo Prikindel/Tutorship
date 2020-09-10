@@ -4,6 +4,7 @@ import android.content.Context
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
+import com.prike.tutorship.cache.SharedPrefsManager
 import com.prike.tutorship.data.account.AccountCache
 import com.prike.tutorship.data.account.AccountRemote
 import com.prike.tutorship.data.account.AccountRepositoryImpl
@@ -43,7 +44,7 @@ class AppModule(
 
     @Provides
     @Singleton
-    fun provideAuthenticator(cache: AccountCache): Authenticator = Authenticator(cache)
+    fun provideAuthenticator(sharedPrefsManager: SharedPrefsManager): Authenticator = Authenticator(sharedPrefsManager)
 
     @Provides
     @Singleton
