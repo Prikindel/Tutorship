@@ -49,4 +49,8 @@ class AppModule(
     @Provides
     @Singleton
     fun provideNavigator(authenticator: Authenticator): Navigator = Navigator(authenticator)
+
+    /*@Provides
+    @Singleton
+    fun provideFirebase()*/
 }

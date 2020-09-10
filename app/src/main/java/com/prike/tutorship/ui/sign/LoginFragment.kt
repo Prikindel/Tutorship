@@ -1,5 +1,6 @@
 package com.prike.tutorship.ui.sign
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import com.google.android.material.textfield.TextInputLayout
@@ -9,6 +10,7 @@ import com.prike.tutorship.presenters.viewmodel.AccountViewModel
 import com.prike.tutorship.ui.App
 import com.prike.tutorship.ui.core.ext.onFailure
 import com.prike.tutorship.ui.core.ext.onSuccess
+import com.prike.tutorship.ui.firebase.FirebaseService
 import com.prike.tutorship.ui.fragment.BaseFragment
 import kotlinx.android.synthetic.main.fragment_login.*
 import kotlinx.android.synthetic.main.sign_layout.*
@@ -83,6 +85,7 @@ class LoginFragment : BaseFragment() {
 
     private fun renderAccount(account: AccountEntity?) {
         hideProgress()
+        activity?.startService(Intent(context, FirebaseService::class.java))
         findNav(R.id.action_loginFragment_to_appActivity)
         base { finish() }
     }
