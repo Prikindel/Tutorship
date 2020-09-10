@@ -89,7 +89,7 @@ class AccountRemoteImpl @Inject constructor(
         token: String,
         oldToken: String
     ): Map<String, String> = HashMap<String, String>().apply {
-        put(ApiService.PARAMS_USER_ID, userId)
+        put(ApiService.PARAMS_ID, userId)
         put(ApiService.PARAM_TOKEN, token)
         put(ApiService.PARAM_OLD_TOKEN, oldToken)
     }

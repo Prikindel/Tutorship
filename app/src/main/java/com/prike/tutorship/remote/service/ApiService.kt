@@ -20,7 +20,7 @@ interface ApiService {
         const val CHECK_FOR_EXIST               = "checkForExist.php"
 
         // Params
-        const val PARAMS_USER_ID                = "user_id"
+        const val PARAMS_ID                     = "id"
         const val PARAM_FIRST_NAME              = "first_name"
         const val PARAM_LAST_NAME               = "last_name"
         const val PARAM_EMAIL                   = "email"
