@@ -126,5 +126,7 @@ class AccountViewModel @Inject constructor(
         super.onCleared()
         registerUseCase.unsubscribe()
         loginUseCase.unsubscribe()
+        getAccount.unsubscribe()
+        logout.unsubscribe()
     }
 }
