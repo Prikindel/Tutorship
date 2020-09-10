@@ -22,5 +22,6 @@ interface AccountRepository {
     fun getAccount(): Either<Failure, AccountEntity>
 
     fun updateAccountToken(token: String): Either<Failure, None>
+    fun checkForExist(field: String, value: String): Either<Failure, None>
     //fun updateAccountLastSeen(): Either<Failure, None>
 }

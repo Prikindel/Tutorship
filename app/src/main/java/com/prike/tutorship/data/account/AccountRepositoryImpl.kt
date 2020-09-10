@@ -40,4 +40,6 @@ class AccountRepositoryImpl @Inject constructor(
             accountRemote.updateToken(it.id, token, it.token)
         }
     }
+
+    override fun checkForExist(field: String, value: String): Either<Failure, None> = accountRemote.checkForExist(field, value)
 }

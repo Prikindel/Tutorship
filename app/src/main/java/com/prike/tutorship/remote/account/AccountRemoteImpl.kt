@@ -40,6 +40,11 @@ class AccountRemoteImpl @Inject constructor(
         oldToken: String
     ): Either<Failure, None> = request.make(service.updateToken(createUpdateTokenMap(userId, token, oldToken))) { None() }
 
+    override fun checkForExist(
+        field: String,
+        value: String
+    ): Either<Failure, None> = request.make(service.checkForExist(createCheckForExist(field, value))) { None() }
+
     private fun firebaseUserToAccountEntity(result: AuthResult): AccountEntity {
         val user = result.user!!
         return AccountEntity(user.uid, user.displayName ?: "No name", "", "", user.email ?: "", "", "", "", "", "", "", "", "", "", "")
@@ -87,5 +92,13 @@ class AccountRemoteImpl @Inject constructor(
         put(ApiService.PARAMS_USER_ID, userId)
         put(ApiService.PARAM_TOKEN, token)
         put(ApiService.PARAM_OLD_TOKEN, oldToken)
+    }
+
+    private fun createCheckForExist(
+        field: String,
+        value: String
+    ): Map<String, String> = HashMap<String, String>().apply {
+        put(ApiService.PARAM_FIELD, field)
+        put(ApiService.PARAM_VALUE, value)
     }
 }
