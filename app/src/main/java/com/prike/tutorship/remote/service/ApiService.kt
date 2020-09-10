@@ -18,6 +18,7 @@ interface ApiService {
         const val GET_COUNTRIES                 = "getCountries.php"
         const val GET_CITIES_WITHOUT_COUNTRY    = "getCitiesWithoutCountry.php"
         const val CHECK_FOR_EXIST               = "checkForExist.php"
+        const val GET_ACCOUNT                   = "getUser.php"
 
         // Params
         const val PARAMS_ID                     = "id"
@@ -44,6 +45,10 @@ interface ApiService {
     @FormUrlEncoded
     @POST(LOGIN)
     fun login(@FieldMap params: Map<String, String>): Call<AuthResponse>
+
+    @FormUrlEncoded
+    @POST(GET_ACCOUNT)
+    fun getAccount(@FieldMap params: Map<String, String>): Call<AuthResponse>
 
     @FormUrlEncoded
     @POST(UPDATE_TOKEN)

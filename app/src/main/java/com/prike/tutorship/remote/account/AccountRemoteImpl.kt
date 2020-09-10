@@ -34,6 +34,10 @@ class AccountRemoteImpl @Inject constructor(
         token: String
     ): Either<Failure, AccountEntity> = request.make(service.login(createLoginMap(email, password, token))) { it.user }
 
+    override fun getUser(id: String): Either<Failure, AccountEntity> = request.make(service.getAccount(createGetAccountMap(id = id))) { it.user }
+
+    override fun getUserByEmail(email: String): Either<Failure, AccountEntity> = request.make(service.getAccount(createGetAccountMap(email = email))) { it.user }
+
     override fun updateToken(
         userId: String,
         token: String,
@@ -43,7 +47,7 @@ class AccountRemoteImpl @Inject constructor(
     override fun checkForExist(
         field: String,
         value: String
-    ): Either<Failure, None> = request.make(service.checkForExist(createCheckForExist(field, value))) { None() }
+    ): Either<Failure, None> = request.make(service.checkForExist(createCheckForExistMap(field, value))) { None() }
 
     private fun firebaseUserToAccountEntity(result: AuthResult): AccountEntity {
         val user = result.user!!
@@ -94,11 +98,19 @@ class AccountRemoteImpl @Inject constructor(
         put(ApiService.PARAM_OLD_TOKEN, oldToken)
     }
 
-    private fun createCheckForExist(
+    private fun createCheckForExistMap(
         field: String,
         value: String
     ): Map<String, String> = HashMap<String, String>().apply {
         put(ApiService.PARAM_FIELD, field)
         put(ApiService.PARAM_VALUE, value)
+    }
+
+    private fun createGetAccountMap(
+        id: String = "",
+        email: String = ""
+    ): Map<String, String> = HashMap<String, String>().apply {
+        if (id.isNotEmpty()) put(ApiService.PARAMS_ID, id)
+        if (email.isNotEmpty()) put(ApiService.PARAM_EMAIL, email)
     }
 }

@@ -77,6 +77,7 @@ fun <T : BaseResponse> Response<T>.parseError(): Failure {
         "error in email or password"        -> Failure.AuthError
         "token is invalid"                  -> Failure.TokenError
         "error in country"                  -> Failure.CountryError
+        "error in get user"                 -> Failure.UserIsNotFound
         else                                -> Failure.ServerError
     }
 }

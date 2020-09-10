@@ -33,6 +33,12 @@ class AccountRepositoryImpl @Inject constructor(
 
     override fun getAccount(): Either<Failure, AccountEntity> = accountCache.getAccount()
 
+    override fun getUser(id: String, email: String): Either<Failure, AccountEntity> {
+        if (id.isNotEmpty()) return accountRemote.getUser(id)
+        if (email.isNotEmpty()) return accountRemote.getUserByEmail(email)
+        return Either.Left(Failure.ServerError)
+    }
+
     override fun updateAccountToken(token: String): Either<Failure, None> {
         accountCache.saveToken(token)
 
