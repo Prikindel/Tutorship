@@ -14,15 +14,18 @@ interface ApiService {
         // Methods
         const val REGISTER                      = "register.php"
         const val LOGIN                         = "login.php"
+        const val UPDATE_TOKEN                  = "updateUserToken.php"
         const val GET_COUNTRIES                 = "getCountries.php"
         const val GET_CITIES_WITHOUT_COUNTRY    = "getCitiesWithoutCountry.php"
 
         // Params
+        const val PARAMS_USER_ID                = "user_id"
         const val PARAM_FIRST_NAME              = "first_name"
         const val PARAM_LAST_NAME               = "last_name"
         const val PARAM_EMAIL                   = "email"
         const val PARAM_PASSWORD                = "password"
         const val PARAM_TOKEN                   = "token"
+        const val PARAM_OLD_TOKEN               = "old_token"
         const val PARAM_TYPE                    = "type"
         const val PARAM_PHONE                   = "phone"
         const val PARAM_BIRTHDAY                = "birthday"
@@ -38,6 +41,10 @@ interface ApiService {
     @FormUrlEncoded
     @POST(LOGIN)
     fun login(@FieldMap params: Map<String, String>): Call<AuthResponse>
+
+    @FormUrlEncoded
+    @POST(UPDATE_TOKEN)
+    fun updateToken(@FieldMap params: Map<String, String>): Call<BaseResponse>
 
     @POST(GET_COUNTRIES)
     fun getCountries(): Call<CountryResponse>

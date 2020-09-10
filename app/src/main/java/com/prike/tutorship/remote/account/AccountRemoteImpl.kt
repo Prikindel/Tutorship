@@ -38,9 +38,7 @@ class AccountRemoteImpl @Inject constructor(
         userId: String,
         token: String,
         oldToken: String
-    ): Either<Failure, None> {
-        TODO("Not yet implemented")
-    }
+    ): Either<Failure, None> = request.make(service.updateToken(createUpdateTokenMap(userId, token, oldToken))) { None() }
 
     private fun firebaseUserToAccountEntity(result: AuthResult): AccountEntity {
         val user = result.user!!
@@ -79,5 +77,15 @@ class AccountRemoteImpl @Inject constructor(
         put(ApiService.PARAM_EMAIL, email)
         put(ApiService.PARAM_PASSWORD, password)
         put(ApiService.PARAM_TOKEN, token)
+    }
+
+    private fun createUpdateTokenMap(
+        userId: String,
+        token: String,
+        oldToken: String
+    ): Map<String, String> = HashMap<String, String>().apply {
+        put(ApiService.PARAMS_USER_ID, userId)
+        put(ApiService.PARAM_TOKEN, token)
+        put(ApiService.PARAM_OLD_TOKEN, oldToken)
     }
 }
