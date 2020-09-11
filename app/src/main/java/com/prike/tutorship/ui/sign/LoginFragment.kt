@@ -85,7 +85,6 @@ class LoginFragment : BaseFragment() {
 
     private fun renderAccount(account: AccountEntity?) {
         hideProgress()
-        activity?.startService(Intent(context, FirebaseService::class.java))
         findNav(R.id.action_loginFragment_to_appActivity)
         base { finish() }
     }

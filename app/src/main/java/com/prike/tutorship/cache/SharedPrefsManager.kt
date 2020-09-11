@@ -1,6 +1,7 @@
 package com.prike.tutorship.cache
 
 import android.content.SharedPreferences
+import android.util.Log
 import com.prike.tutorship.domain.account.AccountEntity
 import com.prike.tutorship.domain.type.Either
 import com.prike.tutorship.domain.type.Failure
@@ -36,7 +37,7 @@ class SharedPrefsManager @Inject constructor(private val prefs: SharedPreference
             putString(ACCOUNT_LAST_NAME, account.lastName)
             putString(ACCOUNT_EMAIL, account.email)
             putString(ACCOUNT_TYPE, account.type)
-            putString(ACCOUNT_PHONE, account.type)
+            putString(ACCOUNT_PHONE, account.phone)
             putString(ACCOUNT_IMAGE, account.image)
         }.apply()
 
@@ -77,7 +78,6 @@ class SharedPrefsManager @Inject constructor(private val prefs: SharedPreference
             remove(ACCOUNT_FIRST_NAME)
             remove(ACCOUNT_LAST_NAME)
             remove(ACCOUNT_EMAIL)
-            remove(ACCOUNT_TOKEN)
             remove(ACCOUNT_TYPE)
             remove(ACCOUNT_PHONE)
             remove(ACCOUNT_IMAGE)
