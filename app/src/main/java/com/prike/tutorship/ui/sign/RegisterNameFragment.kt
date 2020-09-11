@@ -35,8 +35,11 @@ class RegisterNameFragment : SignFragmentBase(R.layout.register_name_fragment) {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
-        setTextTextInput(accountViewModel.getAccountRegister()?.firstName ?: "", etName)
-        setTextTextInput(accountViewModel.getAccountRegister()?.lastName  ?: "", etLastName)
+        val fname = accountViewModel.getAccountRegister()?.firstName    ?: ""
+        val lname = accountViewModel.getAccountRegister()?.lastName     ?: ""
+
+        if (!fname.isEmpty()) setTextTextInput(fname, etName)
+        if (!lname.isEmpty()) setTextTextInput(lname, etLastName)
     }
 
     private fun checkFieldsOnEmpty() = checkedEditText(etName) || checkedEditText(etLastName)
