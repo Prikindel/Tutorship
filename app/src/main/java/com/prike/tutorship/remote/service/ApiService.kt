@@ -14,14 +14,17 @@ interface ApiService {
         // Methods
         const val REGISTER                      = "register.php"
         const val LOGIN                         = "login.php"
-        const val UPDATE_TOKEN                  = "updateUserToken.php"
+        const val TOKENS                        = "tokens.php"
+        //const val UPDATE_TOKEN                  = "updateUserToken.php"
         const val GET_COUNTRIES                 = "getCountries.php"
         const val GET_CITIES_WITHOUT_COUNTRY    = "getCitiesWithoutCountry.php"
         const val CHECK_FOR_EXIST               = "checkForExist.php"
         const val GET_ACCOUNT                   = "getUser.php"
 
         // Params
+        const val PARAMS_API                    = "api"
         const val PARAMS_ID                     = "id"
+        const val PARAMS_USER_ID                = "user_id"
         const val PARAM_FIRST_NAME              = "first_name"
         const val PARAM_LAST_NAME               = "last_name"
         const val PARAM_EMAIL                   = "email"
@@ -36,6 +39,10 @@ interface ApiService {
         const val PARAM_COUNTRY                 = "country"
         const val PARAM_FIELD                   = "field"
         const val PARAM_VALUE                   = "value"
+
+        // Api
+        const val API_UPDATE_TOKEN              = "updateToken"
+        const val API_LOGOUT                    = "logout"
     }
 
     @FormUrlEncoded
@@ -47,11 +54,15 @@ interface ApiService {
     fun login(@FieldMap params: Map<String, String>): Call<AuthResponse>
 
     @FormUrlEncoded
+    @POST(TOKENS)
+    fun logout(@FieldMap params: Map<String, String>): Call<BaseResponse>
+
+    @FormUrlEncoded
     @POST(GET_ACCOUNT)
     fun getAccount(@FieldMap params: Map<String, String>): Call<AuthResponse>
 
     @FormUrlEncoded
-    @POST(UPDATE_TOKEN)
+    @POST(TOKENS)
     fun updateToken(@FieldMap params: Map<String, String>): Call<BaseResponse>
 
     @POST(GET_COUNTRIES)

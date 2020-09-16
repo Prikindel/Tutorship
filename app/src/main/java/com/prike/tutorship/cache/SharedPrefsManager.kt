@@ -32,13 +32,13 @@ class SharedPrefsManager @Inject constructor(private val prefs: SharedPreference
 
     fun saveAccount(account: AccountEntity): Either<Failure, None> {
         prefs.edit().apply {
-            putString(ACCOUNT_ID, account.id)
-            putString(ACCOUNT_FIRST_NAME, account.firstName)
-            putString(ACCOUNT_LAST_NAME, account.lastName)
-            putString(ACCOUNT_EMAIL, account.email)
-            putString(ACCOUNT_TYPE, account.type)
-            putString(ACCOUNT_PHONE, account.phone)
-            putString(ACCOUNT_IMAGE, account.image)
+            putString(ACCOUNT_ID,           account.id)
+            putString(ACCOUNT_FIRST_NAME,   account.firstName)
+            putString(ACCOUNT_LAST_NAME,    account.lastName)
+            putString(ACCOUNT_EMAIL,        account.email)
+            putString(ACCOUNT_TYPE,         account.type)
+            putString(ACCOUNT_PHONE,        account.phone)
+            putString(ACCOUNT_IMAGE,        account.image)
         }.apply()
 
         return Either.Right(None())

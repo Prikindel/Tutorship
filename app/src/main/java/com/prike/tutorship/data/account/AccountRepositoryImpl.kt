@@ -29,7 +29,10 @@ class AccountRepositoryImpl @Inject constructor(
         accountCache.saveAccount(it)
     }
 
-    override fun logout(): Either<Failure, None> = accountCache.logout()
+    override fun logout(): Either<Failure, None> = accountCache.getToken().flatMap {
+        accountCache.logout()
+        accountRemote.logout(it)
+    }
 
     override fun getAccount(): Either<Failure, AccountEntity> = accountCache.getAccount()
 

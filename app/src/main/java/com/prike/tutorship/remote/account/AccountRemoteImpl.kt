@@ -1,5 +1,6 @@
 package com.prike.tutorship.remote.account
 
+import com.google.android.gms.common.api.Api
 import com.google.firebase.auth.AuthResult
 import com.prike.tutorship.data.account.AccountRemote
 import com.prike.tutorship.domain.account.AccountEntity
@@ -33,6 +34,8 @@ class AccountRemoteImpl @Inject constructor(
         password: String,
         token: String
     ): Either<Failure, AccountEntity> = request.make(service.login(createLoginMap(email, password, token))) { it.user }
+
+    override fun logout(token: String): Either<Failure, None> = request.make(service.logout(createLogoutMap(token))) { None() }
 
     override fun getUser(id: String): Either<Failure, AccountEntity> = request.make(service.getAccount(createGetAccountMap(id = id))) { it.user }
 
@@ -88,12 +91,20 @@ class AccountRemoteImpl @Inject constructor(
         put(ApiService.PARAM_TOKEN, token)
     }
 
+    private fun createLogoutMap(
+        token: String
+    ): Map<String, String> = HashMap<String, String>().apply {
+        put(ApiService.PARAMS_API, ApiService.API_LOGOUT)
+        put(ApiService.PARAM_TOKEN, token)
+    }
+
     private fun createUpdateTokenMap(
         userId: String,
         token: String,
         oldToken: String
     ): Map<String, String> = HashMap<String, String>().apply {
-        put(ApiService.PARAMS_ID, userId)
+        put(ApiService.PARAMS_API, ApiService.API_UPDATE_TOKEN)
+        put(ApiService.PARAMS_USER_ID, userId)
         put(ApiService.PARAM_TOKEN, token)
         put(ApiService.PARAM_OLD_TOKEN, oldToken)
     }

@@ -25,6 +25,8 @@ interface AccountRemote {
 
     fun getUserByEmail(email: String): Either<Failure, AccountEntity>
 
+    fun logout(token: String): Either<Failure, None>
+
     fun updateToken(userId: String, token: String, oldToken: String): Either<Failure, None>
 
     fun checkForExist(field: String, value: String): Either<Failure, None>
