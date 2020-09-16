@@ -30,21 +30,7 @@ abstract class BaseActivity : AppCompatActivity() {
         setContentView(contentId)
 
         setSupportActionBar(toolbar)
-        //addFragment(savedInstanceState)
     }
-
-    /*override fun onBackPressed() {
-        (supportFragmentManager.findFragmentById(
-            R.id.fragmentContainer
-        ) as BaseFragment).onBackPressed()
-        super.onBackPressed()
-    }*/
-
-    /*fun addFragment(savedInstanceState: Bundle?) {
-        savedInstanceState ?: supportFragmentManager.inTransaction {
-            add(R.id.fragmentContainer, fragment)
-        }
-    }*/
 
 
     open fun showProgress() = progressStatus(View.VISIBLE)

@@ -18,15 +18,19 @@
         tools:targetApi="m">
 
         <!-- ACTIVITIES -->
-        <activity android:name=".ui.sign.SignActivity"
+        <activity
+            android:name=".ui.sign.SignActivity"
             android:windowSoftInputMode="adjustUnspecified"
             android:screenOrientation="portrait">
         </activity>
 
-        <activity android:name=".ui.activity.AppActivity">
+        <activity
+            android:name=".ui.activity.AppActivity">
         </activity>
 
-        <activity android:name=".ui.activity.StartActivity">
+        <activity
+            android:name=".ui.activity.StartActivity"
+            android:theme="@style/SplashTheme" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
