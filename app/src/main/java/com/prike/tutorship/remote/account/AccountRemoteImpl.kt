@@ -1,7 +1,5 @@
 package com.prike.tutorship.remote.account
 
-import com.google.android.gms.common.api.Api
-import com.google.firebase.auth.AuthResult
 import com.prike.tutorship.data.account.AccountRemote
 import com.prike.tutorship.domain.account.AccountEntity
 import com.prike.tutorship.domain.type.Either
@@ -13,8 +11,7 @@ import javax.inject.Inject
 
 class AccountRemoteImpl @Inject constructor(
     private val request: Request,
-    private val service: ApiService,
-    private val serviceFirebase: AccountApiService
+    private val service: ApiService
 ) : AccountRemote {
     override fun register(
         first_name: String,
@@ -51,11 +48,6 @@ class AccountRemoteImpl @Inject constructor(
         field: String,
         value: String
     ): Either<Failure, None> = request.make(service.checkForExist(createCheckForExistMap(field, value))) { None() }
-
-    private fun firebaseUserToAccountEntity(result: AuthResult): AccountEntity {
-        val user = result.user!!
-        return AccountEntity(user.uid, user.displayName ?: "No name", "", "", user.email ?: "", "", "", "", "", "", "", "", "", "", "")
-    }
 
     private fun createRegisterMap(
         first_name: String,

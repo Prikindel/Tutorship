@@ -1,9 +1,6 @@
 package com.prike.tutorship.presenters.injection
 
 import android.content.Context
-import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.ktx.auth
-import com.google.firebase.ktx.Firebase
 import com.prike.tutorship.cache.SharedPrefsManager
 import com.prike.tutorship.data.account.AccountCache
 import com.prike.tutorship.data.account.AccountRemote
@@ -37,10 +34,6 @@ class AppModule(
     @Provides
     @Singleton
     fun provideResidenceRepository(remote: ResidenceRemote): ResidenceRepository = ResidenceRepositoryImpl(remote)
-
-    @Provides
-    @Singleton
-    fun provideFirebaseAuth(): FirebaseAuth = Firebase.auth
 
     @Provides
     @Singleton

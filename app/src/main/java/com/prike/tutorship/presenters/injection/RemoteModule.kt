@@ -4,7 +4,6 @@ import android.content.Context
 import com.prike.tutorship.BuildConfig
 import com.prike.tutorship.data.account.AccountRemote
 import com.prike.tutorship.data.residence.ResidenceRemote
-import com.prike.tutorship.remote.account.AccountApiService
 import com.prike.tutorship.remote.account.AccountRemoteImpl
 import com.prike.tutorship.remote.core.NetworkHandler
 import com.prike.tutorship.remote.core.Request
@@ -30,8 +29,8 @@ class RemoteModule {
 
     @Singleton
     @Provides
-    fun provideAccountRemote(request: Request, service: ApiService, serviceFirebase: AccountApiService): AccountRemote {
-        return AccountRemoteImpl(request, service, serviceFirebase)
+    fun provideAccountRemote(request: Request, service: ApiService): AccountRemote {
+        return AccountRemoteImpl(request, service)
     }
 
     @Singleton
