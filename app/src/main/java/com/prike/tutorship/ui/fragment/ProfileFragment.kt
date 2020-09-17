@@ -37,7 +37,7 @@ class ProfileFragment : BaseFragment() {
     @SuppressLint("SetTextI18n")
     private fun handleAccount(account: AccountEntity?) {
         account?.let {
-            fio.text = "${it.firstName} ${it.lastName} ${it.patronymic}"
+            fio.text = "${it.lastName} ${it.firstName} ${it.patronymic}"
         }
     }
 }
