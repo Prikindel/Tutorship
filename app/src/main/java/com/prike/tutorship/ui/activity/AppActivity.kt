@@ -6,11 +6,15 @@ import android.view.MenuItem
 import androidx.navigation.findNavController
 import androidx.navigation.ui.NavigationUI
 import com.prike.tutorship.R
+import com.prike.tutorship.domain.type.None
 import com.prike.tutorship.ui.App
 import com.prike.tutorship.ui.core.ext.onFailure
 import com.prike.tutorship.presenters.viewmodel.AccountViewModel
+import com.prike.tutorship.ui.core.ext.onSuccess
+import com.prike.tutorship.ui.core.navigation.Navigator
 import kotlinx.android.synthetic.main.activity_app.*
 import kotlinx.android.synthetic.main.navigation_account.*
+import javax.inject.Inject
 
 class AppActivity : BaseActivity() {
     override val contentId = R.layout.activity_app
@@ -23,6 +27,7 @@ class AppActivity : BaseActivity() {
         App.appComponent.inject(this)
 
         accountViewModel = viewModel {
+            onSuccess(logoutData, ::handleLogout)
             onFailure(failureData, ::handleFailure)
         }
 
@@ -30,8 +35,7 @@ class AppActivity : BaseActivity() {
 
         btnLogout.setOnClickListener {
             accountViewModel.logout()
-            findNavController(R.id.fragmentContainer).navigate(R.id.action_timetable_page_to_signActivity2)
-            finish()
+            showProgress()
         }
     }
 
@@ -50,5 +54,11 @@ class AppActivity : BaseActivity() {
                 }
         }
         return super.onOptionsItemSelected(item)
+    }
+
+    private fun handleLogout(none: None? = None()) {
+        hideProgress()
+        navigator.showLogin(this)
+        finish()
     }
 }
