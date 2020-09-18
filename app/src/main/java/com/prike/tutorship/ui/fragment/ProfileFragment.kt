@@ -118,6 +118,7 @@ class ProfileFragment : BaseFragment() {
             fio.text = "${it.lastName} ${it.firstName} ${it.patronymic}"
             val connectStr = toConnectInfo(secondsToDate(it.lastSeen.toLong()))
             connect.text = connectStr
+
             /*logMessage(connectStr)
             logMessage(toConnectInfo("2010-06-01T22:19:44".toLocalDateTime()))
             logMessage(toConnectInfo("2020-06-01T22:19:44".toLocalDateTime()))
