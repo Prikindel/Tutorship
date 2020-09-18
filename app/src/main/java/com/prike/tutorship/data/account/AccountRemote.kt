@@ -27,6 +27,8 @@ interface AccountRemote {
 
     fun logout(token: String): Either<Failure, None>
 
+    fun updateLastSeen(token: String, id: String): Either<Failure, String>
+
     fun updateToken(userId: String, token: String, oldToken: String): Either<Failure, None>
 
     fun checkForExist(field: String, value: String): Either<Failure, None>

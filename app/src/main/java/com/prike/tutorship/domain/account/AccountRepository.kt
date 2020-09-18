@@ -19,6 +19,7 @@ interface AccountRepository {
     fun login(email: String, password: String): Either<Failure, AccountEntity>
     fun logout(): Either<Failure, None>
 
+    fun updateLastSeen(): Either<Failure, None>
     fun getAccount(): Either<Failure, AccountEntity>
     fun getUser(id: String, email: String): Either<Failure, AccountEntity>
 

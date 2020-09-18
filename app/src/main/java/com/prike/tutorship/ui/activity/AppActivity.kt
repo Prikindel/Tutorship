@@ -29,6 +29,8 @@ class AppActivity : BaseActivity() {
             onFailure(failureData, ::handleFailure)
         }
 
+        accountViewModel.updateLastSeen()
+
         NavigationUI.setupWithNavController(bottom_nav_view, findNavController(R.id.fragmentContainer))
 
         btnLogout.setOnClickListener {

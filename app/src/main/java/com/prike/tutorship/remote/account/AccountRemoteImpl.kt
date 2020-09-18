@@ -34,6 +34,8 @@ class AccountRemoteImpl @Inject constructor(
 
     override fun logout(token: String): Either<Failure, None> = request.make(service.logout(createLogoutMap(token))) { None() }
 
+    override fun updateLastSeen(token: String, id: String): Either<Failure, String> = request.make(service.updateLastSeen(createUpdateLastSeenMap(id, token))) { it.message }
+
     override fun getUser(id: String): Either<Failure, AccountEntity> = request.make(service.getAccount(createGetAccountMap(id = id))) { it.user }
 
     override fun getUserByEmail(email: String): Either<Failure, AccountEntity> = request.make(service.getAccount(createGetAccountMap(email = email))) { it.user }
@@ -115,5 +117,13 @@ class AccountRemoteImpl @Inject constructor(
     ): Map<String, String> = HashMap<String, String>().apply {
         if (id.isNotEmpty()) put(ApiService.PARAMS_ID, id)
         if (email.isNotEmpty()) put(ApiService.PARAM_EMAIL, email)
+    }
+
+    private fun createUpdateLastSeenMap(
+        id: String,
+        token: String
+    ): Map<String, String> = HashMap<String, String>().apply {
+        put(ApiService.PARAMS_ID, id)
+        put(ApiService.PARAM_TOKEN, token)
     }
 }

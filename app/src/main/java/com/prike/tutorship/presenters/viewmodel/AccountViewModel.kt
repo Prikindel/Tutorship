@@ -10,7 +10,8 @@ class AccountViewModel @Inject constructor(
     val loginUseCase: Login,
     val getAccount: GetAccount,
     val getUser: GetUser,
-    val logout: Logout
+    val logout: Logout,
+    val updateLastSeen: UpdateLastSeen
 ) : BaseViewModel() {
 
     var registerData: MutableLiveData<None> = MutableLiveData()
@@ -85,6 +86,8 @@ class AccountViewModel @Inject constructor(
     fun getAccount(id: String) = getUser(GetUser.Params(id = id)) { it.either(::handleFailure, ::handleAccount) }
 
     fun logout() = logout(None()) { it.either(::handleFailure, ::handleLogout) }
+
+    fun updateLastSeen() = updateLastSeen(None())
 
     // Методы регистрации
     fun typeRegister(type: String) {

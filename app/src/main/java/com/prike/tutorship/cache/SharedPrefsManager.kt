@@ -18,6 +18,7 @@ class SharedPrefsManager @Inject constructor(private val prefs: SharedPreference
         const val ACCOUNT_TYPE          = "account_type"
         const val ACCOUNT_PHONE         = "account_phone"
         const val ACCOUNT_IMAGE         = "account_image"
+        const val ACCOUNT_LAST_SEEN     = "account_last_seen"
     }
 
     fun saveToken(token: String): Either<Failure, None> {
@@ -39,6 +40,7 @@ class SharedPrefsManager @Inject constructor(private val prefs: SharedPreference
             putString(ACCOUNT_TYPE,         account.type)
             putString(ACCOUNT_PHONE,        account.phone)
             putString(ACCOUNT_IMAGE,        account.image)
+            putString(ACCOUNT_LAST_SEEN,    account.lastSeen)
         }.apply()
 
         return Either.Right(None())
@@ -66,10 +68,18 @@ class SharedPrefsManager @Inject constructor(private val prefs: SharedPreference
             "",
             "",
             "",
-            ""
+            prefs.getString(ACCOUNT_LAST_SEEN, "") ?: ""
         )
 
         return Either.Right(account)
+    }
+
+    fun updateLastSeen(lastSeen: String): Either<Failure, None> {
+        prefs.edit().apply {
+            putString(ACCOUNT_LAST_SEEN, lastSeen)
+        }.apply()
+
+        return Either.Right(None())
     }
 
     fun removeAccount(): Either<Failure, None> {
@@ -81,6 +91,7 @@ class SharedPrefsManager @Inject constructor(private val prefs: SharedPreference
             remove(ACCOUNT_TYPE)
             remove(ACCOUNT_PHONE)
             remove(ACCOUNT_IMAGE)
+            remove(ACCOUNT_LAST_SEEN)
         }.apply()
 
         return Either.Right(None())

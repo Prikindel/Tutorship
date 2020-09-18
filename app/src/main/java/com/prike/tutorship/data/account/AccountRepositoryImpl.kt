@@ -34,6 +34,12 @@ class AccountRepositoryImpl @Inject constructor(
         accountRemote.logout(it)
     }
 
+    override fun updateLastSeen(): Either<Failure, None> = accountCache.getAccount().flatMap {
+        accountRemote.updateLastSeen(it.token, it.id)
+    }.flatMap {
+        accountCache.updateLastSeen(it)
+    }
+
     override fun getAccount(): Either<Failure, AccountEntity> = accountCache.getAccount()
 
     override fun getUser(id: String, email: String): Either<Failure, AccountEntity> {

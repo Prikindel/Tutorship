@@ -15,6 +15,7 @@ interface ApiService {
         const val REGISTER                      = "register.php"
         const val LOGIN                         = "login.php"
         const val TOKENS                        = "tokens.php"
+        const val UPDATE_LAST_SEEN              = "updateLastSeen.php"
         //const val UPDATE_TOKEN                  = "updateUserToken.php"
         const val GET_COUNTRIES                 = "getCountries.php"
         const val GET_CITIES_WITHOUT_COUNTRY    = "getCitiesWithoutCountry.php"
@@ -60,6 +61,10 @@ interface ApiService {
     @FormUrlEncoded
     @POST(GET_ACCOUNT)
     fun getAccount(@FieldMap params: Map<String, String>): Call<AuthResponse>
+
+    @FormUrlEncoded
+    @POST(UPDATE_LAST_SEEN)
+    fun updateLastSeen(@FieldMap params: Map<String, String>): Call<BaseResponse>
 
     @FormUrlEncoded
     @POST(TOKENS)

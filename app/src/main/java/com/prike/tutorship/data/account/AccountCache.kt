@@ -9,6 +9,7 @@ interface AccountCache {
     fun getToken(): Either<Failure, String>
     fun saveToken(token: String): Either<Failure, None>
 
+    fun updateLastSeen(lastSeen: String): Either<Failure, None>
     fun logout(): Either<Failure, None>
 
     fun getAccount(): Either<Failure, AccountEntity>

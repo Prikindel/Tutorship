@@ -14,6 +14,8 @@ class AccountCacheImpl @Inject constructor(
 
     override fun saveToken(token: String): Either<Failure, None> = prefsManager.saveToken(token)
 
+    override fun updateLastSeen(lastSeen: String): Either<Failure, None> = prefsManager.updateLastSeen(lastSeen)
+
     override fun getAccount(): Either<Failure, AccountEntity> = prefsManager.getAccount()
 
     override fun saveAccount(account: AccountEntity): Either<Failure, None> = prefsManager.saveAccount(account)
