@@ -132,6 +132,14 @@ class ProfileFragment : BaseFragment() {
      */
     private fun stringToPhoneNumber(phone: String) = phone
 
+    /**
+     * Перевод даты рождения в возраст
+     *
+     * @param birthday
+     * @return
+     */
+    private fun stringToUserAge(birthday: String) = birthday
+
     @SuppressLint("SetTextI18n")
     private fun handleAccount(account: AccountEntity?) {
         account?.let {
@@ -140,6 +148,7 @@ class ProfileFragment : BaseFragment() {
             fio.text            = "${it.lastName} ${it.firstName} ${it.patronymic}"
             connect.text        = toConnectInfo(secondsToDate(it.lastSeen.toLong()))
             typeUser.text       = typeToString(it.type)
+            userAge.text        = stringToUserAge(it.birthday)
             phoneNumber.text    = stringToPhoneNumber(it.phone)
         }
     }

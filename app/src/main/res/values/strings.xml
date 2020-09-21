@@ -63,6 +63,7 @@
     <string name="type_user">Тип пользователя</string>
     <string name="lessons">Предметы</string>
     <string name="phone">Телефон</string>
+    <string name="user_age">Возраст</string>
 
     <!-- Actions -->
     <string name="account_created">Аккаунт создан</string>
