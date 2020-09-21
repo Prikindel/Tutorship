@@ -14,8 +14,10 @@ class SharedPrefsManager @Inject constructor(private val prefs: SharedPreference
         const val ACCOUNT_ID            = "account_id"
         const val ACCOUNT_FIRST_NAME    = "account_first_name"
         const val ACCOUNT_LAST_NAME     = "account_last_name"
+        const val ACCOUNT_PATRONYMIC    = "account_patronymic"
         const val ACCOUNT_EMAIL         = "account_email"
         const val ACCOUNT_TYPE          = "account_type"
+        const val ACCOUNT_BIRTHDAY      = "account_birthday"
         const val ACCOUNT_SEX           = "account_sex"
         const val ACCOUNT_PHONE         = "account_phone"
         const val ACCOUNT_CITY          = "account_city"
@@ -38,8 +40,10 @@ class SharedPrefsManager @Inject constructor(private val prefs: SharedPreference
             putString(ACCOUNT_ID,           account.id)
             putString(ACCOUNT_FIRST_NAME,   account.firstName)
             putString(ACCOUNT_LAST_NAME,    account.lastName)
+            putString(ACCOUNT_PATRONYMIC,   account.patronymic)
             putString(ACCOUNT_EMAIL,        account.email)
             putString(ACCOUNT_TYPE,         account.type)
+            putString(ACCOUNT_BIRTHDAY,     account.birthday)
             putString(ACCOUNT_SEX,          account.sex)
             putString(ACCOUNT_PHONE,        account.phone)
             putString(ACCOUNT_CITY,         account.city)
@@ -61,13 +65,13 @@ class SharedPrefsManager @Inject constructor(private val prefs: SharedPreference
             prefs.getString(ACCOUNT_ID, "") ?: "",
             prefs.getString(ACCOUNT_FIRST_NAME, "") ?: "",
             prefs.getString(ACCOUNT_LAST_NAME, "") ?: "",
-            "",
+            prefs.getString(ACCOUNT_PATRONYMIC, "") ?: "",
             prefs.getString(ACCOUNT_EMAIL, "") ?: "",
             prefs.getString(ACCOUNT_TOKEN, "") ?: "",
             prefs.getString(ACCOUNT_TYPE, "teacher") ?: "teacher",
             prefs.getString(ACCOUNT_PHONE, "") ?: "",
             prefs.getString(ACCOUNT_IMAGE, "") ?: "",
-            "",
+            prefs.getString(ACCOUNT_BIRTHDAY, "") ?: "",
             prefs.getString(ACCOUNT_SEX, "man") ?: "man",
             "",
             prefs.getString(ACCOUNT_CITY, "") ?: "",
