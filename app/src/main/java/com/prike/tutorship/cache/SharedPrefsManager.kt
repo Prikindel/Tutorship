@@ -18,6 +18,7 @@ class SharedPrefsManager @Inject constructor(private val prefs: SharedPreference
         const val ACCOUNT_TYPE          = "account_type"
         const val ACCOUNT_SEX           = "account_sex"
         const val ACCOUNT_PHONE         = "account_phone"
+        const val ACCOUNT_CITY          = "account_city"
         const val ACCOUNT_IMAGE         = "account_image"
         const val ACCOUNT_LAST_SEEN     = "account_last_seen"
     }
@@ -41,6 +42,7 @@ class SharedPrefsManager @Inject constructor(private val prefs: SharedPreference
             putString(ACCOUNT_TYPE,         account.type)
             putString(ACCOUNT_SEX,          account.sex)
             putString(ACCOUNT_PHONE,        account.phone)
+            putString(ACCOUNT_CITY,         account.city)
             putString(ACCOUNT_IMAGE,        account.image)
             putString(ACCOUNT_LAST_SEEN,    account.lastSeen)
         }.apply()
@@ -68,7 +70,7 @@ class SharedPrefsManager @Inject constructor(private val prefs: SharedPreference
             "",
             prefs.getString(ACCOUNT_SEX, "man") ?: "man",
             "",
-            "",
+            prefs.getString(ACCOUNT_CITY, "") ?: "",
             "",
             prefs.getString(ACCOUNT_LAST_SEEN, "") ?: ""
         )
