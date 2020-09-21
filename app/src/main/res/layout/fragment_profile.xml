@@ -23,7 +23,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginBottom="8dp"
-        android:text="@string/fio"
+        tools:text="@string/fio"
         app:layout_constraintBottom_toTopOf="@+id/connect"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/image_account"
@@ -36,7 +36,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginBottom="16dp"
-        android:text="@string/connect"
+        tools:text="@string/connect"
         app:layout_constraintBottom_toBottomOf="@+id/image_account"
         app:layout_constraintEnd_toEndOf="@+id/image_account"
         app:layout_constraintStart_toStartOf="@+id/image_account" />
@@ -85,14 +85,15 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginBottom="8dp"
-                android:text="Тип пользователя"/>
+                android:text="@string/type_user"/>
 
             <TextView
+                android:id="@+id/typeUser"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginBottom="8dp"
-                android:text="Преподаватель"/>
+                tools:text="Преподаватель"/>
 
         </com.google.android.material.circularreveal.CircularRevealLinearLayout>
 
@@ -107,7 +108,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
-                android:text="Предметы"
+                android:text="@string/lessons"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -127,12 +128,12 @@
                 <com.google.android.material.chip.Chip
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Математика" />
+                    tools:text="Математика" />
 
                 <com.google.android.material.chip.Chip
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Английский" />
+                    tools:text="Английский" />
 
             </com.google.android.material.chip.ChipGroup>
 
@@ -149,14 +150,16 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginBottom="8dp"
-                android:text="Телефон"/>
+                android:text="@string/phone"/>
 
             <TextView
+                android:id="@+id/phoneNumber"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginBottom="8dp"
-                android:text="+7 (999) 999-99-99"/>
+                android:autoLink="phone"
+                tools:text="+7 (999) 999-99-99"/>
 
         </androidx.appcompat.widget.LinearLayoutCompat>
 

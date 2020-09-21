@@ -47,8 +47,9 @@
     <string name="what_is_your_email">Укажи свой email и придумай пароль</string>
     <string name="hello_info">Привет, </string>
     <string name="next_step_registration">Продолжить</string>
-    <string name="teacher">Учитель</string>
+    <string name="teacher">Преподаватель</string>
     <string name="student">Ученик</string>
+    <string name="error_type">Неизвестный тип</string>
     <string name="numberDay">Д</string>
     <string name="numberMonth">М</string>
     <string name="numberYear">Г</string>
@@ -59,6 +60,9 @@
     <string name="day_text">День</string>
     <string name="month_text">Месяц</string>
     <string name="year_text">Год</string>
+    <string name="type_user">Тип пользователя</string>
+    <string name="lessons">Предметы</string>
+    <string name="phone">Телефон</string>
 
     <!-- Actions -->
     <string name="account_created">Аккаунт создан</string>

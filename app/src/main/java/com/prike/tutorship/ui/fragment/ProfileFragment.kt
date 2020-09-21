@@ -112,42 +112,35 @@ class ProfileFragment : BaseFragment() {
         else -> ""
     }
 
+    /**
+     * Переводит тип в строку, информирующую о том, какой тип пользователя
+     *
+     * @param type
+     * @return - описание типа (учитель или ученик)
+     */
+    private fun typeToString(type: String) = when (type) {
+        "teacher" -> getString(R.string.teacher)
+        "student" -> getString(R.string.student)
+        else -> getString(R.string.error_type)
+    }
+
+    /**
+     * Переводит строку с номером телефона в читабельный вид
+     *
+     * @param phone
+     * @return
+     */
+    private fun stringToPhoneNumber(phone: String) = phone
+
     @SuppressLint("SetTextI18n")
     private fun handleAccount(account: AccountEntity?) {
         account?.let {
-            fio.text = "${it.lastName} ${it.firstName} ${it.patronymic}"
-            val connectStr = toConnectInfo(secondsToDate(it.lastSeen.toLong()))
-            connect.text = connectStr
+            logMessage(it.toString())
 
-            /*logMessage(connectStr)
-            logMessage(toConnectInfo("2010-06-01T22:19:44".toLocalDateTime()))
-            logMessage(toConnectInfo("2020-06-01T22:19:44".toLocalDateTime()))
-            logMessage(toConnectInfo("2020-09-01T22:19:44".toLocalDateTime()))
-            logMessage(toConnectInfo("2020-09-17T22:19:44".toLocalDateTime()))
-            logMessage(toConnectInfo("2020-09-18T12:19:44".toLocalDateTime()))
-            logMessage(toConnectInfo("2020-09-18T16:19:44".toLocalDateTime()))
-            logMessage(toConnectInfo("2020-09-18T17:19:44".toLocalDateTime()))
-            logMessage(toConnectInfo("2020-09-18T18:00:44".toLocalDateTime()))
-            logMessage(toConnectInfo("2020-09-18T18:05:44".toLocalDateTime()))
-            logMessage(toConnectInfo("2020-09-18T18:11:44".toLocalDateTime()))
-            logMessage(toConnectInfo("2020-09-18T18:12:44".toLocalDateTime()))
-            logMessage(toConnectInfo("2020-09-18T18:13:44".toLocalDateTime()))
-            logMessage(toConnectInfo("2020-09-18T18:14:44".toLocalDateTime()))
-            logMessage(toConnectInfo("2020-09-18T18:15:44".toLocalDateTime()))
-            logMessage(toConnectInfo("2020-09-18T18:16:44".toLocalDateTime()))
-            logMessage(toConnectInfo("2020-09-18T18:17:44".toLocalDateTime()))
-            logMessage(toConnectInfo("2020-09-18T18:18:44".toLocalDateTime()))
-            logMessage(toConnectInfo("2020-09-18T18:19:44".toLocalDateTime()))
-            logMessage(toConnectInfo("2020-09-18T18:20:00".toLocalDateTime()))
-            logMessage(toConnectInfo("2020-09-18T18:20:44".toLocalDateTime()))
-            logMessage(toConnectInfo("2020-09-18T18:21:44".toLocalDateTime()))
-            logMessage(toConnectInfo("2020-09-18T18:45:44".toLocalDateTime()))
-            logMessage(toConnectInfo("2020-09-18T18:49:00".toLocalDateTime()))
-            logMessage(toConnectInfo("2020-09-18T18:54:44".toLocalDateTime()))
-            logMessage(toConnectInfo("2020-09-18T18:55:44".toLocalDateTime()))
-            logMessage(toConnectInfo("2020-09-18T18:58:44".toLocalDateTime()))
-            logMessage(toConnectInfo("2020-09-18T18:59:44".toLocalDateTime()))
-            logMessage(toConnectInfo("2020-09-18T17:59:44".toLocalDateTime()))*/
+            fio.text            = "${it.lastName} ${it.firstName} ${it.patronymic}"
+            connect.text        = toConnectInfo(secondsToDate(it.lastSeen.toLong()))
+            typeUser.text       = typeToString(it.type)
+            phoneNumber.text    = stringToPhoneNumber(it.phone)
         }
     }
 
