@@ -78,7 +78,7 @@
     <string name="profile_page">Профиль</string>
 
     <!-- Top Navigation Timetable -->
-    <string name="table_nav_timetable">Календарь</string>
+    <string name="calendar_nav_timetable">Календарь</string>
     <string name="week_nav_timetable">Неделя</string>
     <string name="list_nav_timetable">Список</string>
 </resources>

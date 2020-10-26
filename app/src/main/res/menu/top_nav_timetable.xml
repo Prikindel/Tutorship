@@ -4,7 +4,7 @@
     <item
         android:id="@+id/table_nav_timetable"
         android:enabled="true"
-        android:title="@string/table_nav_timetable" />
+        android:title="@string/calendar_nav_timetable" />
 
     <item
         android:id="@+id/list_nav_timetable"

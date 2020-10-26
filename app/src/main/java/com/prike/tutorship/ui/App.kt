@@ -8,9 +8,9 @@ import com.prike.tutorship.presenters.injection.ViewModelModule
 import com.prike.tutorship.ui.activity.AppActivity
 import com.prike.tutorship.ui.activity.StartActivity
 import com.prike.tutorship.ui.firebase.FirebaseService
-import com.prike.tutorship.ui.fragment.ChatFragment
-import com.prike.tutorship.ui.fragment.ProfileFragment
-import com.prike.tutorship.ui.fragment.TimetableFragment
+import com.prike.tutorship.ui.chat.ChatFragment
+import com.prike.tutorship.ui.profile.ProfileFragment
+import com.prike.tutorship.ui.timetable.TimetableFragment
 import com.prike.tutorship.ui.sign.*
 import dagger.Component
 import javax.inject.Singleton

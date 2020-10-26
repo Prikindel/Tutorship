@@ -1,4 +1,4 @@
-package com.prike.tutorship.ui.fragment
+package com.prike.tutorship.ui.profile
 
 import android.annotation.SuppressLint
 import android.os.Bundle
@@ -10,10 +10,10 @@ import com.prike.tutorship.presenters.viewmodel.AccountViewModel
 import com.prike.tutorship.ui.App
 import com.prike.tutorship.ui.core.ext.onFailure
 import com.prike.tutorship.ui.core.ext.onSuccess
+import com.prike.tutorship.ui.fragment.BaseFragment
 import kotlinx.android.synthetic.main.fragment_profile.*
 import kotlinx.datetime.*
 import kotlinx.datetime.TimeZone
-import java.util.*
 import kotlin.math.abs
 
 class ProfileFragment : BaseFragment() {
