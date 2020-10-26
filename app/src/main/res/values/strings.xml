@@ -64,6 +64,17 @@
     <string name="lessons">Предметы</string>
     <string name="phone">Телефон</string>
     <string name="user_age">Возраст</string>
+    
+    <!-- Timetable week -->
+    <string name="monday">Понедельник</string>
+    <string name="tuesday">Вторник</string>
+    <string name="wednesday">Среда</string>
+    <string name="thursday">Четверг</string>
+    <string name="friday">Пятница</string>
+    <string name="saturday">Суббота</string>
+    <string name="sunday">Воскресенье</string>
+    <string name="prev_day">Предыдущий день</string>
+    <string name="next_day">Следующий день</string>
 
     <!-- Actions -->
     <string name="account_created">Аккаунт создан</string>
