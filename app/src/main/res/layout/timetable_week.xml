@@ -12,13 +12,13 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="24dp"
         android:background="@drawable/ic_prev_nav"
-        app:layout_constraintBottom_toBottomOf="@+id/nameWeek"
-        app:layout_constraintEnd_toStartOf="@+id/nameWeek"
-        app:layout_constraintTop_toTopOf="@+id/nameWeek"
+        app:layout_constraintBottom_toBottomOf="@+id/nameDayOfWeek"
+        app:layout_constraintEnd_toStartOf="@+id/nameDayOfWeek"
+        app:layout_constraintTop_toTopOf="@+id/nameDayOfWeek"
         android:contentDescription="@string/prev_day" />
 
     <TextView
-        android:id="@+id/nameWeek"
+        android:id="@+id/nameDayOfWeek"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="64dp"
@@ -34,9 +34,9 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
         android:background="@drawable/ic_next_nav"
-        app:layout_constraintBottom_toBottomOf="@+id/nameWeek"
-        app:layout_constraintStart_toEndOf="@+id/nameWeek"
-        app:layout_constraintTop_toTopOf="@+id/nameWeek"
+        app:layout_constraintBottom_toBottomOf="@+id/nameDayOfWeek"
+        app:layout_constraintStart_toEndOf="@+id/nameDayOfWeek"
+        app:layout_constraintTop_toTopOf="@+id/nameDayOfWeek"
         android:contentDescription="@string/next_day" />
 
 
@@ -52,6 +52,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.6"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/nameWeek" />
+        app:layout_constraintTop_toBottomOf="@+id/nameDayOfWeek" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
