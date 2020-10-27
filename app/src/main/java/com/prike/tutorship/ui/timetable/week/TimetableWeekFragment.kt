@@ -1,26 +1,36 @@
 package com.prike.tutorship.ui.timetable.week
 
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.prike.tutorship.R
 import com.prike.tutorship.fail
 import com.prike.tutorship.ui.adapter.TimetableWeekAdapterList
-import com.prike.tutorship.ui.adapter.TimetableWeekAdapterList.*
+import com.prike.tutorship.ui.adapter.TimetableWeekAdapterList.Lesson
 import kotlinx.android.synthetic.main.timetable_week.*
+import kotlinx.datetime.Clock
+import kotlinx.datetime.TimeZone
+import kotlinx.datetime.toLocalDateTime
 
 class TimetableWeekFragment : Fragment(R.layout.timetable_week) {
 
-    var adapterList = TimetableWeekAdapterList(getRandomList())
-    var day = 1
+    var adapterList = TimetableWeekAdapterList(arrayListOf())
+    var day: Int = if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
+        Clock.System.now().toLocalDateTime(TimeZone.currentSystemDefault()).dayOfWeek.value
+    } else {
+        1
+    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        showDay(day)
+
         listLessons.layoutManager = LinearLayoutManager(context)
         listLessons.adapter = adapterList
+
+        showList(getRandomList())
 
         prevBtn.setOnClickListener {
             prevDay()
@@ -80,6 +90,38 @@ class TimetableWeekFragment : Fragment(R.layout.timetable_week) {
     }
 
     /**
+     * Показывает список или отображает его отсутствие
+     *
+     * @param list список
+     */
+    private fun showList(list: List<Lesson>) {
+        if (list.isEmpty())
+            noLessons.visibility = View.VISIBLE
+        else
+            noLessons.visibility = View.GONE
+        updateAdapter(list)
+    }
+
+    /**
+     * Обновление списка адаптера
+     *
+     * @param list список
+     */
+    private fun updateAdapter(list: List<Lesson>) {
+        adapterList.update(list)
+        adapterList.notifyDataSetChanged()
+    }
+
+    private fun inversionNoLessonTextView() {
+        noLessons.apply {
+            if (visibility == View.VISIBLE)
+                visibility = View.GONE
+            else
+                visibility = View.VISIBLE
+        }
+    }
+
+    /**
      * Возвращает название дня недели.
      *
      * @param day номер дня недели от 1 до 7
@@ -113,8 +155,7 @@ class TimetableWeekFragment : Fragment(R.layout.timetable_week) {
         if (day < 7) {
             day++
             showDay(day)
-            adapterList.update(getRandomList())
-            adapterList.notifyDataSetChanged()
+            showList(getRandomList())
         }
     }
 
@@ -126,13 +167,8 @@ class TimetableWeekFragment : Fragment(R.layout.timetable_week) {
         if (day > 1) {
             day--
             showDay(day)
-            adapterList.update(getRandomList())
-            adapterList.notifyDataSetChanged()
+            showList(getRandomList())
         }
-    }
-
-    fun updateListOfLessons(lessons: List<String>) {
-
     }
 
 }

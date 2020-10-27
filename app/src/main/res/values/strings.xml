@@ -75,6 +75,7 @@
     <string name="sunday">Воскресенье</string>
     <string name="prev_day">Предыдущий день</string>
     <string name="next_day">Следующий день</string>
+    <string name="no_lessons">Занятия отсутствуют</string>
 
     <!-- Actions -->
     <string name="account_created">Аккаунт создан</string>
