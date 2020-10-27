@@ -7,6 +7,7 @@ import android.view.View
 import com.prike.tutorship.R
 import com.prike.tutorship.domain.account.AccountEntity
 import com.prike.tutorship.presenters.viewmodel.AccountViewModel
+import com.prike.tutorship.secondsToDate
 import com.prike.tutorship.ui.App
 import com.prike.tutorship.ui.core.ext.onFailure
 import com.prike.tutorship.ui.core.ext.onSuccess
@@ -38,14 +39,6 @@ class ProfileFragment : BaseFragment() {
 
         accountViewModel.getAccount()
     }
-
-    /**
-     * Переводит секунды в LocalDateTime
-     *
-     * @param seconds - Секунды
-     * @return LocalDateTime
-     */
-    private fun secondsToDate(seconds: Long) = Instant.fromEpochSeconds(seconds).toLocalDateTime(TimeZone.currentSystemDefault())
 
     /**
      * Переводит время последнего захода в статус

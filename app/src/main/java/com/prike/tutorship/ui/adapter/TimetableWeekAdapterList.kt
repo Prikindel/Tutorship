@@ -5,6 +5,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.prike.tutorship.R
+import com.prike.tutorship.secondsToDate
 
 class TimetableWeekAdapterList(private val lessons: ArrayList<Any>) : RecyclerView.Adapter<TimetableWeekAdapterList.TimetableWeekViewHolder>() {
 
@@ -36,6 +37,19 @@ class TimetableWeekAdapterList(private val lessons: ArrayList<Any>) : RecyclerVi
     class TimetableWeekViewHolder(val view: View) : RecyclerView.ViewHolder(view) {
         fun bind(item: Any) {
 
+        }
+    }
+
+    data class Lesson(
+        val timeStart:          Long,
+        val lengthOfTimeLesson: Long,
+        val nameLesson:         String,
+        val namePerson:         String
+    ) {
+        fun getTimeOfLesson(): String {
+            val end = secondsToDate(timeStart + lengthOfTimeLesson)
+            val start = secondsToDate(timeStart)
+            return "${start.hour}:${start.minute} - ${end.hour}:${end.minute}"
         }
     }
 }
