@@ -114,10 +114,10 @@ class TimetableWeekFragment : Fragment(R.layout.timetable_week) {
 
     private fun inversionNoLessonTextView() {
         noLessons.apply {
-            if (visibility == View.VISIBLE)
-                visibility = View.GONE
+            visibility = if (visibility == View.VISIBLE)
+                View.GONE
             else
-                visibility = View.VISIBLE
+                View.VISIBLE
         }
     }
 
