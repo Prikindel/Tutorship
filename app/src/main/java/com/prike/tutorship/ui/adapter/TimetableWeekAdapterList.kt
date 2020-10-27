@@ -5,6 +5,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.prike.tutorship.R
 import com.prike.tutorship.secondsToDate
+import com.prike.tutorship.toTwoDigits
 import kotlinx.android.synthetic.main.timetable_week_view_for_list.view.*
 
 class TimetableWeekAdapterList(
@@ -51,7 +52,7 @@ class TimetableWeekAdapterList(
         fun getTimeOfLesson(): String {
             val end = secondsToDate(timeStart + lengthOfTimeLesson)
             val start = secondsToDate(timeStart)
-            return "${start.hour}:${start.minute} - ${end.hour}:${end.minute}"
+            return "${start.hour.toTwoDigits()}:${start.minute.toTwoDigits()} - ${end.hour.toTwoDigits()}:${end.minute.toTwoDigits()}"
         }
     }
 }

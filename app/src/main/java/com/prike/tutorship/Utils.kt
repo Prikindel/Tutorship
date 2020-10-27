@@ -20,3 +20,9 @@ fun Any.fail(message: String): Nothing = throw IllegalArgumentException(message)
  */
 fun Any.secondsToDate(seconds: Long) = Instant.fromEpochSeconds(seconds).toLocalDateTime(
     TimeZone.currentSystemDefault())
+
+/**
+ * Переводит часы, минуты или секунды в число с двумя цифрами
+ *
+ */
+fun Int.toTwoDigits() = this.toString().padStart(2, '0')
