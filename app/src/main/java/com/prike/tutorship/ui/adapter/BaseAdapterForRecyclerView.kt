@@ -53,6 +53,16 @@ abstract class BaseAdapterForRecyclerView<Type : Any, VH : BaseAdapterForRecycle
     fun add(newItems: List<Type>) = items.addAll(newItems)
 
     /**
+     * Обновление списка
+     *
+     * @param newItems новый список элементов
+     */
+    fun update(newItems: List<Type>) {
+        items.clear()
+        items.addAll(newItems)
+    }
+
+    /**
      * Абстрактный класс ViewHolder
      *
      * @param Type тип элемента

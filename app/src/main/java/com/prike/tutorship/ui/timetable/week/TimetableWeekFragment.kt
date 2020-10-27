@@ -13,11 +13,14 @@ import kotlinx.android.synthetic.main.timetable_week.*
 
 class TimetableWeekFragment : Fragment(R.layout.timetable_week) {
 
+    var adapterList = TimetableWeekAdapterList(getRandomList())
+    var day = 1
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         listLessons.layoutManager = LinearLayoutManager(context)
-        listLessons.adapter = TimetableWeekAdapterList(createList().toMutableList())
+        listLessons.adapter = adapterList
 
         prevBtn.setOnClickListener {
             prevDay()
@@ -28,38 +31,53 @@ class TimetableWeekFragment : Fragment(R.layout.timetable_week) {
         }
     }
 
-    private fun createList() = listOf(
-        Lesson(
-            1603807200,
-            3600,
-            "Математика",
-            "Илья"
-        ),
-        Lesson(
-            1603812156,
-            3600,
-            "Математика",
-            "Леня"
-        ),
-        Lesson(
-            1603818000,
-            3600,
-            "Английский",
-            "Гоша"
-        ),
-        Lesson(
-            1603823400,
-            3600,
-            "Математика",
-            "Гоша"
-        ),
-        Lesson(
-            1603827000,
-            3600,
-            "Английский",
-            "Аня"
-        )
-    )
+    private fun getRandomList(): MutableList<Lesson> {
+        val size = (0..5).random()
+        val list = arrayListOf<Lesson>()
+        var start = 1603796400L
+        (0 until size).forEach {
+            list.add(
+                Lesson(
+                    start,
+                    3600,
+                    getRandomLesson(),
+                    getRandomPerson()
+                )
+            )
+            start += 5400L
+        }
+        return list
+    }
+
+    private fun getRandomLesson() = when ((0..10).random()) {
+        0 -> "Математика"
+        1 -> "Английский"
+        2 -> "Информатика"
+        3 -> "Русский"
+        4 -> "Биология"
+        5 -> "Физика"
+        6 -> "Бокс"
+        7 -> "Плавание"
+        8 -> "Химия"
+        9 -> "Итальянский"
+        10 -> "Немецкий"
+        else -> fail("Failure lesson")
+    }
+
+    private fun getRandomPerson() = when ((0..10).random()) {
+        0 -> "Илья"
+        1 -> "Гоша"
+        2 -> "Аня"
+        3 -> "Леня"
+        4 -> "Саша"
+        5 -> "Паша"
+        6 -> "Даша"
+        7 -> "Оля"
+        8 -> "Катя"
+        9 -> "Таня"
+        10 -> "Ваня"
+        else -> fail("Failure name person")
+    }
 
     /**
      * Возвращает название дня недели.
@@ -92,7 +110,12 @@ class TimetableWeekFragment : Fragment(R.layout.timetable_week) {
      *
      */
     fun nextDay() {
-        Log.e("TAG", "next click")
+        if (day < 7) {
+            day++
+            showDay(day)
+            adapterList.update(getRandomList())
+            adapterList.notifyDataSetChanged()
+        }
     }
 
     /**
@@ -100,7 +123,12 @@ class TimetableWeekFragment : Fragment(R.layout.timetable_week) {
      *
      */
     fun prevDay() {
-        Log.e("TAG", "prev click")
+        if (day > 1) {
+            day--
+            showDay(day)
+            adapterList.update(getRandomList())
+            adapterList.notifyDataSetChanged()
+        }
     }
 
     fun updateListOfLessons(lessons: List<String>) {
