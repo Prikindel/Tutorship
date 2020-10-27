@@ -3,43 +3,45 @@ package com.prike.tutorship.ui.adapter
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.recyclerview.widget.RecyclerView
 import com.prike.tutorship.R
 import com.prike.tutorship.secondsToDate
+import kotlinx.android.synthetic.main.timetable_week_view_for_list.view.*
 
-class TimetableWeekAdapterList(private val lessons: ArrayList<Any>) : RecyclerView.Adapter<TimetableWeekAdapterList.TimetableWeekViewHolder>() {
+class TimetableWeekAdapterList(
+    lessons: MutableList<Lesson>
+) : BaseAdapterForRecyclerView <TimetableWeekAdapterList.Lesson, TimetableWeekAdapterList.ViewHolder>(lessons) {
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TimetableWeekViewHolder {
-        return TimetableWeekViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.timetable_week_view_for_list, parent, false))
-    }
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = ViewHolder(
+        LayoutInflater
+            .from(parent.context)
+            .inflate(R.layout.timetable_week_view_for_list, parent, false)
+    )
 
-    override fun onBindViewHolder(holder: TimetableWeekViewHolder, position: Int) {
-        holder.bind(getItem(position))
-    }
+    class ViewHolder(
+        view: View
+    ) : BaseAdapterForRecyclerView.BaseViewHolder<Lesson>(view) {
 
-    override fun getItemCount() = lessons.size
+        var lesson: Lesson = Lesson(0, 0, "", "")
 
-    //возвращает позицию элемента в списке
-    fun getItem(position: Int): Any {
-        return lessons[position]
-    }
-
-    //функция добавления одного элемента
-    fun add(newItem: Any) {
-        lessons.add(newItem)
-    }
-
-    //функция добавления всех элементов
-    fun add(newItems: List<Any>) {
-        lessons.addAll(newItems)
-    }
-
-    class TimetableWeekViewHolder(val view: View) : RecyclerView.ViewHolder(view) {
-        fun bind(item: Any) {
-
+        override fun bind(item: Lesson) {
+            let {
+                lesson = item.copy()
+                view.time_lesson.text   = lesson.getTimeOfLesson()
+                view.lesson_name.text   = lesson.nameLesson
+                view.person_lesson.text = lesson.namePerson
+            }
         }
+
     }
 
+    /**
+     * Класс данных для отображения в текущем списке
+     *
+     * @property timeStart время начала занятия в секундах
+     * @property lengthOfTimeLesson продолжительность занятия в секундах
+     * @property nameLesson название предмета
+     * @property namePerson имя человека, с кем проходит занятие
+     */
     data class Lesson(
         val timeStart:          Long,
         val lengthOfTimeLesson: Long,

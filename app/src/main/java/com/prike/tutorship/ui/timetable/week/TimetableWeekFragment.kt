@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.prike.tutorship.R
 import com.prike.tutorship.fail
 import com.prike.tutorship.ui.adapter.TimetableWeekAdapterList
+import com.prike.tutorship.ui.adapter.TimetableWeekAdapterList.*
 import kotlinx.android.synthetic.main.timetable_week.*
 
 class TimetableWeekFragment : Fragment(R.layout.timetable_week) {
@@ -16,7 +17,7 @@ class TimetableWeekFragment : Fragment(R.layout.timetable_week) {
         super.onViewCreated(view, savedInstanceState)
 
         listLessons.layoutManager = LinearLayoutManager(context)
-        listLessons.adapter = TimetableWeekAdapterList(arrayListOf("1", "2", "3", "4", "5", "1", "2", "3", "4", "5", "1", "2", "3", "4", "5", "1", "2", "3", "4", "5"))
+        listLessons.adapter = TimetableWeekAdapterList(createList().toMutableList())
 
         prevBtn.setOnClickListener {
             prevDay()
@@ -26,6 +27,39 @@ class TimetableWeekFragment : Fragment(R.layout.timetable_week) {
             nextDay()
         }
     }
+
+    private fun createList() = listOf(
+        Lesson(
+            1603807200,
+            3600,
+            "Математика",
+            "Илья"
+        ),
+        Lesson(
+            1603812156,
+            3600,
+            "Математика",
+            "Леня"
+        ),
+        Lesson(
+            1603818000,
+            3600,
+            "Английский",
+            "Гоша"
+        ),
+        Lesson(
+            1603823400,
+            3600,
+            "Математика",
+            "Гоша"
+        ),
+        Lesson(
+            1603827000,
+            3600,
+            "Английский",
+            "Аня"
+        )
+    )
 
     /**
      * Возвращает название дня недели.
