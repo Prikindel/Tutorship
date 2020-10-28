@@ -8,9 +8,7 @@ import com.prike.tutorship.secondsToDate
 import com.prike.tutorship.toTwoDigits
 import kotlinx.android.synthetic.main.timetable_week_view_for_list.view.*
 
-class TimetableWeekAdapterList(
-    lessons: MutableList<Lesson>
-) : BaseAdapterForRecyclerView <TimetableWeekAdapterList.Lesson, TimetableWeekAdapterList.ViewHolder>(lessons) {
+class TimetableWeekAdapterList : BaseAdapterForRecyclerView <TimetableWeekAdapterList.Lesson, TimetableWeekAdapterList.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = ViewHolder(
         LayoutInflater

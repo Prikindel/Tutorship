@@ -15,7 +15,7 @@ import kotlinx.datetime.toLocalDateTime
 
 class TimetableWeekFragment : Fragment(R.layout.timetable_week) {
 
-    var adapterList = TimetableWeekAdapterList(arrayListOf())
+    var adapterList = TimetableWeekAdapterList()
     var day: Int = if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
         Clock.System.now().toLocalDateTime(TimeZone.currentSystemDefault()).dayOfWeek.value
     } else {
@@ -109,7 +109,6 @@ class TimetableWeekFragment : Fragment(R.layout.timetable_week) {
      */
     private fun updateAdapter(list: List<Lesson>) {
         adapterList.update(list)
-        adapterList.notifyDataSetChanged()
     }
 
     private fun inversionNoLessonTextView() {
