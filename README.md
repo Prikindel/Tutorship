@@ -28,3 +28,11 @@ Android:
 Backend:
 - Php
 - Mysql
+____
+### Скриншоты
+- Аутентификация
+![Аутентификация](https://github.com/Prikindel/images/blob/main/tutorship/TutorshipLogin.jpg)
+- Регистрация, страница 1
+![Регистрация, страница 1](https://github.com/Prikindel/images/blob/main/tutorship/TutorshipRegister1.jpg)
+- Регистрация, страница 3
+![Регистрация, страница 3](https://github.com/Prikindel/images/blob/main/tutorship/TutorshipRegister3.jpg)
