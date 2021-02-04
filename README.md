@@ -31,8 +31,8 @@ Backend:
 ____
 ### Скриншоты
 - Аутентификация
-<img src="https://github.com/Prikindel/images/blob/main/tutorship/TutorshipLogin.jpg" width="48">
+<img src="https://github.com/Prikindel/images/blob/main/tutorship/TutorshipLogin.jpg" width="250">
 - Регистрация, страница 1
-![Регистрация, страница 1](https://github.com/Prikindel/images/blob/main/tutorship/TutorshipRegister1.jpg)
+<img src="https://github.com/Prikindel/images/blob/main/tutorship/TutorshipRegister1.jpg" width="250">
 - Регистрация, страница 3
-![Регистрация, страница 3](https://github.com/Prikindel/images/blob/main/tutorship/TutorshipRegister3.jpg)
+<img src="https://github.com/Prikindel/images/blob/main/tutorship/TutorshipRegister3.jpg" width="250">
