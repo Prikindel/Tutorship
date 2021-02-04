@@ -23,8 +23,8 @@ Android:
 - FCM
 - LiveData
 - Room
-- ViewModel
-<br>
+- ViewModel    
+    
 Backend:
 - Php
 - Mysql
